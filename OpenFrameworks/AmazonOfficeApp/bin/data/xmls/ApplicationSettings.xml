@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+
+  <of_settings>
+
+    <window title="AmazonOfficeApp" x="0" y="50" width="1920" height="1080" fullscreen="0" showCursor="1"/>
+    <debug showCursor="1" setVerbose="1" sceneTimer = "10"/> 
+    <network ipAddress="127.0.0.1" portOscReceive="90000" portOscSend="12346" spout="AmazonOfficeSpout"/>
+
+  </of_settings>
+
+  <api>
+       <weather url = "http://api.openweathermap.org/data/2.5/weather?" city="Barcelona" lat="41.390205" lon="2.154007" units="metric" key="e4c4bf0f238afdc3bcef9346e1a47ff3" request_time ="300"/>
+     
+  </api>
+
+  <textures>
+   
+    <texture name="Brush" path="images/general/brush2.png"/> 
+    <texture name="RAINBOW" path="images/general/gradientRainbow.jpg"/> 
+
+  </textures>
+
+  <networks>
+
+    <network name="iPad" ipAddress="127.0.0.1" port="9001"/>
+    <network name="Unity" ipAddress="127.0.0.1" port="9002"/>
+   <!--  <network name="Duration" ipAddress="127.0.0.1" port="9004"/>
+ -->
+  </networks>
+
+
+  <videos>
+
+    <video name="TEST_VIDEO" path="videos/video_test.mp4"/>
+  
+  </videos>
+
+  <colors>
+
+    <color name="BackgroundColor" r="40" g="40" b="43" a="255"/>
+    <color name="CenterBackgroundColor" r="85" g="78" b="68" a="255"/>
+    <color name="EdgeBackgroundColor" r="30" g="30" b="30" a="255"/>
+    <color  name="GUI_Background" r="0" g="0" b="0" a="127"/>
+    <color  name="GUI_Fill" r="160" g="160" b="160" a="160"/>
+    <color  name="GUI1" r="160" g="160" b="80" a="200"/>
+    <color  name="GUI2" r="80" g="160" b="160" a="200"/>
+    <color  name="LiveRectangle" r="56" g="234" b="57" a="108"/>
+    <color  name="FrameRectangle" r="90" g="95" b="103" a="255"/>
+
+  </colors>
+
+</settings>
