@@ -4,7 +4,7 @@
 
 ## Installation
 
-Developed for Microsoft Windows 10 under OpenFrameworks 0.9.8
+Developed for Microsoft Windows 10 under OpenFrameworks 0.10
 
 ## Credits
 
