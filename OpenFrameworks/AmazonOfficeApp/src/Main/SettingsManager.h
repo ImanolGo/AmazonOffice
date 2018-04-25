@@ -59,6 +59,8 @@ public:
     
     api_settings getWeatherSettings() const {return m_weatherSettings;}
     
+    api_settings getSkySettings() const {return m_skySettings;}
+    
     
 private:
     
@@ -106,6 +108,7 @@ private:
     string                  m_spoutName;            ///<stores the name of the spout pipe name
     float                   m_sceneTimer;           ///< stores the time between scene
     api_settings            m_weatherSettings;      ///<stores the weather api's settings
+    api_settings            m_skySettings;          ///<stores the sky api's settings
     
 };
 

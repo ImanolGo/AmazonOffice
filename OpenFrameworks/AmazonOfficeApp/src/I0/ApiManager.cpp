@@ -33,6 +33,7 @@ void ApiManager::setup()
     
     Manager::setup();
     this->setupApis();
+    this->setupSkyApi();
     this->setupTimers();
     
     ofRegisterURLNotification(this);
@@ -48,7 +49,7 @@ void ApiManager::setupApis()
 void ApiManager::setupTimers()
 {
     this->setupWeatherTimer();
-    
+    this->setupSkyTimer();
 }
 
 void ApiManager::setupWeatherTimer()
@@ -59,6 +60,16 @@ void ApiManager::setupWeatherTimer()
     
     m_weatherTimer.start( false ) ;
     ofAddListener( m_weatherTimer.TIMER_COMPLETE , this, &ApiManager::weatherTimerCompleteHandler ) ;
+}
+
+void ApiManager::setupSkyTimer()
+{
+    auto skySettings = AppManager::getInstance().getSettingsManager().getSkySettings();
+    
+    m_skyTimer.setup( skySettings.request_time*1000 );
+    
+    m_skyTimer.start( false ) ;
+    ofAddListener( m_skyTimer.TIMER_COMPLETE , this, &ApiManager::skyTimerCompleteHandler ) ;
 }
 
 
@@ -85,6 +96,32 @@ void ApiManager::setupWeatherApi()
     
 }
 
+void ApiManager::setupSkyApi()
+{
+    auto skySettings = AppManager::getInstance().getSettingsManager().getSkySettings();
+    
+    m_skyUrl = "https://";
+    m_skyUrl += skySettings.id;
+    m_skyUrl += ":";
+    m_skyUrl += skySettings.key;
+    m_skyUrl += "@";
+    m_skyUrl += skySettings.url;
+    m_skyUrl+="lamin=";
+    m_skyUrl+=ofToString(skySettings.lat);
+    m_skyUrl+="&lomin=";
+    m_skyUrl+=ofToString(skySettings.lon);
+    m_skyUrl+="&lamax=";
+    m_skyUrl+=ofToString(skySettings.lat2);
+    m_skyUrl+="&lomax=";
+    m_skyUrl+=ofToString(skySettings.lon2);
+    
+    
+    ofLogNotice() <<"ApiManager::setupSkyApi << surf url = " <<  m_skyUrl;
+    
+    ofLoadURLAsync(m_skyUrl, "sky");
+    
+}
+
 
 void ApiManager::update()
 {
@@ -94,7 +131,8 @@ void ApiManager::update()
 void ApiManager::updateTimers()
 {
     m_weatherTimer.update();
- 
+    m_skyTimer.update();
+
 }
 
 void ApiManager::urlResponse(ofHttpResponse & response)
@@ -111,18 +149,49 @@ void ApiManager::urlResponse(ofHttpResponse & response)
             AppManager::getInstance().getGuiManager().onWeatherChange();
             AppManager::getInstance().getOscManager ().sendOscAll();
         }
+        
+        else if(response.request.name == "sky")
+        {
+            m_skyTimer.start(false);
+            this->parseSky(response.data);
+        }
     }
 }
 
 
 
+void ApiManager::parseSky(string response)
+{
+    //ofLogNotice() << "ApiManager::parseSky << Data: " << response;
+    
+    ofxJSONElement json(response);
+    m_flights.clear();
+    
+    for(int i=0; i<json["states"].size(); i++)
+    {
+        ofPtr<AirplaneStatus> flight = ofPtr<AirplaneStatus>(new AirplaneStatus());
+        flight->m_callsign = json["states"][i][1].asString();
+        flight->m_latitude = json["states"][i][6].asFloat();
+        flight->m_longitude = json["states"][i][5].asFloat();
+        flight->m_altitude = json["states"][i][7].asFloat();
+        flight->m_velocity = json["states"][i][9].asFloat();
+        flight->m_heading = json["states"][i][10].asFloat();
+        flight->m_verticalRate = json["states"][i][11].asFloat();
+        
+        ofLogNotice() << "ApiManager::parseSky << Flight: " << flight->m_callsign <<", latitude: " << flight->m_latitude<< ", longitude: " << flight->m_longitude<<", altitude: " << flight->m_altitude<< ", velocity: " << flight->m_velocity<< ", heading: " << flight->m_heading<< ", vertical rate: " << flight->m_verticalRate;
+        
+        m_flights.push_back(flight);
+        
+        //flight->m_callsign  = "lalal";
+    }
+}
 
-void ApiManager::parseWeather(string xml)
+void ApiManager::parseWeather(string response)
 {
     ofXml weatherXml;
     
-    if(!weatherXml.parse( xml )){
-        ofLogNotice() <<"ApiManager::parseWeather << Unable to parse weather: " << xml;
+    if(!weatherXml.parse( response )){
+        ofLogNotice() <<"ApiManager::parseWeather << Unable to parse weather: " << response;
         return;
     }
     
@@ -188,6 +257,12 @@ void ApiManager::weatherTimerCompleteHandler( int &args )
     ofLoadURLAsync(m_weatherUrl, "weather");
 }
 
+void ApiManager::skyTimerCompleteHandler( int &args )
+{
+    //ofLogNotice() <<"ApiManager::weatherTimerCompleteHandler";
+    //m_weatherTimer.start(false);
+    ofLoadURLAsync(m_skyUrl, "sky");
+}
 
 
 

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00F8DAC81953313F8180A13C /* ofxTextBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1486C841BC2A30DB7CBC449C /* ofxTextBlock.cpp */; };
 		059F15A57C00F89CF43FDDD6 /* ofxSmartFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9EA26E2A646CE843DEEB1E /* ofxSmartFont.cpp */; };
+		08149E6C2090E23E0040B5DA /* AirplaneStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 08149E6B2090E23E0040B5DA /* AirplaneStatus.cpp */; };
 		08C861DA4BC4A339352C813D /* WeatherConditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C405E5789BF50EA9151A41 /* WeatherConditions.cpp */; };
 		0E36870F1A487C133E8D11EB /* OscPrintReceivedElements.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 64703007CF2901A7BE4F85E8 /* OscPrintReceivedElements.cpp */; };
 		12451834526FB5CD4EA0D0DF /* ofxSceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3B778D8F951EC700B066390 /* ofxSceneManager.cpp */; };
@@ -100,6 +101,8 @@
 		05B11A7F5D0BA7A59C78DDC4 /* ofxDatGuiControls.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiControls.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiControls.h; sourceTree = SOURCE_ROOT; };
 		0731597061D6181DB86681B1 /* ofxDatGuiSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiSlider.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiSlider.h; sourceTree = SOURCE_ROOT; };
 		07700E6618D290A6D4D41EDE /* OscPacketListener.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = OscPacketListener.h; path = ../../../../../../../../Applications/of_v20180215_osx_release/addons/ofxOsc/libs/oscpack/src/osc/OscPacketListener.h; sourceTree = SOURCE_ROOT; };
+		08149E6A2090E23E0040B5DA /* AirplaneStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AirplaneStatus.h; path = I0/AirplaneStatus.h; sourceTree = "<group>"; };
+		08149E6B2090E23E0040B5DA /* AirplaneStatus.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = AirplaneStatus.cpp; path = I0/AirplaneStatus.cpp; sourceTree = "<group>"; };
 		09BB1D7613A1F9D8E8B11D7A /* KeyboardManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = KeyboardManager.h; path = src/I0/KeyboardManager.h; sourceTree = SOURCE_ROOT; };
 		09F8F2DF1D53E65319F30B96 /* LightManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = LightManager.cpp; path = src/Engine/3D/LightManager.cpp; sourceTree = SOURCE_ROOT; };
 		0A18FD7E595E1ABEF3EF5A33 /* jsoncpp.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = jsoncpp.cpp; path = src/Addons/ofxJSON/libs/jsoncpp/src/jsoncpp.cpp; sourceTree = SOURCE_ROOT; };
@@ -272,6 +275,8 @@
 				D1C77A5B38BC862739AEC400 /* OscManager.h */,
 				F7C405E5789BF50EA9151A41 /* WeatherConditions.cpp */,
 				D7AFA9EF4F53EC27DDF9747B /* WeatherConditions.h */,
+				08149E6B2090E23E0040B5DA /* AirplaneStatus.cpp */,
+				08149E6A2090E23E0040B5DA /* AirplaneStatus.h */,
 			);
 			name = I0;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 			files = (
 				DF2764E1860DD2D324923A1D /* ofxDatGuiComponent.cpp in Sources */,
 				059F15A57C00F89CF43FDDD6 /* ofxSmartFont.cpp in Sources */,
+				08149E6C2090E23E0040B5DA /* AirplaneStatus.cpp in Sources */,
 				49EE14834E328B244122B5DE /* ofxDatGui.cpp in Sources */,
 				F43F6B46BE86E63D9837FBF4 /* jsoncpp.cpp in Sources */,
 				B06574BCAF32BEF786A4DA54 /* ofxJSONElement.cpp in Sources */,

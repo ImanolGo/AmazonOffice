@@ -159,7 +159,29 @@ void SettingsManager::setApiProperties()
         <<m_weatherSettings.lat <<", lon = "<<m_weatherSettings.lon<<", request time = "<<m_weatherSettings.request_time<<", key = "<<m_weatherSettings.key;
     }
     else{
-        ofLogNotice() <<"SettingsManager::setApiProperties->  path not found: " << path ;
+        ofLogNotice() <<"SettingsManager::setApiProperties->  weather path not found: " << path ;
+    }
+    
+    path = "//api/opensky";
+    xml = m_xml.findFirst(path);
+    if(xml) {
+        
+        m_skySettings.url = xml.getAttribute("url").getValue();
+        m_skySettings.key = xml.getAttribute("key").getValue();
+        m_skySettings.id = xml.getAttribute("id").getValue();
+        m_skySettings.city = xml.getAttribute("city").getValue();
+        m_skySettings.lat = xml.getAttribute("latMin").getFloatValue();
+        m_skySettings.lon = xml.getAttribute("lonMin").getFloatValue();
+        m_skySettings.lat2 = xml.getAttribute("latMax").getFloatValue();
+        m_skySettings.lon2 = xml.getAttribute("lonMax").getFloatValue();
+        m_skySettings.request_time = xml.getAttribute("request_time").getFloatValue();
+        
+        ofLogNotice() <<"SettingsManager::setApiProperties->  successfully loaded the opensky settings" ;
+        ofLogNotice() <<"SettingsManager::setApiProperties->  url = " << m_skySettings.url <<", city = "<< m_skySettings.city << ", lat = "
+        <<m_skySettings.lat <<", lon = "<<m_skySettings.lon<<", request time = "<<m_skySettings.request_time<<", key = "<<m_skySettings.key;
+    }
+    else{
+        ofLogNotice() <<"SettingsManager::setApiProperties-> opensky path not found: " << path ;
     }
 }
 

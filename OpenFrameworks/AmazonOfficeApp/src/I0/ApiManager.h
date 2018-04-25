@@ -13,12 +13,14 @@
 #include "ofxSimpleTimer.h"
 #include "MoonCalculator.h"
 #include "WeatherConditions.h"
-
+#include "AirplaneStatus.h"
 
 struct api_settings
 {
     float lat{0.0};
     float lon{0.0};
+    float lat2{0.0};
+    float lon2{0.0};
     float request_time{2.0};
     string city{"berlin"};
     string key{""};
@@ -58,6 +60,8 @@ public:
     
     void weatherTimerCompleteHandler( int &args ) ;
     
+    void skyTimerCompleteHandler( int &args ) ;
+    
     WeatherConditions& getCurrentWeather() {return m_weatherConditions;}
     
     void onWindSpeedChange(float& value){m_weatherConditions.m_windSpeed = value;}
@@ -88,20 +92,30 @@ private:
     
     void setupWeatherApi();
     
+    void setupSkyApi();
+    
     void setupTimers();
     
     void setupWeatherTimer();
     
+    void setupSkyTimer();
+    
     void updateTimers();
     
-    void parseWeather(string xml);
+    void parseWeather(string response);
+    
+    void parseSky(string response);
 
 
 private:
     
     ofxSimpleTimer          m_weatherTimer;
+    ofxSimpleTimer          m_skyTimer;
     string                  m_weatherUrl;
+    string                  m_skyUrl;
     WeatherConditions       m_weatherConditions;
+    
+    vector<ofPtr<AirplaneStatus>> m_flights;
     
 };
 
