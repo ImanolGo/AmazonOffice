@@ -1,13 +1,19 @@
 <?xml version="1.0"?>
 <group>
-	<Temp_>22</Temp_>
-	<Humidity>47</Humidity>
-	<Wind_Speed>2.1</Wind_Speed>
-	<Wind_Dir>210</Wind_Dir>
+	<Scene_Dur_>13.48</Scene_Dur_>
+	<Total>13</Total>
+	<Ground>11</Ground>
+	<Taking_Off>0</Taking_Off>
+	<Landing>1</Landing>
+	<Flying_Over>1</Flying_Over>
+	<Temp_>21</Temp_>
+	<Humidity>64</Humidity>
+	<Wind_Speed>7.7</Wind_Speed>
+	<Wind_Dir>130</Wind_Dir>
 	<Prec_>0</Prec_>
 	<Clouds>20</Clouds>
-	<Moon_Phase>0.865221</Moon_Phase>
-	<Sun_Position>0.651962</Sun_Position>
+	<Moon_Phase>0.871452</Moon_Phase>
+	<Sun_Position>0.804881</Sun_Position>
 	<Swell_Height>0.4</Swell_Height>
 	<Swell_Period>5</Swell_Period>
 </group>

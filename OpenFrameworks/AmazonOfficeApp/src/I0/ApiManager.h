@@ -31,6 +31,16 @@ struct api_settings
 };
 
 
+struct air_traffic_status
+{
+    int numPlanes{0};
+    int numGround{0};
+    int numTakingOff{0};
+    int numLanding{0};
+    int numFlyingOver{0};
+};
+
+
 
 //========================== class ApiManager =======================================
 //===================================================================================
@@ -69,6 +79,8 @@ public:
     
     WeatherConditions& getCurrentWeather() {return m_weatherConditions;}
     
+    air_traffic_status& getCurrentAirTraffic() {return m_currentAirTraffic;}
+    
     void onWindSpeedChange(float& value){m_weatherConditions.m_windSpeed = value;}
     
     void onWindDirChange(float& value){m_weatherConditions.m_windDirection = value;}
@@ -88,6 +100,16 @@ public:
     void onSwellHeightChange(float& value){m_weatherConditions.m_swellHeight = value;}
     
     void onSwellPeriodChange(float& value){m_weatherConditions.m_swellPeriod = value;}
+    
+    void onNumPlanesChange(int& value){m_currentAirTraffic.numPlanes = value;}
+    
+    void onNumGroundChange(int& value){m_currentAirTraffic.numGround = value;}
+    
+    void onNumTakingOffChange(int& value){m_currentAirTraffic.numTakingOff= value;}
+    
+    void onNumLandingChange(int& value){m_currentAirTraffic.numLanding= value;}
+    
+    void onNumFlyingOverChange(int& value){m_currentAirTraffic.numFlyingOver= value;}
     
     bool isDayTime() {return m_weatherConditions.isDayTime();}
     
@@ -115,6 +137,8 @@ private:
     
     void updateTimers();
     
+    void updateAirTraffic();
+    
     void parseWeather(string response);
     
     void parseSky(string response);
@@ -133,6 +157,7 @@ private:
     string                  m_surfUrl;
     string                  m_skyUrl;
     WeatherConditions       m_weatherConditions;
+    air_traffic_status      m_currentAirTraffic;
     
     vector<ofPtr<AirplaneStatus>> m_flights;
     vector<ofPtr<TrafficStatus>> m_streets;

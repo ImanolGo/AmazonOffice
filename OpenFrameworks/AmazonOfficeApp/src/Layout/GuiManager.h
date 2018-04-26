@@ -70,6 +70,8 @@ public:
     
     void onWeatherChange();
     
+    void onAirTrafficChange();
+    
     void onSceneChange(string& sceneName);
     
     void onSceneChange(int sceneIndex);
@@ -78,9 +80,13 @@ private:
     
     void setupGuiParameters();
     
+    void setupGeneralGui();
+    
     void setupScenesGui();
     
     void setupWeatherGui();
+    
+    void setupSkyGui();
     
     void drawRectangle();
     
@@ -97,6 +103,13 @@ private:
     
     ofParameterGroup      m_parameters;
     
+    ofParameter<float>      m_sceneDuration;
+    
+    ofParameter<int>        m_numPlanes;
+    ofParameter<int>        m_numGround;
+    ofParameter<int>        m_numTakingOff;
+    ofParameter<int>        m_numLanding;
+    ofParameter<int>        m_numFlyingOver;
     
     ofParameter<float>      m_weatherTemperature;
     ofParameter<float>      m_weatherHumidity;

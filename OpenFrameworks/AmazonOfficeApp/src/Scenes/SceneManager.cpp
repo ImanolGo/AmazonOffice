@@ -84,7 +84,7 @@ void SceneManager::setupFbo()
 void SceneManager::setupTimer()
 {
     auto time = AppManager::getInstance().getSettingsManager().getSceneTimer();
-    
+
     m_sceneTimer.setup( time*1000 );
     m_sceneTimer.start( false ) ;
     ofAddListener( m_sceneTimer.TIMER_COMPLETE , this, &SceneManager::sceneTimerCompleteHandler ) ;
@@ -94,9 +94,9 @@ void SceneManager::setupTimer()
 
 void SceneManager::onChangeSceneDuration(float& value)
 {
-    m_sceneTimer.setup( value*1000*60 );
+    m_sceneTimer.setup( value*1000 );
     m_sceneTimer.start( false ) ;
-    ofLogNotice() <<"SceneManager::setupTimer << Time = : " << time << "s";
+    ofLogNotice() <<"SceneManager::setupTimer << Time = : " << value << "s";
 }
 
 void SceneManager::initializeSceneList()

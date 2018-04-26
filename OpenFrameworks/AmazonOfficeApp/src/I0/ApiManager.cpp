@@ -238,6 +238,8 @@ void ApiManager::urlResponse(ofHttpResponse & response)
         {
             m_skyTimer.start(false);
             this->parseSky(response.data);
+            this->updateAirTraffic();
+            AppManager::getInstance().getGuiManager().onAirTrafficChange();
         }
         
         else if(response.request.name == "surf")
@@ -290,7 +292,40 @@ void ApiManager::parseSky(string response)
         
         //flight->m_callsign  = "lalal";
     }
+    
 }
+
+
+void ApiManager::updateAirTraffic()
+{
+    m_currentAirTraffic.numPlanes = m_flights.size();
+    m_currentAirTraffic.numGround = 0;
+    m_currentAirTraffic.numTakingOff = 0;
+    m_currentAirTraffic.numLanding = 0;
+    m_currentAirTraffic.numFlyingOver = 0;
+    
+    for(auto flight: m_flights)
+    {
+        if(flight->m_altitude <=20){
+            m_currentAirTraffic.numGround++;
+        }
+        
+        if(flight->m_altitude <=1000 && flight->m_verticalRate >0){
+            m_currentAirTraffic.numTakingOff++;
+        }
+        
+        if(flight->m_altitude > 20 && flight->m_altitude <=2000 && flight->m_verticalRate < 0){
+            m_currentAirTraffic.numLanding++;
+        }
+        
+        if(flight->m_altitude > 2000){
+            m_currentAirTraffic.numFlyingOver++;
+        }
+    }
+    
+    ofLogNotice() << "ApiManager::updateAirTraffic << Num Planes: " << m_currentAirTraffic.numPlanes  <<", Num Ground: " << m_currentAirTraffic.numGround <<", Num Taking Off: " << m_currentAirTraffic.numTakingOff <<", Num Landing: " << m_currentAirTraffic.numLanding<<", Num Flying Over: " << m_currentAirTraffic.numFlyingOver;
+}
+
 
 void ApiManager::parseWeather(string response)
 {

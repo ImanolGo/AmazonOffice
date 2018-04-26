@@ -13,7 +13,7 @@
 
 
 
-const string OscManager::OSC_PARENT_ADDRESS = "/Amazon";
+const string OscManager::OSC_PARENT_ADDRESS = "/amazon";
 
 OscManager::OscManager(): Manager()
 {
@@ -188,35 +188,35 @@ void OscManager::sendOscUnity()
 {
 	auto weather = AppManager::getInstance().getApiManager().getCurrentWeather();
 
-	string message = "Weather/TemperatureNorm";
+	string message = "weather/norm/temperature";
 	this->sendFloatMessage(weather.getTemperatureNorm(), message);
 
-	message = "Weather/HumidityNorm";
+	message = "weather/norm/humidity";
 	this->sendFloatMessage(weather.getHumidityNorm(), message);
 
-	message = "Weather/WindSpeedNorm";
+	message = "weather/norm/windvelocity";
 	this->sendFloatMessage(weather.getWindSpeedNorm(), message);
 
-	message = "Weather/WindDirectionNorm";
+	message = "weather/norm/winddirection";
 	this->sendFloatMessage(weather.getWindDirectionNorm(), message);
 
-	message = "Weather/CloudinessNorm";
+	message = "weather/norm/clouds";
 	this->sendFloatMessage(weather.getCloudinessNorm(), message);
 
-	message = "Weather/PrecipitationNorm";
+	message = "weather/norm/rain";
 	this->sendFloatMessage(weather.getPrecipitationNorm(), message);
 
-	message = "Weather/SwellHeightNorm";
+	message = "tides/norm/height";
 	this->sendFloatMessage(weather.getSwellHeightNorm(), message);
 
-	message = "Weather/SwellPeriodNorm";
+	message = "tides/norm/period";
 	this->sendFloatMessage(weather.getSwellPeriodNorm(), message);
 
-	message = "Weather/MoonPhaseNorm";
-	this->sendFloatMessage(weather.getMoonPhaseNorm(), message);
-
-	message = "Weather/SunPositionNorm";
-	this->sendFloatMessage(weather.getSunPositionNorm(), message);
+//    message = "weather/norm/MoonPhaseNorm";
+//    this->sendFloatMessage(weather.getMoonPhaseNorm(), message);
+//
+//    message = "weather/norm/SunPositionNorm";
+//    this->sendFloatMessage(weather.getSunPositionNorm(), message);
 
 }
 
@@ -224,41 +224,41 @@ void OscManager::sendOscIpad()
 {
 	auto weather = AppManager::getInstance().getApiManager().getCurrentWeather();
 
-	string message = "Weather/Temperature";
-	this->sendStringMessage(weather.getTemperature(), message);
+    string message = "weather/temperature";
+    this->sendFloatMessage(weather.getTemperatureNorm(), message);
+    
+    message = "weather/humidity";
+    this->sendFloatMessage(weather.getHumidityNorm(), message);
+    
+    message = "weather/windvelocity";
+    this->sendFloatMessage(weather.getWindSpeedNorm(), message);
+    
+    message = "weather/winddirection";
+    this->sendFloatMessage(weather.getWindDirectionNorm(), message);
+    
+    message = "weather/clouds";
+    this->sendFloatMessage(weather.getCloudinessNorm(), message);
+    
+    message = "weather/rain";
+    this->sendFloatMessage(weather.getPrecipitationNorm(), message);
+    
+    message = "tides/height";
+    this->sendFloatMessage(weather.getSwellHeightNorm(), message);
+    
+    message = "tides/period";
+    this->sendFloatMessage(weather.getSwellPeriodNorm(), message);
 
-	message = "Weather/Humidity";
-	this->sendStringMessage(weather.getHumidity(), message);
-
-	message = "Weather/WindSpeed";
-	this->sendStringMessage(weather.getWindSpeed(), message);
-
-	message = "Weather/WindDirection";
-	this->sendStringMessage(weather.getWindDirection(), message);
-
-	message = "Weather/Cloudiness";
-	this->sendStringMessage(weather.getCloudiness(), message);
-
-	message = "Weather/Precipitation";
-	this->sendStringMessage(weather.getPrecipitation(), message);
-
-	message = "Weather/SwellHeight";
-	this->sendStringMessage(weather.getSwellHeight(), message);
-
-	message = "Weather/SwellPeriod";
-	this->sendStringMessage(weather.getSwellPeriod(), message);
-
-	message = "Weather/MoonPhase";
-	this->sendStringMessage(weather.getMoonPhase(), message);
-
-	message = "Weather/SunPosition";
-	this->sendStringMessage(weather.getSunPosition(), message);
-
-	message = "Weather/Sunrise";
-	this->sendStringMessage(weather.getSunrise(), message);
-
-	message = "Weather/Sunset";
-	this->sendStringMessage(weather.getSunset(), message);
+//    message = "Weather/MoonPhase";
+//    this->sendStringMessage(weather.getMoonPhase(), message);
+//
+//    message = "Weather/SunPosition";
+//    this->sendStringMessage(weather.getSunPosition(), message);
+//
+//    message = "Weather/Sunrise";
+//    this->sendStringMessage(weather.getSunrise(), message);
+//
+//    message = "Weather/Sunset";
+//    this->sendStringMessage(weather.getSunset(), message);
 }
 
 

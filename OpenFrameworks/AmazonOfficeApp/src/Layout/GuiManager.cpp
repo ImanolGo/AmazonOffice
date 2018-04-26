@@ -40,7 +40,9 @@ void GuiManager::setup()
     Manager::setup();
     
     this->setupGuiParameters();
+    this->setupGeneralGui();
     this->setupScenesGui();
+    this->setupSkyGui();
     this->setupWeatherGui();
     this->setupGuiEvents();
     this->loadGuiValues();
@@ -72,6 +74,20 @@ void GuiManager::setupGuiParameters()
     m_gui.addBreak();
 }
 
+void GuiManager::setupGeneralGui()
+{
+    auto sceneManager = &AppManager::getInstance().getSceneManager();
+    
+    m_sceneDuration.set("Scene Dur.", 60.0, 0.0, 300.0);
+    m_sceneDuration.addListener(sceneManager, &SceneManager::onChangeSceneDuration);
+    m_parameters.add(m_sceneDuration);
+    
+    ofxDatGuiFolder* folder = m_gui.addFolder("GENERAL", ofColor::white);
+    folder->addSlider(m_sceneDuration);
+    folder->expand();
+    m_gui.addBreak();
+}
+
 void GuiManager::setupScenesGui()
 {
     auto sceneManager = &AppManager::getInstance().getSceneManager();
@@ -92,6 +108,41 @@ void GuiManager::setupScenesGui()
     m_gui.addBreak();
 }
 
+void GuiManager::setupSkyGui()
+{
+    auto apiManager = &AppManager::getInstance().getApiManager();
+    
+    m_numPlanes.set("Total", 10, 0, 100.0);
+    m_numPlanes.addListener(apiManager, &ApiManager::onNumPlanesChange);
+    m_parameters.add(m_numPlanes);
+    
+    m_numGround.set("Ground", 10, 0, 100.0);
+    m_numGround.addListener(apiManager, &ApiManager::onNumGroundChange);
+    m_parameters.add(m_numGround);
+    
+    m_numTakingOff.set("Taking Off", 10, 0, 100.0);
+    m_numTakingOff.addListener(apiManager, &ApiManager::onNumTakingOffChange);
+    m_parameters.add(m_numTakingOff);
+    
+    m_numLanding.set("Landing", 10, 0, 100.0);
+    m_numLanding.addListener(apiManager, &ApiManager::onNumLandingChange);
+    m_parameters.add(m_numLanding);
+    
+    m_numFlyingOver.set("Flying Over", 10, 0, 100.0);
+    m_numFlyingOver.addListener(apiManager, &ApiManager::onNumFlyingOverChange);
+    m_parameters.add(m_numFlyingOver);
+    
+    ofxDatGuiFolder* folder = m_gui.addFolder("AIR", ofColor::skyBlue);
+    folder->addSlider(m_numPlanes);
+    folder->addSlider(m_numGround);
+    folder->addSlider(m_numTakingOff);
+    folder->addSlider(m_numLanding);
+    folder->addSlider(m_numFlyingOver);
+    folder->expand();
+    
+    m_gui.addBreak();
+    
+}
 
 void GuiManager::setupWeatherGui()
 {
@@ -138,7 +189,7 @@ void GuiManager::setupWeatherGui()
     m_parameters.add(m_swellPeriod);
     
     
-    ofxDatGuiFolder* folder = m_gui.addFolder("WEATHER", ofColor::blue);
+    ofxDatGuiFolder* folder = m_gui.addFolder("WEATHER", ofColor::green);
     m_cityLabel = folder->addLabel("CITY: ");
     folder->addSlider(m_weatherTemperature);
     folder->addSlider(m_weatherHumidity);
@@ -277,6 +328,16 @@ void GuiManager::onWeatherChange()
     }
 }
 
+void GuiManager::onAirTrafficChange()
+{
+    auto value = AppManager::getInstance().getApiManager().getCurrentAirTraffic();
+    
+    m_numPlanes = value.numPlanes;
+    m_numGround = value.numGround;
+    m_numTakingOff = value.numTakingOff;
+    m_numLanding = value.numLanding;
+    m_numFlyingOver = value.numFlyingOver;
+}
 
 void GuiManager::onSceneChange(string &sceneName)
 {
