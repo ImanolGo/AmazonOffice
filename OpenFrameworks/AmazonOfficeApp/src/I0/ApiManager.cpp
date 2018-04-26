@@ -33,7 +33,6 @@ void ApiManager::setup()
     
     Manager::setup();
     this->setupApis();
-    this->setupSkyApi();
     this->setupTimers();
     
     ofRegisterURLNotification(this);
@@ -44,12 +43,15 @@ void ApiManager::setup()
 void ApiManager::setupApis()
 {
     this->setupWeatherApi();
+    this->setupSkyApi();
+    this->setupSurfApi();
 }
 
 void ApiManager::setupTimers()
 {
     this->setupWeatherTimer();
     this->setupSkyTimer();
+    this->setupsurfTimer();
 }
 
 void ApiManager::setupWeatherTimer()
@@ -70,6 +72,16 @@ void ApiManager::setupSkyTimer()
     
     m_skyTimer.start( false ) ;
     ofAddListener( m_skyTimer.TIMER_COMPLETE , this, &ApiManager::skyTimerCompleteHandler ) ;
+}
+
+void ApiManager::setupsurfTimer()
+{
+    auto surfSettings = AppManager::getInstance().getSettingsManager().getsurfSettings();
+    
+    m_surfTimer.setup( surfSettings.request_time*1000 );
+    
+    m_surfTimer.start( false ) ;
+    ofAddListener( m_surfTimer.TIMER_COMPLETE , this, &ApiManager::surfTimerCompleteHandler ) ;
 }
 
 
@@ -122,6 +134,22 @@ void ApiManager::setupSkyApi()
     
 }
 
+void ApiManager::setupSurfApi()
+{
+    auto surfSettings = AppManager::getInstance().getSettingsManager().getsurfSettings();
+    
+    m_surfUrl = surfSettings.url;
+    m_surfUrl += surfSettings.key;
+    m_surfUrl+="/forecast/?spot_id=";
+    m_surfUrl+=surfSettings.id;
+    m_surfUrl+="&fields=swell.components.combined.height,swell.components.combined.period";
+    m_surfUrl+="&units=";
+    m_surfUrl+=surfSettings.units;
+    
+    ofLogNotice() <<"ApiManager::setupsurfApi << surf url = " <<  m_surfUrl;
+    
+    ofLoadURLAsync(m_surfUrl, "surf");
+}
 
 void ApiManager::update()
 {
@@ -154,6 +182,14 @@ void ApiManager::urlResponse(ofHttpResponse & response)
         {
             m_skyTimer.start(false);
             this->parseSky(response.data);
+        }
+        
+        else if(response.request.name == "surf")
+        {
+            m_surfTimer.start(false);
+            this->parsesurf(response.data);
+            AppManager::getInstance().getGuiManager().onWeatherChange();
+            AppManager::getInstance().getOscManager().sendOscAll();
         }
     }
 }
@@ -247,8 +283,20 @@ void ApiManager::parseWeather(string response)
     << ", precipitation mode = " << m_weatherConditions.m_precipitationMode  << ", precipitation value = " << m_weatherConditions.m_precipitationValue
     << ", sunrise = " << m_weatherConditions.m_sunrise  << ", sunset = " << m_weatherConditions.m_sunset
     << ", moon phase  = " << m_weatherConditions.getMoonPhaseInt() << ", sun position = " << m_weatherConditions.m_sunPosition;
-    
 }
+
+void ApiManager::parsesurf(string response)
+{
+    //ofLogNotice() << response;
+    
+    ofxJSONElement json(response);
+    
+    m_weatherConditions.m_swellHeight = json[0]["swell"]["components"]["combined"]["height"].asFloat();
+    m_weatherConditions.m_swellPeriod = json[0]["swell"]["components"]["combined"]["period"].asFloat();
+    
+    ofLogNotice() <<"ApiManager::parsesurf << swell height = " <<  m_weatherConditions.m_swellHeight << ", swell period -> " <<m_weatherConditions.m_swellPeriod;
+}
+
 
 void ApiManager::weatherTimerCompleteHandler( int &args )
 {
@@ -265,5 +313,10 @@ void ApiManager::skyTimerCompleteHandler( int &args )
 }
 
 
+void ApiManager::surfTimerCompleteHandler( int &args )
+{
+    // m_surfTimer.start(false);
+    ofLoadURLAsync(m_surfUrl, "surf");
+}
 
 

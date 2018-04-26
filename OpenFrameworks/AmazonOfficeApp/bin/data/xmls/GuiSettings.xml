@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <group>
-	<Temp_>20</Temp_>
+	<Temp_>19.5</Temp_>
 	<Humidity>60</Humidity>
-	<Wind_Speed>1</Wind_Speed>
-	<Wind_Dir>0</Wind_Dir>
+	<Wind_Speed>1.5</Wind_Speed>
+	<Wind_Dir>280</Wind_Dir>
 	<Prec_>0</Prec_>
 	<Clouds>0</Clouds>
-	<Moon_Phase>0.76915</Moon_Phase>
-	<Sun_Position>0.425231</Sun_Position>
-	<Swell_Height>1</Swell_Height>
-	<Swell_Period>15</Swell_Period>
+	<Moon_Phase>0.85563</Moon_Phase>
+	<Sun_Position>0.446021</Sun_Position>
+	<Swell_Height>0.4</Swell_Height>
+	<Swell_Period>5</Swell_Period>
 </group>

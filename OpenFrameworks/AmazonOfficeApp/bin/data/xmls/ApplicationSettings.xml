@@ -12,6 +12,7 @@
   <api>
        <weather url = "http://api.openweathermap.org/data/2.5/weather?" city="Barcelona" lat="41.390205" lon="2.154007" units="metric" key="e4c4bf0f238afdc3bcef9346e1a47ff3" request_time ="10"/>
        <opensky url = "opensky-network.org/api/states/all?" city="Barcelona" latMin="41.2673" lonMin="2.0229" latMax="41.4579" lonMax="2.2893" id="amazonoffice" key="amazonofficepass" request_time ="3"/>
+       <surf city="Barceloneta" url="http://magicseaweed.com/api/" key = "6894ba16117b5b91b63a653717789f6c" id="3535" units="eu" request_time ="3600"/>
      
   </api>
 

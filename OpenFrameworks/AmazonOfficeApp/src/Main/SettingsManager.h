@@ -61,6 +61,8 @@ public:
     
     api_settings getSkySettings() const {return m_skySettings;}
     
+    api_settings getsurfSettings() const {return m_surfSettings;}
+    
     
 private:
     
@@ -110,6 +112,7 @@ private:
     api_settings            m_weatherSettings;      ///<stores the weather api's settings
     api_settings            m_skySettings;          ///<stores the sky api's settings
     
+    api_settings            m_surfSettings;         ///<stores the surf's settings
 };
 
 

@@ -62,6 +62,8 @@ public:
     
     void skyTimerCompleteHandler( int &args ) ;
     
+    void surfTimerCompleteHandler( int &args ) ;
+    
     WeatherConditions& getCurrentWeather() {return m_weatherConditions;}
     
     void onWindSpeedChange(float& value){m_weatherConditions.m_windSpeed = value;}
@@ -94,24 +96,31 @@ private:
     
     void setupSkyApi();
     
+    void setupSurfApi();
+    
     void setupTimers();
     
     void setupWeatherTimer();
     
     void setupSkyTimer();
     
+    void setupsurfTimer();
+    
     void updateTimers();
     
     void parseWeather(string response);
     
     void parseSky(string response);
-
+    
+    void parsesurf(string response);
 
 private:
     
     ofxSimpleTimer          m_weatherTimer;
     ofxSimpleTimer          m_skyTimer;
+    ofxSimpleTimer          m_surfTimer;
     string                  m_weatherUrl;
+    string                  m_surfUrl;
     string                  m_skyUrl;
     WeatherConditions       m_weatherConditions;
     

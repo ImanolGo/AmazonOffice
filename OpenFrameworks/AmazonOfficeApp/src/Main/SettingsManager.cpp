@@ -183,6 +183,24 @@ void SettingsManager::setApiProperties()
     else{
         ofLogNotice() <<"SettingsManager::setApiProperties-> opensky path not found: " << path ;
     }
+    
+    path = "//api/surf";
+    xml = m_xml.findFirst(path);
+    if(xml) {
+        
+        m_surfSettings.city = xml.getAttribute("city").getValue();
+        m_surfSettings.key = xml.getAttribute("key").getValue();
+        m_surfSettings.units = xml.getAttribute("units").getValue();
+        m_surfSettings.url = xml.getAttribute("url").getValue();
+        m_surfSettings.id =xml.getAttribute("id").getValue();
+        m_surfSettings.request_time = xml.getAttribute("request_time").getFloatValue();
+        
+        ofLogNotice() <<"SettingsManager::setApiProperties->  successfully loaded the surf settings" ;
+        ofLogNotice() <<"SettingsManager::setApiProperties->  name = " <<  m_surfSettings.city  <<", url = " << m_surfSettings.url <<", request time = "<<m_surfSettings.request_time<<", spotId = "<<m_surfSettings.id;
+    }
+    else{
+        ofLogNotice() <<"SettingsManager::setApiProperties->  path not found: " << path ;
+    }
 }
 
 void SettingsManager::setNetworkProperties()
