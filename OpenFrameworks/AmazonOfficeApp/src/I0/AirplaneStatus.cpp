@@ -24,8 +24,8 @@ AirplaneStatus::~AirplaneStatus()
 
 void AirplaneStatus::setupPatameters()
 {
-    m_latitude.set("Latitude", 0.0, 0.0, 180.0);
-    m_longitude.set("Longitude", 0.0, 0.0, 180.0);
+    m_latitude.set("Latitude", 0.0, -180, 180.0);
+    m_longitude.set("Longitude", 0.0,  -180, 180.0);
     m_altitude.set("Altitude", 0.0, 0, 50000.0);
     m_velocity.set("Velocity", 0.0, 0, 1000);
     m_heading.set("Heading", 0.0, 0, 360);

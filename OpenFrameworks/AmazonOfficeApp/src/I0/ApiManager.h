@@ -14,6 +14,7 @@
 #include "MoonCalculator.h"
 #include "WeatherConditions.h"
 #include "AirplaneStatus.h"
+#include "TrafficStatus.h"
 
 struct api_settings
 {
@@ -62,7 +63,9 @@ public:
     
     void skyTimerCompleteHandler( int &args ) ;
     
-    void surfTimerCompleteHandler( int &args ) ;
+    void surfTimerCompleteHandler( int &args );
+    
+    void trafficTimerCompleteHandler( int &args ) ;
     
     WeatherConditions& getCurrentWeather() {return m_weatherConditions;}
     
@@ -98,13 +101,17 @@ private:
     
     void setupSurfApi();
     
+    void setupTrafficApi();
+    
     void setupTimers();
     
     void setupWeatherTimer();
     
     void setupSkyTimer();
     
-    void setupsurfTimer();
+    void setupSurfTimer();
+    
+    void setupTrafficTimer();
     
     void updateTimers();
     
@@ -112,19 +119,23 @@ private:
     
     void parseSky(string response);
     
-    void parsesurf(string response);
+    void parseSurf(string response);
+    
+    void parseTraffic(string name, string response);
 
 private:
     
     ofxSimpleTimer          m_weatherTimer;
     ofxSimpleTimer          m_skyTimer;
     ofxSimpleTimer          m_surfTimer;
+    ofxSimpleTimer          m_trafficTimer;
     string                  m_weatherUrl;
     string                  m_surfUrl;
     string                  m_skyUrl;
     WeatherConditions       m_weatherConditions;
     
     vector<ofPtr<AirplaneStatus>> m_flights;
+    vector<ofPtr<TrafficStatus>> m_streets;
     
 };
 

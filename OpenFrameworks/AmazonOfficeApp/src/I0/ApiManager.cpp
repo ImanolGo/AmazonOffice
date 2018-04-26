@@ -45,13 +45,15 @@ void ApiManager::setupApis()
     this->setupWeatherApi();
     this->setupSkyApi();
     this->setupSurfApi();
+    this->setupTrafficApi();
 }
 
 void ApiManager::setupTimers()
 {
     this->setupWeatherTimer();
     this->setupSkyTimer();
-    this->setupsurfTimer();
+    this->setupSurfTimer();
+    this->setupTrafficTimer();
 }
 
 void ApiManager::setupWeatherTimer()
@@ -74,9 +76,9 @@ void ApiManager::setupSkyTimer()
     ofAddListener( m_skyTimer.TIMER_COMPLETE , this, &ApiManager::skyTimerCompleteHandler ) ;
 }
 
-void ApiManager::setupsurfTimer()
+void ApiManager::setupSurfTimer()
 {
-    auto surfSettings = AppManager::getInstance().getSettingsManager().getsurfSettings();
+    auto surfSettings = AppManager::getInstance().getSettingsManager().getSurfSettings();
     
     m_surfTimer.setup( surfSettings.request_time*1000 );
     
@@ -84,6 +86,15 @@ void ApiManager::setupsurfTimer()
     ofAddListener( m_surfTimer.TIMER_COMPLETE , this, &ApiManager::surfTimerCompleteHandler ) ;
 }
 
+void ApiManager::setupTrafficTimer()
+{
+    auto trafficSettings = AppManager::getInstance().getSettingsManager().getTrafficSettings();
+    
+    m_trafficTimer.setup( trafficSettings.request_time*1000 );
+    
+    m_trafficTimer.start( false ) ;
+    ofAddListener( m_trafficTimer.TIMER_COMPLETE , this, &ApiManager::trafficTimerCompleteHandler ) ;
+}
 
 void ApiManager::setupWeatherApi()
 {
@@ -136,7 +147,7 @@ void ApiManager::setupSkyApi()
 
 void ApiManager::setupSurfApi()
 {
-    auto surfSettings = AppManager::getInstance().getSettingsManager().getsurfSettings();
+    auto surfSettings = AppManager::getInstance().getSettingsManager().getSurfSettings();
     
     m_surfUrl = surfSettings.url;
     m_surfUrl += surfSettings.key;
@@ -151,6 +162,49 @@ void ApiManager::setupSurfApi()
     ofLoadURLAsync(m_surfUrl, "surf");
 }
 
+void ApiManager::setupTrafficApi()
+{
+    auto trafficSettings = AppManager::getInstance().getSettingsManager().getTrafficSettings();
+    
+    ofXml xml;
+    string fileName = SettingsManager::APPLICATION_SETTINGS_FILE_NAME;
+    if(!xml.load( fileName)){
+        ofLogNotice() <<"ApiManager::setupTrafficApi-> unable to load file: " << fileName;
+        return;
+    }
+    
+    ofLogNotice() <<"ApiManager::setupTrafficApi->  successfully loaded " << fileName ;
+    
+    string path = "//streets/street";
+    auto xmlStreets = xml.find(path);
+    if(!xmlStreets.empty()) {
+        
+        for(auto & xmlStreet: xmlStreets)
+        {
+            ofPtr<TrafficStatus>  street = ofPtr<TrafficStatus> (new TrafficStatus());
+            street->m_name =  xmlStreet.getAttribute("name").getValue();
+            street->m_latitude =  xmlStreet.getAttribute("lat").getFloatValue();
+            street->m_longitude =  xmlStreet.getAttribute("lon").getFloatValue();
+            
+            street->m_url =  trafficSettings.url;
+            street->m_url += trafficSettings.key;
+            street->m_url += "&point=";
+            street->m_url += ofToString(street->m_latitude);
+            street->m_url += ",";
+            street->m_url += ofToString(street->m_longitude);
+            
+            m_streets.push_back(street);
+            ofLogNotice() <<"ApiManager::setupTrafficApi->  name = " << street->m_name
+            <<", latitude = "<< street->m_latitude  << ", longitude = " <<street->m_longitude << ", url = " <<street->m_url ;
+            
+             ofLoadURLAsync(street->m_url, street->m_name );
+        }
+        
+    }
+   
+}
+
+
 void ApiManager::update()
 {
     this->updateTimers();
@@ -160,6 +214,8 @@ void ApiManager::updateTimers()
 {
     m_weatherTimer.update();
     m_skyTimer.update();
+    m_surfTimer.update();
+    m_trafficTimer.update();
 
 }
 
@@ -187,9 +243,23 @@ void ApiManager::urlResponse(ofHttpResponse & response)
         else if(response.request.name == "surf")
         {
             m_surfTimer.start(false);
-            this->parsesurf(response.data);
+            this->parseSurf(response.data);
             AppManager::getInstance().getGuiManager().onWeatherChange();
             AppManager::getInstance().getOscManager().sendOscAll();
+        }
+        
+        else
+        {
+
+            for(auto street: m_streets)
+            {
+                if(response.request.name == street->m_name)
+                {
+                    this->parseTraffic(street->m_name, response.data);
+                    break;
+                }
+
+            }
         }
     }
 }
@@ -285,7 +355,7 @@ void ApiManager::parseWeather(string response)
     << ", moon phase  = " << m_weatherConditions.getMoonPhaseInt() << ", sun position = " << m_weatherConditions.m_sunPosition;
 }
 
-void ApiManager::parsesurf(string response)
+void ApiManager::parseSurf(string response)
 {
     //ofLogNotice() << response;
     
@@ -295,6 +365,34 @@ void ApiManager::parsesurf(string response)
     m_weatherConditions.m_swellPeriod = json[0]["swell"]["components"]["combined"]["period"].asFloat();
     
     ofLogNotice() <<"ApiManager::parsesurf << swell height = " <<  m_weatherConditions.m_swellHeight << ", swell period -> " <<m_weatherConditions.m_swellPeriod;
+}
+
+
+void ApiManager::parseTraffic(string name, string response)
+{
+    
+    ofXml trafficXml;
+    
+    if(!trafficXml.parse( response )){
+        ofLogNotice() <<"ApiManager::parseTraffic << Unable to parse traffic: " << response;
+        return;
+    }
+    
+    for(auto street: m_streets){
+        
+        if(name == street->m_name)
+        {
+            string path = "//flowSegmentData/currentSpeed";
+            auto xmlChild = trafficXml.findFirst(path);
+            street->m_speed = xmlChild.getFloatValue();
+            
+            path = "//flowSegmentData/freeFlowSpeed";
+            xmlChild = trafficXml.findFirst(path);
+            street->setSpeedMax(xmlChild.getFloatValue());
+            
+            ofLogNotice() <<"ApiManager::parseTraffic << name: " << street->m_name << ", speed = " << street->m_speed << ", free speed = " << xmlChild.getFloatValue();
+        }
+    }
 }
 
 
@@ -318,5 +416,16 @@ void ApiManager::surfTimerCompleteHandler( int &args )
     // m_surfTimer.start(false);
     ofLoadURLAsync(m_surfUrl, "surf");
 }
+
+void ApiManager::trafficTimerCompleteHandler( int &args )
+{
+    m_trafficTimer.start(false);
+    
+    for(auto street: m_streets){
+        ofLoadURLAsync(street->m_url, street->m_name);
+    }
+    
+}
+
 
 

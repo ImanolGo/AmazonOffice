@@ -61,7 +61,9 @@ public:
     
     api_settings getSkySettings() const {return m_skySettings;}
     
-    api_settings getsurfSettings() const {return m_surfSettings;}
+    api_settings getSurfSettings() const {return m_surfSettings;}
+    
+    api_settings getTrafficSettings() const {return m_trafficSettings;}
     
     
 private:
@@ -111,8 +113,9 @@ private:
     float                   m_sceneTimer;           ///< stores the time between scene
     api_settings            m_weatherSettings;      ///<stores the weather api's settings
     api_settings            m_skySettings;          ///<stores the sky api's settings
-    
     api_settings            m_surfSettings;         ///<stores the surf's settings
+    api_settings            m_trafficSettings;      ///<stores the traffic's settings
+    
 };
 
 

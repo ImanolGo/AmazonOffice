@@ -201,6 +201,22 @@ void SettingsManager::setApiProperties()
     else{
         ofLogNotice() <<"SettingsManager::setApiProperties->  path not found: " << path ;
     }
+    
+    path = "//api/traffic";
+    xml = m_xml.findFirst(path);
+    if(xml) {
+        
+        m_trafficSettings.city = xml.getAttribute("city").getValue();
+        m_trafficSettings.key = xml.getAttribute("key").getValue();
+        m_trafficSettings.url = xml.getAttribute("url").getValue();
+        m_trafficSettings.request_time = xml.getAttribute("request_time").getFloatValue();
+        
+        ofLogNotice() <<"SettingsManager::setApiProperties->  successfully loaded the traffic settings" ;
+        ofLogNotice() <<"SettingsManager::setApiProperties->  name = " <<  m_trafficSettings.city  <<", url = " << m_trafficSettings.url <<", request time = "<<m_trafficSettings.request_time;
+    }
+    else{
+        ofLogNotice() <<"SettingsManager::setApiProperties->  path not found: " << path ;
+    }
 }
 
 void SettingsManager::setNetworkProperties()
