@@ -70,6 +70,8 @@ public:
     
     void nextScene();
     
+    const string& getCurrentSceneName() const {return m_currentSceneName;}
+    
 private:
     
     //! Create the scenes

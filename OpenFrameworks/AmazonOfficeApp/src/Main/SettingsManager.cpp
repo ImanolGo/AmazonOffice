@@ -210,6 +210,10 @@ void SettingsManager::setApiProperties()
         m_trafficSettings.key = xml.getAttribute("key").getValue();
         m_trafficSettings.url = xml.getAttribute("url").getValue();
         m_trafficSettings.request_time = xml.getAttribute("request_time").getFloatValue();
+        m_trafficSettings.lat = xml.getAttribute("latMin").getFloatValue();
+        m_trafficSettings.lon = xml.getAttribute("lonMin").getFloatValue();
+        m_trafficSettings.lat2 = xml.getAttribute("latMax").getFloatValue();
+        m_trafficSettings.lon2 = xml.getAttribute("lonMax").getFloatValue();
         
         ofLogNotice() <<"SettingsManager::setApiProperties->  successfully loaded the traffic settings" ;
         ofLogNotice() <<"SettingsManager::setApiProperties->  name = " <<  m_trafficSettings.city  <<", url = " << m_trafficSettings.url <<", request time = "<<m_trafficSettings.request_time;

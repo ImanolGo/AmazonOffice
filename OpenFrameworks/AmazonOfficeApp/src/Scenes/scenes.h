@@ -12,3 +12,5 @@
 #include "VideoScene.h"
 #include "ImageScene.h"
 #include "WeatherScene.h"
+#include "TidesScene.h"
+#include "TrafficScene.h"

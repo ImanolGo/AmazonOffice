@@ -1,5 +1,5 @@
 /*
- *  TidesScene.h
+ *  TrafficScene.h
  *  AmazonOfficeApp
  *
  *  Created by Imanol Gomez on 02/05/18.
@@ -10,14 +10,15 @@
 
 
 #include "ofxScene.h"
+#include "ImageVisual.h"
 
 
-class TidesScene : public ofxScene {
+class TrafficScene : public ofxScene {
 
 public:
 
     //! Constructor
-    TidesScene();
+    TrafficScene();
     
     //! Set up the scene
     void setup();
@@ -42,14 +43,14 @@ public:
 
 private:
     
-    void setupColor();
+    void setupImages();
     
-    void updateColor();
+    void drawImages();
     
     
 private:
     
-    ofColor           m_color;
+    ImageVisual           m_map;
 
 };
 

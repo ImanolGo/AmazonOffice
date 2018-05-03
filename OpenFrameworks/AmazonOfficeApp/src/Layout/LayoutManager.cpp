@@ -103,6 +103,7 @@ void LayoutManager::resetWindowFrame()
 void LayoutManager::update()
 {
     this->updateFbo();
+    this->updateText();
 }
 
 void LayoutManager::updateFbo()
@@ -113,6 +114,12 @@ void LayoutManager::updateFbo()
             AppManager::getInstance().getSceneManager().draw();
         m_fbo.end();
     ofDisableAlphaBlending();
+}
+
+void LayoutManager::updateText()
+{
+    auto text = AppManager::getInstance().getSceneManager().getCurrentSceneName();
+    m_textVisuals["Main"]->setText(text);
 }
 
 

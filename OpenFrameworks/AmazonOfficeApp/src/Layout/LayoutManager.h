@@ -78,6 +78,8 @@ private:
     void setupFbo();
 
     void updateFbo();
+    
+    void updateText();
 
     void drawFbo();
 

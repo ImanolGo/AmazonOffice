@@ -35,8 +35,7 @@ void WeatherScene::loadImages()
     pos.x = width*0.5 - m_weatherIcon.getWidth();
     pos.y = height*0.5 - m_weatherIcon.getHeight()*0.5;
     m_weatherIcon.setPosition(pos);
-//    m_weatherIcon.setHeight(height*0.5,true);
-    
+
 }
 
 void WeatherScene::setupText()
