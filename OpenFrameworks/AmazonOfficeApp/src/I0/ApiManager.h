@@ -79,6 +79,8 @@ public:
     
     WeatherConditions& getCurrentWeather() {return m_weatherConditions;}
     
+    vector<ofPtr<TrafficStatus>> & getTrafficStatus() {return m_streets;}
+    
     air_traffic_status& getCurrentAirTraffic() {return m_currentAirTraffic;}
     
     void onWindSpeedChange(float& value){m_weatherConditions.m_windSpeed = value;}
@@ -160,7 +162,7 @@ private:
     air_traffic_status      m_currentAirTraffic;
     
     vector<ofPtr<AirplaneStatus>> m_flights;
-    vector<ofPtr<TrafficStatus>> m_streets;
+    vector<ofPtr<TrafficStatus>>  m_streets;
     
 };
 

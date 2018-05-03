@@ -129,6 +129,20 @@ void OscManager::sendFloatMessage(float value, string& name)
     }
 }
 
+void OscManager::sendIntMessage(int value, string& name)
+{
+    string message = OSC_PARENT_ADDRESS + "/" + name;
+    ofxOscMessage m;
+    m.setAddress(message);
+    m.addIntArg(value);
+    //m_oscSender.sendMessage(m);
+    
+    for (auto& oscSender : m_oscSenders) {
+        oscSender.second.sendMessage(m);
+    }
+}
+
+
 void OscManager::sendStringMessage(string value, string& name)
 {
     string message = OSC_PARENT_ADDRESS + "/" + name;

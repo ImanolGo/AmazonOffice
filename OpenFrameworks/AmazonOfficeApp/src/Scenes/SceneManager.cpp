@@ -54,11 +54,15 @@ void SceneManager::createScenes()
     
     
     //Create Video Scene
-    scene = ofPtr<ofxScene> (new VideoScene("TEST_VIDEO"));
+    scene = ofPtr<ofxScene> (new VideoScene("Test_Video"));
     m_mySceneManager.addScene(scene);
     
     //Create Image Scene
-    scene = ofPtr<ofxScene> (new ImageScene("RAINBOW"));
+    scene = ofPtr<ofxScene> (new ImageScene("Rainbow"));
+    m_mySceneManager.addScene(scene);
+    
+    //Create Weather Scene
+    scene = ofPtr<ofxScene> (new WeatherScene());
     m_mySceneManager.addScene(scene);
  
     float width = AppManager::getInstance().getSettingsManager().getAppWidth();
@@ -102,7 +106,7 @@ void SceneManager::onChangeSceneDuration(float& value)
 void SceneManager::initializeSceneList()
 {
     m_sceneList.clear();
-    m_sceneList  = { "RAINBOW", "TEST_VIDEO"};
+    m_sceneList  = { "Weather", "Test_Video"};
 }
 
 
@@ -220,11 +224,12 @@ void SceneManager::nextScene()
 
 void SceneManager::sendSceneChange()
 {
-    int sceneIndex = this->getIndex(m_currentSceneName);
-       
-    string address = "Scene";
     
-    AppManager::getInstance().getOscManager().sendStringMessage(m_currentSceneName, address);
+    string address = "preset" + m_currentSceneName;
+    
+    ofLogNotice() <<"SceneManager::sendSceneChange << OSC Message Scene: " << address;
+    
+    AppManager::getInstance().getOscManager().sendIntMessage(1, address);
   
 }
 

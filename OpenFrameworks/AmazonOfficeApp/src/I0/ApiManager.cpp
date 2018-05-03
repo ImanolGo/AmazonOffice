@@ -377,6 +377,10 @@ void ApiManager::parseWeather(string response)
     xmlChild = weatherXml.findFirst(path);
     m_weatherConditions.m_city = xmlChild.getAttribute("name").getValue();
     
+    path = "//current/weather";
+    xmlChild =weatherXml.findFirst(path);
+    m_weatherConditions.m_id =  xmlChild.getAttribute("number").getIntValue();
+    
     m_weatherConditions.m_moonPhase = m_weatherConditions.getCurrentMoonPhase();
     
     m_weatherConditions.m_sunPosition = m_weatherConditions.calculatePosition();

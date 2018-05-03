@@ -20,7 +20,16 @@
   <textures>
    
     <texture name="Brush" path="images/general/brush2.png"/> 
-    <texture name="RAINBOW" path="images/general/gradientRainbow.jpg"/> 
+    <texture name="Rainbow" path="images/general/gradientRainbow.jpg"/> 
+    <texture name="ClearSky" path="images/weather/clear.png"/> 
+    <texture name="FewClouds" path="images/weather/mostlysunny.png"/> 
+    <texture name="ScatteredClouds" path="images/weather/mostlycloudy.png"/> 
+    <texture name="Cloudy" path="images/weather/cloudy.png"/> 
+    <texture name="ShowerRain" path="images/weather/rain.png"/> 
+    <texture name="Rain" path="images/weather/chancerain.png"/> 
+    <texture name="Thunderstorm" path="images/weather/tstorms.png"/> 
+    <texture name="Snow" path="images/weather/snow.png"/> 
+    <texture name="Mist" path="images/weather/fog.png"/> 
 
   </textures>
 
@@ -44,7 +53,7 @@
 
   <videos>
 
-    <video name="TEST_VIDEO" path="videos/video_test.mp4"/>
+    <video name="Test_Video" path="videos/video_test.mp4"/>
   
   </videos>
 

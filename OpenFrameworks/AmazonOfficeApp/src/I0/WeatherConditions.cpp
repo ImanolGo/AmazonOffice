@@ -41,6 +41,7 @@ void WeatherConditions::setupPatameters()
     m_city = "La Caleta";
     m_swellHeight.set("Swell Height", 1.0, 0.0, 4);
     m_swellPeriod.set("Swell Period", 15.0, 0.0, 20);
+    m_swellPeriod.set("ID", 0, 0, 900);
     
 }
 

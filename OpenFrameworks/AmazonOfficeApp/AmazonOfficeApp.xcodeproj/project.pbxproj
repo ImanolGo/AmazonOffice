@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00F8DAC81953313F8180A13C /* ofxTextBlock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1486C841BC2A30DB7CBC449C /* ofxTextBlock.cpp */; };
 		059F15A57C00F89CF43FDDD6 /* ofxSmartFont.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AE9EA26E2A646CE843DEEB1E /* ofxSmartFont.cpp */; };
+		0895218F209A140400362F54 /* WeatherScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0895218E209A140400362F54 /* WeatherScene.cpp */; };
 		08C861DA4BC4A339352C813D /* WeatherConditions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F7C405E5789BF50EA9151A41 /* WeatherConditions.cpp */; };
 		0BDED601622DB52E4A28177B /* TrafficStatus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 33ED372FF48B65975895B2B8 /* TrafficStatus.cpp */; };
 		12451834526FB5CD4EA0D0DF /* ofxSceneManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C3B778D8F951EC700B066390 /* ofxSceneManager.cpp */; };
@@ -101,6 +102,8 @@
 		05B11A7F5D0BA7A59C78DDC4 /* ofxDatGuiControls.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiControls.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiControls.h; sourceTree = SOURCE_ROOT; };
 		0731597061D6181DB86681B1 /* ofxDatGuiSlider.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxDatGuiSlider.h; path = src/Addons/ofxDatGui/src/components/ofxDatGuiSlider.h; sourceTree = SOURCE_ROOT; };
 		07DCABF73469736E8961438F /* ofxOscArg.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxOscArg.h; path = ../../../../../../../../Applications/of_v0.10.0RC1_osx_release/addons/ofxOsc/src/ofxOscArg.h; sourceTree = SOURCE_ROOT; };
+		0895218D209A140400362F54 /* WeatherScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeatherScene.h; path = Scenes/WeatherScene.h; sourceTree = "<group>"; };
+		0895218E209A140400362F54 /* WeatherScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = WeatherScene.cpp; path = Scenes/WeatherScene.cpp; sourceTree = "<group>"; };
 		09285EFD2A696529A507FFA2 /* ofxNetwork.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = ofxNetwork.h; path = ../../../../../../../../Applications/of_v0.10.0RC1_osx_release/addons/ofxNetwork/src/ofxNetwork.h; sourceTree = SOURCE_ROOT; };
 		099BD020063F5E7B69B84F9E /* ofxUDPManager.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = ofxUDPManager.cpp; path = ../../../../../../../../Applications/of_v0.10.0RC1_osx_release/addons/ofxNetwork/src/ofxUDPManager.cpp; sourceTree = SOURCE_ROOT; };
 		09BB1D7613A1F9D8E8B11D7A /* KeyboardManager.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = KeyboardManager.h; path = src/I0/KeyboardManager.h; sourceTree = SOURCE_ROOT; };
@@ -653,6 +656,8 @@
 				8C488F38001D542DA27140DF /* scenes.h */,
 				60B34DDDC79DEB0226A04C93 /* VideoScene.cpp */,
 				15AE7B79BBACBC510C450229 /* VideoScene.h */,
+				0895218E209A140400362F54 /* WeatherScene.cpp */,
+				0895218D209A140400362F54 /* WeatherScene.h */,
 			);
 			name = Scenes;
 			sourceTree = "<group>";
@@ -902,6 +907,7 @@
 				B06574BCAF32BEF786A4DA54 /* ofxJSONElement.cpp in Sources */,
 				12451834526FB5CD4EA0D0DF /* ofxSceneManager.cpp in Sources */,
 				8CF0269A51B53AF174235BF6 /* ofxSimpleTimer.cpp in Sources */,
+				0895218F209A140400362F54 /* WeatherScene.cpp in Sources */,
 				00F8DAC81953313F8180A13C /* ofxTextBlock.cpp in Sources */,
 				48F94177806B5CB8D3C0F283 /* CameraAnimations.cpp in Sources */,
 				C6B3BFC2668F137F745DC3C6 /* CameraAnimationsManager.cpp in Sources */,

@@ -43,6 +43,7 @@ void GuiManager::setup()
     this->setupGeneralGui();
     this->setupScenesGui();
     this->setupSkyGui();
+    this->setupTrafficGui();
     this->setupWeatherGui();
     this->setupGuiEvents();
     this->loadGuiValues();
@@ -143,6 +144,26 @@ void GuiManager::setupSkyGui()
     m_gui.addBreak();
     
 }
+
+
+void GuiManager::setupTrafficGui()
+{
+    
+    ofxDatGuiFolder* folder = m_gui.addFolder("STREETS", ofColor::grey);
+    
+    auto streets = AppManager::getInstance().getApiManager().getTrafficStatus();
+   // m_streetFlow.assign(streets.size(), ofParameter<float>());
+    
+    for(int i=0; i<streets.size(); i++)
+    {
+        m_streetFlow[i].set(streets[i]->m_name, ofRandom(1.0), 0.0, 1.0);
+        folder->addSlider(m_streetFlow[i]);
+    }
+    
+    folder->expand();
+    m_gui.addBreak();
+}
+
 
 void GuiManager::setupWeatherGui()
 {

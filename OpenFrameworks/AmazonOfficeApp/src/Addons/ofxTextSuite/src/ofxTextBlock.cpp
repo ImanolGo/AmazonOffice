@@ -434,7 +434,7 @@ void ofxTextBlock::_loadWords(){
 
     for(int i=0;i < words.size(); i++)
     {
-        ofLog(OF_LOG_VERBOSE, "Loaded word: %i, %s\n", i, words[i].rawWord.c_str());
+        //ofLog(OF_LOG_VERBOSE, "Loaded word: %i, %s\n", i, words[i].rawWord.c_str());
     }
 
 

@@ -10,7 +10,7 @@
 #include "BlankScene.h"
 #include "RectangleVisual.h"
 
-BlankScene::BlankScene(): ofxScene("BLANK"){}
+BlankScene::BlankScene(): ofxScene("Blank"){}
 
 void BlankScene::setup() {
     ofLogNotice("BlankScene::setup");

@@ -88,6 +88,8 @@ private:
     
     void setupSkyGui();
     
+    void setupTrafficGui();
+    
     void drawRectangle();
     
     void drawGui();
@@ -122,6 +124,10 @@ private:
     
     ofParameter<float>      m_swellHeight;
     ofParameter<float>      m_swellPeriod;
+    
+    std::array<ofParameter<float>, 10> m_streetFlow;
+    
+   // vector<ofParameter<float>>  m_streetFlow;
     
     ofxDatGuiLabel*        m_cityLabel;
     

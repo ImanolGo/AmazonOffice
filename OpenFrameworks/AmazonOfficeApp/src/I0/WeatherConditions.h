@@ -31,9 +31,9 @@ public:
     //! Destructor
     virtual ~WeatherConditions();
 
-    string getTemperature() const { return ofToString(m_temp) + "°C";}
-    string getHumidity() const { return ofToString(m_humidity) + "%";}
-    string getWindSpeed()  const {return ofToString(m_windSpeed) + " kmh";}
+    string getTemperature() const { return ofToString(m_temp,1) + "°C";}
+    string getHumidity() const { return ofToString(m_humidity,1) + "%";}
+    string getWindSpeed()  const {return ofToString(m_windSpeed,1) + " kmh";}
     string getWindDirection() const { return ofToString(m_windDirection) + "°";}
     string getCloudiness() const { return ofToString(m_clouds) + "%";}
     string getSunrise() const {return m_sunrise;}
@@ -88,7 +88,7 @@ public:
     string  m_precipitationMode;
     ofParameter<float>   m_precipitationValue;
     string m_city;
-    
+    ofParameter<int>    m_id;
     ofParameter<float>  m_swellHeight;
     ofParameter<float>  m_swellPeriod;
     
