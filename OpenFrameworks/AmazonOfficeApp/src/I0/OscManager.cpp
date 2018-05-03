@@ -107,6 +107,60 @@ void OscManager::update()
             string sceneName = m.getArgAsString(0);
             AppManager::getInstance().getGuiManager().onSceneChange(sceneName);
         }
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/webapp/presetPlanes")
+        {
+            bool activate = m.getArgAsInt(0) > 0;
+            if(activate){
+                string sceneName = "Planes";
+                AppManager::getInstance().getGuiManager().onSceneChange(sceneName);
+            }
+            
+        }
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/webapp/presetWeather")
+        {
+            bool activate = m.getArgAsInt(0) > 0;
+            if(activate){
+                string sceneName = "Weather";
+                AppManager::getInstance().getGuiManager().onSceneChange(sceneName);
+            }
+        }
+        
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/webapp/presetWind")
+        {
+            bool activate = m.getArgAsInt(0) > 0;
+            if(activate){
+                string sceneName = "Wind";
+                AppManager::getInstance().getGuiManager().onSceneChange(sceneName);
+            }
+        }
+        
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/webapp/presetWind")
+        {
+            bool activate = m.getArgAsInt(0) > 0;
+            if(activate){
+                string sceneName = "Wind";
+                AppManager::getInstance().getGuiManager().onSceneChange(sceneName);
+            }
+        }
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/webapp/presetTides")
+        {
+            bool activate = m.getArgAsInt(0) > 0;
+            if(activate){
+                string sceneName = "Tides";
+                AppManager::getInstance().getGuiManager().onSceneChange(sceneName);
+            }
+            
+        }
+        
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/webapp/presetTraffic")
+        {
+            bool activate = m.getArgAsInt(0) > 0;
+            if(activate){
+                string sceneName = "Traffic";
+                AppManager::getInstance().getGuiManager().onSceneChange(sceneName);
+            }
+            
+        }
         
         ofLogNotice() <<"OscManager::received -> " << this->getMessageAsString(m);
     }
@@ -225,13 +279,6 @@ void OscManager::sendOscUnity()
 
 	message = "tides/norm/period";
 	this->sendFloatMessage(weather.getSwellPeriodNorm(), message);
-
-//    message = "weather/norm/MoonPhaseNorm";
-//    this->sendFloatMessage(weather.getMoonPhaseNorm(), message);
-//
-//    message = "weather/norm/SunPositionNorm";
-//    this->sendFloatMessage(weather.getSunPositionNorm(), message);
-
 }
 
 void OscManager::sendOscIpad()
@@ -262,17 +309,6 @@ void OscManager::sendOscIpad()
     message = "tides/period";
     this->sendFloatMessage(weather.getSwellPeriodNorm(), message);
 
-//    message = "Weather/MoonPhase";
-//    this->sendStringMessage(weather.getMoonPhase(), message);
-//
-//    message = "Weather/SunPosition";
-//    this->sendStringMessage(weather.getSunPosition(), message);
-//
-//    message = "Weather/Sunrise";
-//    this->sendStringMessage(weather.getSunrise(), message);
-//
-//    message = "Weather/Sunset";
-//    this->sendStringMessage(weather.getSunset(), message);
 }
 
 

@@ -14,3 +14,5 @@
 #include "WeatherScene.h"
 #include "TidesScene.h"
 #include "TrafficScene.h"
+#include "WindScene.h"
+#include "PlanesScene.h"

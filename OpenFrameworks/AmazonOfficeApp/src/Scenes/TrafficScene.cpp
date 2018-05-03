@@ -23,6 +23,13 @@ void TrafficScene::setup() {
 
 void TrafficScene::setupImages()
 {
+    this->setupImageMap();
+    this->setupImageTraffic();
+}
+
+
+void TrafficScene::setupImageMap()
+{
     float height = AppManager::getInstance().getSettingsManager().getAppHeight();
     float width = AppManager::getInstance().getSettingsManager().getAppWidth();
     
@@ -38,6 +45,27 @@ void TrafficScene::setupImages()
     m_map.setPosition(pos);
 }
 
+void TrafficScene::setupImageTraffic()
+{
+    ofRectangle boundingBox;
+    glm::vec2 pos(m_map.getPosition().x, m_map.getPosition().y);
+    boundingBox.setFromCenter(pos, m_map.getWidth(), m_map.getHeight());
+//    boundingBox.x = m_map.getPosition().x -  m_map.getWidth()*0.5;
+//    boundingBox.y = m_map.getPosition().y -  m_map.getHeight()*0.5;
+//    boundingBox.width = m_map.getWidth(); boundingBox.height = m_map.getHeight();
+//
+    auto & trafficVector = AppManager::getInstance().getApiManager().getTrafficStatus();
+    auto  trafficSettings =  AppManager::getInstance().getSettingsManager().getTrafficSettings();
+    
+    for(auto traffic: trafficVector){
+        string resurceName = "Brush";
+        float x = ofMap(traffic->m_latitude,trafficSettings.lat, trafficSettings.lat2, boundingBox.getMaxY(),  boundingBox.getMinY());
+        float y = ofMap(traffic->m_longitude,trafficSettings.lon, trafficSettings.lon2, boundingBox.getMinX(),  boundingBox.getMaxX());
+        ofPtr<ImageVisual> imageTraffic =  ofPtr<ImageVisual> (new ImageVisual(ofPoint(x,y),resurceName,true));
+        m_trafficStatus[traffic->m_name] = imageTraffic;
+    }
+    
+}
 
 void TrafficScene::update()
 {
@@ -53,6 +81,10 @@ void TrafficScene::draw() {
 void TrafficScene::drawImages()
 {
     m_map.draw();
+    
+    for(auto traffic: m_trafficStatus){
+        traffic.second->draw();
+    }
 }
 
 void TrafficScene::willFadeIn() {

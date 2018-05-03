@@ -72,6 +72,14 @@ void SceneManager::createScenes()
     //Create Traffic Scene
     scene = ofPtr<ofxScene> (new TrafficScene());
     m_mySceneManager.addScene(scene);
+    
+    //Create Wind Scene
+    scene = ofPtr<ofxScene> (new WindScene());
+    m_mySceneManager.addScene(scene);
+    
+    //Create Planes Scene
+    scene = ofPtr<ofxScene> (new PlanesScene());
+    m_mySceneManager.addScene(scene);
  
     float width = AppManager::getInstance().getSettingsManager().getAppWidth();
     float height = AppManager::getInstance().getSettingsManager().getAppHeight();
@@ -114,7 +122,7 @@ void SceneManager::onChangeSceneDuration(float& value)
 void SceneManager::initializeSceneList()
 {
     m_sceneList.clear();
-    m_sceneList  = { "Weather", "Tides", "Traffic"};
+    m_sceneList  = { "Weather", "Tides", "Traffic", "Wind", "Planes"};
 }
 
 

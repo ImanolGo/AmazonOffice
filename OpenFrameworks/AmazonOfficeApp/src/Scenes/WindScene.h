@@ -1,8 +1,8 @@
 /*
- *  TrafficScene.h
+ *  WindScene.h
  *  AmazonOfficeApp
  *
- *  Created by Imanol Gomez on 02/05/18.
+ *  Created by Imanol Gomez on 03/05/18.
  *
  */
 
@@ -11,14 +11,14 @@
 
 #include "ofxScene.h"
 #include "ImageVisual.h"
+#include "TextVisual.h"
 
-
-class TrafficScene : public ofxScene {
+class WindScene : public ofxScene {
 
 public:
 
     //! Constructor
-    TrafficScene();
+    WindScene();
     
     //! Set up the scene
     void setup();
@@ -43,22 +43,19 @@ public:
 
 private:
     
-    void setupImages();
+    void loadImages();
     
-    void setupImageMap();
+    void setupText();
     
-    void setupImageTraffic();
+    void updateText();
     
     void drawImages();
     
+    void drawText();
     
 private:
     
-    typedef  map<string, ofPtr<ImageVisual>  >    ImageMap;           ///< defines a map of ImageVisual Map attached to an identifier
-    
-    ImageVisual           m_map;
-    ImageMap              m_trafficStatus;
-    
-
+    ImageVisual       m_weatherIcon;
+    TextVisual        m_textTemperature;
 };
 
