@@ -123,6 +123,7 @@ void WeatherScene::drawText() {
 
 
 void WeatherScene::willFadeIn() {
+     AppManager::getInstance().getApiManager().loadWeatherData();
      ofLogNotice("WeatherScene::willFadeIn");
 }
 

@@ -115,6 +115,14 @@ public:
     
     bool isDayTime() {return m_weatherConditions.isDayTime();}
     
+    void loadTrafficData();
+    
+    void loadTidesData();
+    
+    void loadWeatherData();
+    
+    void loadSkyData();
+    
 private:
     
     void setupApis();
@@ -148,6 +156,8 @@ private:
     void parseSurf(string response);
     
     void parseTraffic(string name, string response);
+    
+    void loadTrafficUrl();
 
 private:
     

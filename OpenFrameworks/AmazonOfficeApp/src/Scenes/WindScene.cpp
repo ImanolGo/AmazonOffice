@@ -84,6 +84,7 @@ void WindScene::drawText() {
 
 void WindScene::willFadeIn() {
      ofLogNotice("WindScene::willFadeIn");
+     AppManager::getInstance().getApiManager().loadWeatherData();
 }
 
 void WindScene::willDraw() {

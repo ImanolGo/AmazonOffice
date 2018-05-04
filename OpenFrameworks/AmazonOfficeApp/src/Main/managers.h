@@ -21,3 +21,4 @@
 #include "SceneManager.h"
 #include "ApiManager.h"
 #include "OscManager.h"
+#include "SensorsManager.h"

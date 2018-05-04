@@ -73,6 +73,9 @@ public:
     //! Returns the osc manager
     OscManager&  getOscManager() { return m_oscManager; }
     
+    //! Returns the sensors manager
+    SensorsManager&  getSensorManager() { return m_sensorsManager; }
+    
 
     //==========================================================================
     
@@ -116,7 +119,8 @@ private:
     SceneManager             m_sceneManager;             ///< Manages all the scenes
     ApiManager               m_apiManager;               ///< Manages all the apis
     MaskManager              m_maskManager;              ///< Manages all the masks
-    OscManager               m_oscManager;              ///< Manages all the osc communications
+    OscManager               m_oscManager;               ///< Manages all the osc communications
+    SensorsManager           m_sensorsManager;           ///< Manages all the sensors
     
     bool                     m_debugMode;
     bool                     m_initialized;

@@ -74,6 +74,7 @@ void AppManager::setupManagers()
     m_keyboardManager.setup();
     m_sceneManager.setup();
     m_oscManager.setup();
+    m_sensorsManager.setup();
     m_guiManager.setup();
     m_sceneManager.nextScene();
 }
@@ -90,6 +91,7 @@ void AppManager::update()
     m_guiManager.update();
     m_layoutManager.update();
     m_oscManager.update();
+    m_sensorsManager.update();
 }
 
 

@@ -88,6 +88,7 @@ void TrafficScene::drawImages()
 }
 
 void TrafficScene::willFadeIn() {
+     AppManager::getInstance().getApiManager().loadTrafficData();
      ofLogNotice("TrafficScene::willFadeIn");
 }
 

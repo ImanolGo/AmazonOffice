@@ -47,6 +47,7 @@ void TidesScene::updateColor()
 }
 
 void TidesScene::willFadeIn() {
+    AppManager::getInstance().getApiManager().loadTidesData();
      ofLogNotice("TidesScene::willFadeIn");
 }
 
