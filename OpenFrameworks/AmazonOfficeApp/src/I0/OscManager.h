@@ -65,6 +65,8 @@ public:
     
     void sendOscTraffic();
     
+    void sendOscAirTraffic();
+    
 private:
     
     void readSenderInformation();

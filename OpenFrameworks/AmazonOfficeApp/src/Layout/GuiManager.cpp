@@ -145,32 +145,33 @@ void GuiManager::setupSkyGui()
 {
     auto apiManager = &AppManager::getInstance().getApiManager();
     
-    m_numPlanes.set("Total", 10, 0, 100.0);
-    m_numPlanes.addListener(apiManager, &ApiManager::onNumPlanesChange);
-    m_parameters.add(m_numPlanes);
+    m_numAirport.set("Airport", 10, 0, 100.0);
+    m_numAirport.addListener(apiManager, &ApiManager::onNumAirportChange);
+    m_parameters.add(m_numAirport);
     
-    m_numGround.set("Ground", 10, 0, 100.0);
-    m_numGround.addListener(apiManager, &ApiManager::onNumGroundChange);
-    m_parameters.add(m_numGround);
+    m_numNorth.set("North", 10, 0, 100.0);
+    m_numNorth.addListener(apiManager, &ApiManager::onNumNorthChange);
+    m_parameters.add(m_numNorth);
     
-    m_numTakingOff.set("Taking Off", 10, 0, 100.0);
-    m_numTakingOff.addListener(apiManager, &ApiManager::onNumTakingOffChange);
-    m_parameters.add(m_numTakingOff);
+    m_numEast.set("East", 10, 0, 100.0);
+    m_numEast.addListener(apiManager, &ApiManager::onNumEastChange);
+    m_parameters.add(m_numEast);
     
-    m_numLanding.set("Landing", 10, 0, 100.0);
-    m_numLanding.addListener(apiManager, &ApiManager::onNumLandingChange);
-    m_parameters.add(m_numLanding);
+    m_numSouth.set("East", 10, 0, 100.0);
+    m_numSouth.addListener(apiManager, &ApiManager::onNumSouthChange);
+    m_parameters.add(m_numSouth);
     
-    m_numFlyingOver.set("Flying Over", 10, 0, 100.0);
-    m_numFlyingOver.addListener(apiManager, &ApiManager::onNumFlyingOverChange);
-    m_parameters.add(m_numFlyingOver);
+    m_numWest.set("West", 10, 0, 100.0);
+    m_numWest.addListener(apiManager, &ApiManager::onNumWestChange);
+    m_parameters.add(m_numWest);
+
     
     ofxDatGuiFolder* folder = m_gui.addFolder("AIR", ofColor::skyBlue);
-    folder->addSlider(m_numPlanes);
-    folder->addSlider(m_numGround);
-    folder->addSlider(m_numTakingOff);
-    folder->addSlider(m_numLanding);
-    folder->addSlider(m_numFlyingOver);
+    folder->addSlider(m_numAirport);
+    folder->addSlider(m_numNorth);
+    folder->addSlider(m_numEast);
+    folder->addSlider(m_numSouth);
+    folder->addSlider(m_numWest);
     folder->expand();
     
     m_gui.addBreak();
@@ -384,12 +385,12 @@ void GuiManager::onWeatherChange()
 void GuiManager::onAirTrafficChange()
 {
     auto value = AppManager::getInstance().getApiManager().getCurrentAirTraffic();
-    
-    m_numPlanes = value.numPlanes;
-    m_numGround = value.numGround;
-    m_numTakingOff = value.numTakingOff;
-    m_numLanding = value.numLanding;
-    m_numFlyingOver = value.numFlyingOver;
+        
+    m_numAirport = value.numAirport;
+    m_numNorth = value.numNorth;
+    m_numSouth = value.numSouth;
+    m_numEast = value.numEast;
+    m_numWest = value.numWest;
 }
 
 void GuiManager::onTrafficChange()

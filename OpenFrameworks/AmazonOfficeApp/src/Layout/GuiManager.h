@@ -119,11 +119,11 @@ private:
     
     ofParameter<float>      m_sceneDuration;
     
-    ofParameter<int>        m_numPlanes;
-    ofParameter<int>        m_numGround;
-    ofParameter<int>        m_numTakingOff;
-    ofParameter<int>        m_numLanding;
-    ofParameter<int>        m_numFlyingOver;
+    ofParameter<int>        m_numAirport;
+    ofParameter<int>        m_numNorth;
+    ofParameter<int>        m_numSouth;
+    ofParameter<int>        m_numEast;
+    ofParameter<int>        m_numWest;
     
     ofParameter<float>      m_weatherTemperature;
     ofParameter<float>      m_weatherHumidity;

@@ -33,11 +33,11 @@ struct api_settings
 
 struct air_traffic_status
 {
-    int numPlanes{0};
-    int numGround{0};
-    int numTakingOff{0};
-    int numLanding{0};
-    int numFlyingOver{0};
+    int numAirport{0};
+    int numNorth{0};
+    int numSouth{0};
+    int numEast{0};
+    int numWest{0};
 };
 
 
@@ -105,15 +105,15 @@ public:
     
     void onSwellPeriodChange(float& value){m_weatherConditions.m_swellPeriod = value;}
     
-    void onNumPlanesChange(int& value){m_currentAirTraffic.numPlanes = value;}
+    void onNumAirportChange(int& value){m_currentAirTraffic.numAirport = value;}
     
-    void onNumGroundChange(int& value){m_currentAirTraffic.numGround = value;}
+    void onNumNorthChange(int& value){m_currentAirTraffic.numNorth = value;}
     
-    void onNumTakingOffChange(int& value){m_currentAirTraffic.numTakingOff= value;}
+    void onNumSouthChange(int& value){m_currentAirTraffic.numSouth= value;}
     
-    void onNumLandingChange(int& value){m_currentAirTraffic.numLanding= value;}
+    void onNumEastChange(int& value){m_currentAirTraffic.numEast= value;}
     
-    void onNumFlyingOverChange(int& value){m_currentAirTraffic.numFlyingOver= value;}
+    void onNumWestChange(int& value){m_currentAirTraffic.numWest= value;}
     
     bool isDayTime() {return m_weatherConditions.isDayTime();}
     

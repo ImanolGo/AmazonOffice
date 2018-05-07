@@ -316,32 +316,43 @@ void ApiManager::parseSky(string response)
 
 void ApiManager::updateAirTraffic()
 {
-    m_currentAirTraffic.numPlanes = m_flights.size();
-    m_currentAirTraffic.numGround = 0;
-    m_currentAirTraffic.numTakingOff = 0;
-    m_currentAirTraffic.numLanding = 0;
-    m_currentAirTraffic.numFlyingOver = 0;
+    m_currentAirTraffic.numAirport = 0;
+    m_currentAirTraffic.numNorth = 0;
+    m_currentAirTraffic.numSouth = 0;
+    m_currentAirTraffic.numEast = 0;
+    m_currentAirTraffic.numWest = 0;
     
     for(auto flight: m_flights)
     {
-        if(flight->m_altitude <=20){
-            m_currentAirTraffic.numGround++;
+        if(flight->m_altitude <=10){
+            m_currentAirTraffic.numAirport++;
         }
         
-        if(flight->m_altitude <=1000 && flight->m_verticalRate >0){
-            m_currentAirTraffic.numTakingOff++;
+        else
+        {
+            
+            if(flight->m_heading >= 315 || flight->m_heading < 45){
+                m_currentAirTraffic.numNorth++;
+            }
+            
+            
+            else if(flight->m_heading >= 45 && flight->m_heading < 135){
+                m_currentAirTraffic.numEast++;
+            }
+            
+            
+            else if(flight->m_heading >= 135 && flight->m_heading < 225){
+                m_currentAirTraffic.numSouth++;
+            }
+            
+            else if(flight->m_heading >= 225 && flight->m_heading < 315){
+                m_currentAirTraffic.numWest++;
+            }
         }
         
-        if(flight->m_altitude > 20 && flight->m_altitude <=2000 && flight->m_verticalRate < 0){
-            m_currentAirTraffic.numLanding++;
-        }
-        
-        if(flight->m_altitude > 2000){
-            m_currentAirTraffic.numFlyingOver++;
-        }
     }
     
-    ofLogNotice() << "ApiManager::updateAirTraffic << Num Planes: " << m_currentAirTraffic.numPlanes  <<", Num Ground: " << m_currentAirTraffic.numGround <<", Num Taking Off: " << m_currentAirTraffic.numTakingOff <<", Num Landing: " << m_currentAirTraffic.numLanding<<", Num Flying Over: " << m_currentAirTraffic.numFlyingOver;
+    ofLogNotice() << "ApiManager::updateAirTraffic << Num Total: " <<  m_flights.size() << ",  Num Airport: " << m_currentAirTraffic.numAirport  <<", Num North: " << m_currentAirTraffic.numNorth <<", Num East: " << m_currentAirTraffic.numEast <<", Num South: " << m_currentAirTraffic.numSouth<<", Num West: " << m_currentAirTraffic.numWest;
 }
 
 

@@ -270,6 +270,7 @@ void OscManager::sendOscAll()
 	this->sendOscWeather();
 	this->sendOscWeatherNorm();
     this->sendOscTraffic();
+    this->sendOscAirTraffic();
 }
 
 void OscManager::sendOscWeather()
@@ -310,6 +311,26 @@ void OscManager::sendOscTraffic()
         string message = "amazon/traffic/norm/" + ofToLower(street->m_name);
         this->sendFloatMessage(street->getSpeedNorm(), message);
     }
+}
+
+void OscManager::sendOscAirTraffic()
+{
+    auto airstatus = AppManager::getInstance().getApiManager().getCurrentAirTraffic();
+    
+    string message = "planes/norm/aerport";
+    this->sendIntMessage(airstatus.numAirport, message);
+    
+    message = "planes/norm/north";
+    this->sendIntMessage(airstatus.numNorth, message);
+    
+    message = "planes/norm/east";
+    this->sendIntMessage(airstatus.numEast, message);
+    
+    message = "planes/norm/south";
+    this->sendIntMessage(airstatus.numSouth, message);
+    
+    message = "planes/norm/west";
+    this->sendIntMessage(airstatus.numWest, message);
     
 }
 
