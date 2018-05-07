@@ -48,6 +48,14 @@ public:
     
     void setStandbyTime(double value, int _id);
     
+    void setTileThreshold1(int& value);
+    
+    void setTileThreshold2(int& value);
+    
+    void setTileThreshold3(int& value);
+    
+    void setWaitingTime(float& value);
+    
 private:
     
     void setupSensors();

@@ -42,6 +42,7 @@ void GuiManager::setup()
     this->setupGuiParameters();
     this->setupGeneralGui();
     this->setupScenesGui();
+    this->setupTileGui();
     this->setupSkyGui();
     this->setupTrafficGui();
     this->setupWeatherGui();
@@ -106,6 +107,37 @@ void GuiManager::setupScenesGui()
     menu->expand(); //let's have it open by default
     menu->setStripeColor(ofColor::pink);
     for (int i=0; i<menu->size(); i++) menu->getChildAt(i)->setStripeColor(ofColor::pink);
+    m_gui.addBreak();
+}
+
+
+void GuiManager::setupTileGui()
+{
+    auto sensorManager = &AppManager::getInstance().getSensorManager();
+    
+    m_tileThreshold1.set("Threshold1", 30, 0, 1024);
+    m_tileThreshold1.addListener(sensorManager, &SensorsManager::setTileThreshold1);
+    m_parameters.add(m_tileThreshold1);
+    
+    m_tileThreshold2.set("Threshold2", 30, 0, 1024);
+    m_tileThreshold2.addListener(sensorManager, &SensorsManager::setTileThreshold2);
+    m_parameters.add(m_tileThreshold2);
+    
+    m_tileThreshold3.set("Threshold3", 30, 0, 1024);
+    m_tileThreshold3.addListener(sensorManager, &SensorsManager::setTileThreshold3);
+    m_parameters.add(m_tileThreshold3);
+    
+    m_tileStandby.set("Time", 2, 0, 30);
+    m_tileStandby.addListener(sensorManager, &SensorsManager::setWaitingTime);
+    m_parameters.add(m_tileStandby);
+    
+    ofxDatGuiFolder* folder = m_gui.addFolder("SENSORS", ofColor::darkRed);
+    folder->addSlider(m_tileThreshold1);
+    folder->addSlider(m_tileThreshold2);
+    folder->addSlider(m_tileThreshold3);
+    folder->addSlider(m_tileStandby);
+    folder->expand();
+    
     m_gui.addBreak();
 }
 
@@ -359,6 +391,17 @@ void GuiManager::onAirTrafficChange()
     m_numLanding = value.numLanding;
     m_numFlyingOver = value.numFlyingOver;
 }
+
+void GuiManager::onTrafficChange()
+{
+    auto streets = AppManager::getInstance().getApiManager().getTrafficStatus();
+    
+    for(int i=0; i<streets.size(); i++)
+    {
+        m_streetFlow[i] = streets[i]->getSpeedNorm();
+    }
+}
+
 
 void GuiManager::onSceneChange(string &sceneName)
 {

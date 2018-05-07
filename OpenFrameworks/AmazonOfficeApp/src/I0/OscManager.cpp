@@ -267,11 +267,12 @@ string OscManager::getMessageAsString(const ofxOscMessage& m) const
 
 void OscManager::sendOscAll()
 {
-	this->sendOscUnity();
-	this->sendOscIpad();
+	this->sendOscWeather();
+	this->sendOscWeatherNorm();
+    this->sendOscTraffic();
 }
 
-void OscManager::sendOscUnity()
+void OscManager::sendOscWeather()
 {
 	auto weather = AppManager::getInstance().getApiManager().getCurrentWeather();
 
@@ -300,7 +301,19 @@ void OscManager::sendOscUnity()
 	this->sendFloatMessage(weather.getSwellPeriodNorm(), message);
 }
 
-void OscManager::sendOscIpad()
+void OscManager::sendOscTraffic()
+{
+    auto streets = AppManager::getInstance().getApiManager().getTrafficStatus();
+    
+    for(auto street: streets)
+    {
+        string message = "amazon/traffic/norm/" + ofToLower(street->m_name);
+        this->sendFloatMessage(street->getSpeedNorm(), message);
+    }
+    
+}
+
+void OscManager::sendOscWeatherNorm()
 {
 	auto weather = AppManager::getInstance().getApiManager().getCurrentWeather();
 

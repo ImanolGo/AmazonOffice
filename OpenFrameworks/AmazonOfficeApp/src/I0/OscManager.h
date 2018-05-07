@@ -59,9 +59,11 @@ public:
     
 	void sendOscAll();
 
-    void sendOscUnity();
+    void sendOscWeather();
 
-	void sendOscIpad();
+	void sendOscWeatherNorm();
+    
+    void sendOscTraffic();
     
 private:
     

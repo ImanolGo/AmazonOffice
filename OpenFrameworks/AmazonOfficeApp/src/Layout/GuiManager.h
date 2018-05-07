@@ -72,9 +72,19 @@ public:
     
     void onAirTrafficChange();
     
+    void onTrafficChange();
+    
     void onSceneChange(string& sceneName);
     
     void onSceneChange(int sceneIndex);
+    
+    void setTileThreshold1(int value){m_tileThreshold1 = value;}
+    
+    void setTileThreshold2(int value){m_tileThreshold2 = value;}
+    
+    void setTileThreshold3(int value){m_tileThreshold3 = value;}
+    
+    void setTileStandbyTime(float value){m_tileStandby = value;}
     
 private:
     
@@ -89,6 +99,8 @@ private:
     void setupSkyGui();
     
     void setupTrafficGui();
+    
+    void setupTileGui();
     
     void drawRectangle();
     
@@ -124,6 +136,11 @@ private:
     
     ofParameter<float>      m_swellHeight;
     ofParameter<float>      m_swellPeriod;
+    
+    ofParameter<int>      m_tileThreshold1;
+    ofParameter<int>      m_tileThreshold2;
+    ofParameter<int>      m_tileThreshold3;
+    ofParameter<float>    m_tileStandby;
     
     std::array<ofParameter<float>, 10> m_streetFlow;
     

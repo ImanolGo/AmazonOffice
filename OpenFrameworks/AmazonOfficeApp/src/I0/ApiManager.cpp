@@ -253,6 +253,7 @@ void ApiManager::urlResponse(ofHttpResponse & response)
             this->parseSky(response.data);
             this->updateAirTraffic();
             AppManager::getInstance().getGuiManager().onAirTrafficChange();
+            AppManager::getInstance().getOscManager().sendOscAll();
         }
         
         else if(response.request.name == "surf")
@@ -274,6 +275,9 @@ void ApiManager::urlResponse(ofHttpResponse & response)
                     this->parseTraffic(street->m_name, response.data);
                     break;
                 }
+                
+                 AppManager::getInstance().getGuiManager().onTrafficChange();
+                 AppManager::getInstance().getOscManager().sendOscAll();
 
             }
         }

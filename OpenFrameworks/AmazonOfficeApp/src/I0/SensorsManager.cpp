@@ -104,3 +104,26 @@ void SensorsManager::sendOscPirCounter()
     
     AppManager::getInstance().getOscManager().sendIntMessage(m_pirCounter, address);
 }
+
+void SensorsManager::setTileThreshold1(int& value)
+{
+    this->setThreshold(value, 1);
+}
+
+void SensorsManager::setTileThreshold2(int& value)
+{
+    this->setThreshold(value, 2);
+}
+
+void SensorsManager::setTileThreshold3(int& value)
+{
+    this->setThreshold(value, 3);
+}
+
+void SensorsManager::setWaitingTime(float& value)
+{
+    for(auto sensor: m_sensors){
+        sensor.second->setStandbyTime(value);
+    }
+}
+

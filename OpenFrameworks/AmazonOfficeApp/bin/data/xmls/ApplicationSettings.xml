@@ -11,7 +11,7 @@
 
   <api>
        <weather url = "http://api.openweathermap.org/data/2.5/weather?" city="Barcelona" lat="41.390205" lon="2.154007" units="metric" key="e4c4bf0f238afdc3bcef9346e1a47ff3" request_time ="10"/>
-       <opensky url = "opensky-network.org/api/states/all?" city="Barcelona" latMin="41.2350" lonMin="1.9268" latMax="41.4532" lonMax="2.2769" id="amazonoffice" key="amazonofficepass" request_time ="30"/>
+       <opensky url = "opensky-network.org/api/states/all?" city="Barcelona" latMin="40.6494" lonMin="1.3486" latMax="41.8922" lonMax="2.9564" id="amazonoffice" key="amazonofficepass" request_time ="5"/>
        <surf city="Barceloneta" url="http://magicseaweed.com/api/" key = "6894ba16117b5b91b63a653717789f6c" id="3535" units="eu" request_time ="3600"/>
        <traffic city="Barcelona" url="https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/xml?key=" key = "dZr93ZMIsFAJY08hiMrXd2oMxVAEuv0L" latMin="41.3503" lonMin="2.1016" latMax="41.4535" lonMax="2.2429" request_time ="60"/>
      
@@ -45,10 +45,10 @@
 
   <streets>
 
-    <street name="GranVia" lat="41.40038" lon="2.18295"/>
+    <street name="Granvia" lat="41.40038" lon="2.18295"/>
     <street name="Diagonal" lat="41.39924" lon="2.17121"/>
-    <street name="RondaDeDalt" lat="41.44011" lon="2.16261"/>
-    <street name="RondaLitoral" lat="41.38537" lon="2.19287"/>
+    <street name="Rdalt" lat="41.44011" lon="2.16261"/>
+    <street name="Rlitoral" lat="41.38537" lon="2.19287"/>
 
   </streets>
 
