@@ -94,6 +94,11 @@ void SettingsManager::setDebugProperties()
             ofSetLogLevel(OF_LOG_NOTICE);
         }
         
+		 bool logToFile = xml.getAttribute("logToFile").getBoolValue();
+	        if(logToFile){
+	          string logFileName = "logs/consoleLog_" + ofGetTimestampString() + ".txt";
+            ofLogToFile(logFileName, false);
+        }
         
         m_sceneTimer =  xml.getAttribute("sceneTimer").getFloatValue();
         

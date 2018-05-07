@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Condition="'$(WindowsTargetPlatformVersion)'==''">
+    <LatestTargetPlatformVersion>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetLatestSDKTargetPlatformVersion('Windows', '10.0'))</LatestTargetPlatformVersion>
+    <WindowsTargetPlatformVersion Condition="'$(WindowsTargetPlatformVersion)' == ''">$(LatestTargetPlatformVersion)</WindowsTargetPlatformVersion>
+    <TargetPlatformVersion>$(WindowsTargetPlatformVersion)</TargetPlatformVersion>
+  </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7FD42DF7-442E-479A-BA76-D0022F99702A}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>AmazonOfficeApp</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="../../../../../Applications/of_v0.10.0_vs2017_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="../../../../../Applications/of_v0.10.0_vs2017_release/libs\openFrameworksCompiled\project\vs\openFrameworksRelease.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="../../../../../Applications/of_v0.10.0_vs2017_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="../../../../../Applications/of_v0.10.0_vs2017_release/libs\openFrameworksCompiled\project\vs\openFrameworksDebug.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <TargetName>$(ProjectName)_debug</TargetName>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>bin\</OutDir>
+    <IntDir>obj\$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src\Addons\ofxDatGui\src;src\Addons\ofxDatGui\src\components;src\Addons\ofxDatGui\src\core;src\Addons\ofxDatGui\src\libs\ofxSmartFont;src\Addons\ofxDatGui\src\themes;src\Addons\ofxEasing\src;src\Addons\ofxJSON\libs\jsoncpp\include\json;src\Addons\ofxJSON\libs\jsoncpp\src;src\Addons\ofxJSON\src;src\Addons\ofxSceneManager\src;src\Addons\ofxSimpleTimer\src;src\Addons\ofxTextSuite\src;src\Engine\3D;src\Engine\Resources;src\Engine\Visuals;src\I0;src\Layout;src\Main;src\Scenes;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+      <PreprocessorDefinitions>OSC_HOST_LITTLE_ENDIAN</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src\Addons\ofxDatGui\src;src\Addons\ofxDatGui\src\components;src\Addons\ofxDatGui\src\core;src\Addons\ofxDatGui\src\libs\ofxSmartFont;src\Addons\ofxDatGui\src\themes;src\Addons\ofxEasing\src;src\Addons\ofxJSON\libs\jsoncpp\include\json;src\Addons\ofxJSON\libs\jsoncpp\src;src\Addons\ofxJSON\src;src\Addons\ofxSceneManager\src;src\Addons\ofxSimpleTimer\src;src\Addons\ofxTextSuite\src;src\Engine\3D;src\Engine\Resources;src\Engine\Visuals;src\I0;src\Layout;src\Main;src\Scenes;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>OSC_HOST_LITTLE_ENDIAN</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src\Addons\ofxDatGui\src;src\Addons\ofxDatGui\src\components;src\Addons\ofxDatGui\src\core;src\Addons\ofxDatGui\src\libs\ofxSmartFont;src\Addons\ofxDatGui\src\themes;src\Addons\ofxEasing\src;src\Addons\ofxJSON\libs\jsoncpp\include;src\Addons\ofxJSON\libs\jsoncpp\src;src\Addons\ofxJSON\src;src\Addons\ofxSceneManager\src;src\Addons\ofxSimpleTimer\src;src\Addons\ofxTextSuite\src;src\Engine\3D;src\Engine\Resources;src\Engine\Visuals;src\I0;src\Layout;src\Main;src\Scenes;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>OSC_HOST_LITTLE_ENDIAN</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);src\Addons\ofxDatGui\src;src\Addons\ofxDatGui\src\components;src\Addons\ofxDatGui\src\core;src\Addons\ofxDatGui\src\libs\ofxSmartFont;src\Addons\ofxDatGui\src\themes;src\Addons\ofxEasing\src;src\Addons\ofxJSON\libs\jsoncpp\include\json;src\Addons\ofxJSON\libs\jsoncpp\src;src\Addons\ofxJSON\src;src\Addons\ofxSceneManager\src;src\Addons\ofxSimpleTimer\src;src\Addons\ofxTextSuite\src;src\Engine\3D;src\Engine\Resources;src\Engine\Visuals;src\I0;src\Layout;src\Main;src\Scenes;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\posix;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc;..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src</AdditionalIncludeDirectories>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+      <PreprocessorDefinitions>OSC_HOST_LITTLE_ENDIAN</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent />
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Addons\ofxDatGui\src\core\ofxDatGuiComponent.cpp" />
+    <ClCompile Include="src\Addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.cpp" />
+    <ClCompile Include="src\Addons\ofxDatGui\src\ofxDatGui.cpp" />
+    <ClCompile Include="src\Addons\ofxJSON\libs\jsoncpp\src\jsoncpp.cpp" />
+    <ClCompile Include="src\Addons\ofxJSON\src\ofxJSONElement.cpp" />
+    <ClCompile Include="src\Addons\ofxSceneManager\src\ofxSceneManager.cpp" />
+    <ClCompile Include="src\Addons\ofxSimpleTimer\src\ofxSimpleTimer.cpp" />
+    <ClCompile Include="src\Addons\ofxTextSuite\src\ofxTextBlock.cpp" />
+    <ClCompile Include="src\Engine\3D\CameraAnimations.cpp" />
+    <ClCompile Include="src\Engine\3D\CameraAnimationsManager.cpp" />
+    <ClCompile Include="src\Engine\3D\CameraManager.cpp" />
+    <ClCompile Include="src\Engine\3D\LightManager.cpp" />
+    <ClCompile Include="src\Engine\Resources\ResourceManager.cpp" />
+    <ClCompile Include="src\Engine\Visuals\ImageVisual.cpp" />
+    <ClCompile Include="src\Engine\Visuals\ImageVisual3D.cpp" />
+    <ClCompile Include="src\Engine\Visuals\RectangleVisual.cpp" />
+    <ClCompile Include="src\Engine\Visuals\TextVisual.cpp" />
+    <ClCompile Include="src\Engine\Visuals\VideoVisual.cpp" />
+    <ClCompile Include="src\Engine\Visuals\ViewManager.cpp" />
+    <ClCompile Include="src\Engine\Visuals\VisualEffects.cpp" />
+    <ClCompile Include="src\Engine\Visuals\VisualEffectsManager.cpp" />
+    <ClCompile Include="src\I0\AirplaneStatus.cpp" />
+    <ClCompile Include="src\I0\ApiManager.cpp" />
+    <ClCompile Include="src\I0\KeyboardManager.cpp" />
+    <ClCompile Include="src\I0\MoonCalculator.cpp" />
+    <ClCompile Include="src\I0\OscManager.cpp" />
+    <ClCompile Include="src\I0\Sensor.cpp" />
+    <ClCompile Include="src\I0\SensorsManager.cpp" />
+    <ClCompile Include="src\I0\TrafficStatus.cpp" />
+    <ClCompile Include="src\I0\WeatherConditions.cpp" />
+    <ClCompile Include="src\Layout\GuiManager.cpp" />
+    <ClCompile Include="src\Layout\LayoutManager.cpp" />
+    <ClCompile Include="src\Layout\MaskManager.cpp" />
+    <ClCompile Include="src\Main\AmazonOfficeApp.cpp" />
+    <ClCompile Include="src\Main\AppManager.cpp" />
+    <ClCompile Include="src\Main\main.cpp" />
+    <ClCompile Include="src\Main\SettingsManager.cpp" />
+    <ClCompile Include="src\Scenes\BlankScene.cpp" />
+    <ClCompile Include="src\Scenes\ImageScene.cpp" />
+    <ClCompile Include="src\Scenes\PlanesScene.cpp" />
+    <ClCompile Include="src\Scenes\SceneManager.cpp" />
+    <ClCompile Include="src\Scenes\TidesScene.cpp" />
+    <ClCompile Include="src\Scenes\TrafficScene.cpp" />
+    <ClCompile Include="src\Scenes\VideoScene.cpp" />
+    <ClCompile Include="src\Scenes\WeatherScene.cpp" />
+    <ClCompile Include="src\Scenes\WindScene.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxNetworkUtils.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPClient.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPServer.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxUDPManager.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscBundle.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscMessage.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscParameterSync.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscReceiver.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscSender.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32\NetworkingUtils.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\win32\UdpSocket.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.cpp" />
+    <ClCompile Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGui2dPad.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiButton.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiColorPicker.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiControls.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiFRM.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiGroups.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiLabel.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiMatrix.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiScrollView.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiSlider.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiTextInput.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiTextInputField.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\components\ofxDatGuiTimeGraph.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiComponent.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiConstants.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiEvents.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\core\ofxDatGuiIntObject.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\libs\ofxSmartFont\ofxSmartFont.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\ofxDatGui.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\themes\ofxDatGuiTheme.h" />
+    <ClInclude Include="src\Addons\ofxDatGui\src\themes\ofxDatGuiThemes.h" />
+    <ClInclude Include="src\Addons\ofxEasing\src\ofxEasing.h" />
+    <ClInclude Include="src\Addons\ofxJSON\libs\jsoncpp\include\json\json-forwards.h" />
+    <ClInclude Include="src\Addons\ofxJSON\libs\jsoncpp\include\json\json.h" />
+    <ClInclude Include="src\Addons\ofxJSON\src\ofxJSON.h" />
+    <ClInclude Include="src\Addons\ofxJSON\src\ofxJSONElement.h" />
+    <ClInclude Include="src\Addons\ofxSceneManager\src\ofxScene.h" />
+    <ClInclude Include="src\Addons\ofxSceneManager\src\ofxSceneManager.h" />
+    <ClInclude Include="src\Addons\ofxSimpleTimer\src\ofxSimpleTimer.h" />
+    <ClInclude Include="src\Addons\ofxTextSuite\src\ofxTextBlock.h" />
+    <ClInclude Include="src\Addons\ofxTextSuite\src\ofxTextSuite.h" />
+    <ClInclude Include="src\Engine\3D\CameraAnimations.h" />
+    <ClInclude Include="src\Engine\3D\CameraAnimationsManager.h" />
+    <ClInclude Include="src\Engine\3D\CameraManager.h" />
+    <ClInclude Include="src\Engine\3D\LightManager.h" />
+    <ClInclude Include="src\Engine\Resources\ResourceManager.h" />
+    <ClInclude Include="src\Engine\Visuals\BasicVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\ImageVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\ImageVisual3D.h" />
+    <ClInclude Include="src\Engine\Visuals\RectangleVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\TextVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\VideoVisual.h" />
+    <ClInclude Include="src\Engine\Visuals\ViewManager.h" />
+    <ClInclude Include="src\Engine\Visuals\VisualEffects.h" />
+    <ClInclude Include="src\Engine\Visuals\VisualEffectsManager.h" />
+    <ClInclude Include="src\I0\AirplaneStatus.h" />
+    <ClInclude Include="src\I0\ApiManager.h" />
+    <ClInclude Include="src\I0\KeyboardManager.h" />
+    <ClInclude Include="src\I0\MoonCalculator.h" />
+    <ClInclude Include="src\I0\OscManager.h" />
+    <ClInclude Include="src\I0\Sensor.h" />
+    <ClInclude Include="src\I0\SensorsManager.h" />
+    <ClInclude Include="src\I0\TrafficStatus.h" />
+    <ClInclude Include="src\I0\WeatherConditions.h" />
+    <ClInclude Include="src\Layout\GuiManager.h" />
+    <ClInclude Include="src\Layout\GuiTheme.h" />
+    <ClInclude Include="src\Layout\LayoutManager.h" />
+    <ClInclude Include="src\Layout\MaskManager.h" />
+    <ClInclude Include="src\Main\AmazonOfficeApp.h" />
+    <ClInclude Include="src\Main\AppManager.h" />
+    <ClInclude Include="src\Main\Manager.h" />
+    <ClInclude Include="src\Main\managers.h" />
+    <ClInclude Include="src\Main\SettingsManager.h" />
+    <ClInclude Include="src\Scenes\BlankScene.h" />
+    <ClInclude Include="src\Scenes\ImageScene.h" />
+    <ClInclude Include="src\Scenes\PlanesScene.h" />
+    <ClInclude Include="src\Scenes\SceneManager.h" />
+    <ClInclude Include="src\Scenes\scenes.h" />
+    <ClInclude Include="src\Scenes\TidesScene.h" />
+    <ClInclude Include="src\Scenes\TrafficScene.h" />
+    <ClInclude Include="src\Scenes\VideoScene.h" />
+    <ClInclude Include="src\Scenes\WeatherScene.h" />
+    <ClInclude Include="src\Scenes\WindScene.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxNetwork.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxNetworkUtils.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPClient.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPManager.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPServer.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxTCPSettings.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxUDPManager.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxNetwork\src\ofxUDPSettings.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOsc.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscArg.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscBundle.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscMessage.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscParameterSync.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscReceiver.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\src\ofxOscSender.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\IpEndpointName.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\NetworkingUtils.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\PacketListener.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\TimerListener.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\ip\UdpSocket.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\MessageMappingOscPacketListener.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscException.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscHostEndianness.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscOutboundPacketStream.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscPacketListener.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscPrintReceivedElements.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscReceivedElements.h" />
+    <ClInclude Include="..\..\..\..\..\Applications\of_v0.10.0_vs2017_release\addons\ofxOsc\libs\oscpack\src\osc\OscTypes.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(OF_ROOT)\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">
+      <Project>{5837595d-aca9-485c-8e76-729040ce4b0b}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc">
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">/D_DEBUG %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(OF_ROOT)\libs\openFrameworksCompiled\project\vs</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="bin\data\images\icons\EmotionTech.ico" />
+    <Image Include="icon.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="icon.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

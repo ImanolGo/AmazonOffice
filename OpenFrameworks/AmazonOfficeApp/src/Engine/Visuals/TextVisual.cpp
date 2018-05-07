@@ -35,6 +35,10 @@ void TextVisual::setText(const std::string& text, const std::string& fontName, f
 
 void TextVisual::setText(const std::string& text)
 {
+	if (m_text == text) {
+		return;
+	}
+
     m_text = text;
     
     m_textSuite.init(m_fontName,m_fontSize);

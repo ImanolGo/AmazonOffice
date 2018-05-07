@@ -74,7 +74,7 @@ void WeatherScene::updateText()
 }
 
 void WeatherScene::checkNewId() {
-    auto weatherConditions = AppManager::getInstance().getApiManager().getCurrentWeather();
+    auto & weatherConditions = AppManager::getInstance().getApiManager().getCurrentWeather();
     if(m_weatherId!=weatherConditions.m_id){
         m_weatherId=weatherConditions.m_id;
         this->changeIcon();

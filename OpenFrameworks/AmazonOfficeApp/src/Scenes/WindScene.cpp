@@ -46,7 +46,7 @@ void WindScene::setupText()
     float x =  m_weatherIcon.getPosition().x + m_weatherIcon.getWidth();
     float y =  m_weatherIcon.getPosition().y + m_weatherIcon.getHeight()*0.5;
     ofPoint pos = ofPoint(x, y);
-    string text = "";
+    string text = "0 kph";
     string fontName = LayoutManager::LAYOUT_FONT;
     
     m_textTemperature = TextVisual(pos,w,h,false);

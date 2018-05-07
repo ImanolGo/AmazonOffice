@@ -59,6 +59,11 @@ void LayoutManager::setupFbo()
     
     m_fbo.allocate(width, height, GL_RGBA);
     m_fbo.begin(); ofClear(0); m_fbo.end();
+
+	#ifdef TARGET_WIN32
+		m_fbo.getTextureReference().getTextureData().bFlipTexture = true;
+	#endif
+
 }
 
 

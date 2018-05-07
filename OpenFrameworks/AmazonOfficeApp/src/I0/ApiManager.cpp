@@ -65,7 +65,7 @@ void ApiManager::setupWeatherTimer()
     m_weatherTimer.start( false ) ;
     ofAddListener( m_weatherTimer.TIMER_COMPLETE , this, &ApiManager::weatherTimerCompleteHandler ) ;
     
-    ofLoadURLAsync(m_weatherUrl, "weather");
+    //ofLoadURLAsync(m_weatherUrl, "weather");
 }
 
 void ApiManager::setupSkyTimer()
@@ -77,7 +77,7 @@ void ApiManager::setupSkyTimer()
     m_skyTimer.start( false ) ;
     ofAddListener( m_skyTimer.TIMER_COMPLETE , this, &ApiManager::skyTimerCompleteHandler ) ;
     
-     ofLoadURLAsync(m_skyUrl, "sky");
+    // ofLoadURLAsync(m_skyUrl, "sky");
 }
 
 void ApiManager::setupSurfTimer()
@@ -89,7 +89,7 @@ void ApiManager::setupSurfTimer()
     m_surfTimer.start( false ) ;
     ofAddListener( m_surfTimer.TIMER_COMPLETE , this, &ApiManager::surfTimerCompleteHandler ) ;
     
-    ofLoadURLAsync(m_surfUrl, "surf");
+    //ofLoadURLAsync(m_surfUrl, "surf");
 }
 
 void ApiManager::setupTrafficTimer()
@@ -102,7 +102,7 @@ void ApiManager::setupTrafficTimer()
     ofAddListener( m_trafficTimer.TIMER_COMPLETE , this, &ApiManager::trafficTimerCompleteHandler ) ;
     
     for(auto street: m_streets){
-        ofLoadURLAsync(street->m_url, street->m_name);
+       // ofLoadURLAsync(street->m_url, street->m_name);
     }
 
 }
@@ -150,7 +150,7 @@ void ApiManager::setupSkyApi()
     m_skyUrl+=ofToString(skySettings.lon2);
     
     
-    ofLogNotice() <<"ApiManager::setupSkyApi << surf url = " <<  m_skyUrl;
+    ofLogNotice() <<"ApiManager::setupSkyApi << sky url = " <<  m_skyUrl;
     
     ofLoadURLAsync(m_skyUrl, "sky");
     

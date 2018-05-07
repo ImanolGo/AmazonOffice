@@ -10,14 +10,14 @@
 	<Taking_Off>1</Taking_Off>
 	<Landing>3</Landing>
 	<Flying_Over>11</Flying_Over>
-	<Temp_>21.5</Temp_>
-	<Humidity>53</Humidity>
-	<Wind_Speed>3.6</Wind_Speed>
-	<Wind_Dir>120</Wind_Dir>
+	<Temp_>20.5</Temp_>
+	<Humidity>56</Humidity>
+	<Wind_Speed>1.5</Wind_Speed>
+	<Wind_Dir>0</Wind_Dir>
 	<Prec_>0</Prec_>
-	<Clouds>20</Clouds>
-	<Moon_Phase>0.540246</Moon_Phase>
-	<Sun_Position>0.857631</Sun_Position>
+	<Clouds>40</Clouds>
+	<Moon_Phase>0.536287</Moon_Phase>
+	<Sun_Position>0.813338</Sun_Position>
 	<Swell_Height>0.4</Swell_Height>
 	<Swell_Period>6</Swell_Period>
 </group>
