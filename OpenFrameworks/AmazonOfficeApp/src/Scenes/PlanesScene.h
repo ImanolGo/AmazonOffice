@@ -51,6 +51,8 @@ private:
     
     void drawImages();
     
+    void drawPlanes();
+    
     
 private:
     
@@ -58,5 +60,6 @@ private:
     
     ImageVisual           m_map;
     ImageMap              m_planes;
+    ImageVisual           m_plane;
 };
 

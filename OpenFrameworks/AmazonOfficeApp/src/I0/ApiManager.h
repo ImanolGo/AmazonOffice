@@ -83,6 +83,8 @@ public:
     
     air_traffic_status& getCurrentAirTraffic() {return m_currentAirTraffic;}
     
+    vector<ofPtr<AirplaneStatus>> & getFlights() {return m_flights;}
+    
     void onWindSpeedChange(float& value){m_weatherConditions.m_windSpeed = value;}
     
     void onWindDirChange(float& value){m_weatherConditions.m_windDirection = value;}

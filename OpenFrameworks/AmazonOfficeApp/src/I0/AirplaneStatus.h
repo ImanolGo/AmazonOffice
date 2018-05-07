@@ -34,7 +34,7 @@ public:
     string getLongitude() const { return ofToString(m_longitude) + "°";}
     string getAltitude() const { return ofToString(m_altitude) + "m";}
     string getVelocity() const { return ofToString(m_velocity) + "m/s";}
-    string getHeading() const { return ofToString(m_velocity) + "°";}
+    string getHeading() const { return ofToString(m_heading) + "°";}
     string getVerticalRate() const { return ofToString(m_verticalRate) + "m/s";}
     
  

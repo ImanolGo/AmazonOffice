@@ -50,27 +50,17 @@ void TrafficScene::setupImageTraffic()
     ofRectangle boundingBox;
     glm::vec2 pos(m_map.getPosition().x, m_map.getPosition().y);
     boundingBox.setFromCenter(pos, m_map.getWidth(), m_map.getHeight());
-//    boundingBox.x = m_map.getPosition().x -  m_map.getWidth()*0.5;
-//    boundingBox.y = m_map.getPosition().y -  m_map.getHeight()*0.5;
-//    boundingBox.width = m_map.getWidth(); boundingBox.height = m_map.getHeight();
-//
-    
-//    ofLogNotice() << "TrafficScene::setupImageTraffic -> xMin = " << boundingBox.getMinX() << ", xMax = "<< boundingBox.getMaxX() ;
-//    ofLogNotice() << "TrafficScene::setupImageTraffic -> yMin = " << boundingBox.getMinY() << ", yMax = "<< boundingBox.getMaxY() ;
+   
     auto & trafficVector = AppManager::getInstance().getApiManager().getTrafficStatus();
     auto  trafficSettings =  AppManager::getInstance().getSettingsManager().getTrafficSettings();
     
-//    ofLogNotice() << "TrafficScene::setupImageTraffic -> latMin = " << trafficSettings.lat << ",latMax = "<< trafficSettings.lat2 ;
-//    ofLogNotice() << "TrafficScene::setupImageTraffic -> lonMin = " << trafficSettings.lon << ", lonMax = "<< trafficSettings.lon2 ;
-//
     for(auto traffic: trafficVector){
         string resurceName = "Brush";
         float y = ofMap(traffic->m_latitude,trafficSettings.lat, trafficSettings.lat2, boundingBox.getMaxY(),  boundingBox.getMinY());
         float x = ofMap(traffic->m_longitude,trafficSettings.lon, trafficSettings.lon2, boundingBox.getMinX(),  boundingBox.getMaxX());
-        
-//        ofLogNotice() << "TrafficScene::setupImageTraffic -> lat = " << traffic->m_latitude << ", lon = "<< traffic->m_longitude ;
-//        ofLogNotice() << "TrafficScene::setupImageTraffic -> x = " << x << ", y = "<< y ;
+
         ofPtr<ImageVisual> imageTraffic =  ofPtr<ImageVisual> (new ImageVisual(ofPoint(x,y),resurceName,true));
+        imageTraffic->setWidth(50,true);
         m_trafficStatus[traffic->m_name] = imageTraffic;
     }
     
@@ -78,8 +68,19 @@ void TrafficScene::setupImageTraffic()
 
 void TrafficScene::update()
 {
-   
+   this->updateColors();
 }
+
+void TrafficScene::updateColors()
+{
+    auto & trafficVector = AppManager::getInstance().getApiManager().getTrafficStatus();
+   
+    for(auto traffic: trafficVector){
+        ofColor color = this->getHeatMapColor(traffic->getSpeedNorm());
+        m_trafficStatus[traffic->m_name]->setColor(color);
+    }
+}
+
 
 void TrafficScene::draw() {
     ofBackground(0);
@@ -95,6 +96,17 @@ void TrafficScene::drawImages()
         traffic.second->draw();
     }
 }
+
+ofColor TrafficScene::getHeatMapColor(float percentage)
+{
+    auto heatMap =  AppManager::getInstance().getResourceManager().getTexture("Heatmap");
+    ofPixels pixels;
+    heatMap->readToPixels(pixels);
+    int index = (int) ofMap(percentage, 1.0, 0.0, 0, heatMap->getWidth(), true);
+    ofColor c = pixels.getColor(index, 0.0);
+    return c;
+}
+
 
 void TrafficScene::willFadeIn() {
      AppManager::getInstance().getApiManager().loadTrafficData();

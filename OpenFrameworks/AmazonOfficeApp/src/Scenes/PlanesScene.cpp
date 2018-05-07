@@ -47,8 +47,9 @@ void PlanesScene::setupImageMap()
 
 void PlanesScene::setupImageTraffic()
 {
-    
-    
+    m_plane.setResource("Plane");
+    m_plane.setCentred(true);
+    m_plane.setWidth(30,true);
 }
 
 void PlanesScene::update()
@@ -59,6 +60,7 @@ void PlanesScene::update()
 void PlanesScene::draw() {
     ofBackground(0);
     this->drawImages();
+    this->drawPlanes();
 }
 
 
@@ -66,6 +68,27 @@ void PlanesScene::drawImages()
 {
     m_map.draw();
 }
+
+void PlanesScene::drawPlanes()
+{
+    auto & flights = AppManager::getInstance().getApiManager().getFlights();
+    auto  skySettings =  AppManager::getInstance().getSettingsManager().getSkySettings();
+    
+    ofPoint pos;
+    ofVec3f rotation;
+    for(auto flight: flights){
+        
+        pos.y = ofMap(flight->m_latitude,skySettings.lat, skySettings.lat2, m_map.getPosition().y + m_map.getHeight()*0.5,  m_map.getPosition().y - m_map.getHeight()*0.5);
+        pos.x = ofMap(flight->m_longitude,skySettings.lon, skySettings.lon2, m_map.getPosition().x - m_map.getWidth()*0.5,  m_map.getPosition().x + m_map.getWidth()*0.5);
+        rotation.z = flight->m_heading;
+        
+        m_plane.setPosition(pos);
+        m_plane.setRotation(rotation);
+        m_plane.draw();
+    }
+
+}
+
 
 void PlanesScene::willFadeIn() {
      ofLogNotice("PlanesScene::willFadeIn");

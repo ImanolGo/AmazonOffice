@@ -51,6 +51,9 @@ private:
     
     void drawImages();
     
+    void updateColors();
+    
+    ofColor getHeatMapColor(float percentage);
     
 private:
     

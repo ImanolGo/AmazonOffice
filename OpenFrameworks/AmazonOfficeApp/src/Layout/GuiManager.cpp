@@ -188,7 +188,7 @@ void GuiManager::setupTrafficGui()
     
     for(int i=0; i<streets.size(); i++)
     {
-        m_streetFlow[i].set(streets[i]->m_name, ofRandom(1.0), 0.0, 1.0);
+        m_streetFlow[i].set(streets[i]->m_name, 0.0, 0.0, 1.0);
         folder->addSlider(m_streetFlow[i]);
     }
     

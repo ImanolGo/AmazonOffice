@@ -20,6 +20,7 @@
   <textures>
    
     <texture name="Brush" path="images/general/brush2.png"/> 
+    <texture name="Heatmap" path="images/general/Heatmap.png"/> 
     <texture name="Rainbow" path="images/general/gradientRainbow.jpg"/> 
     <texture name="ClearSky" path="images/weather/clear.png"/> 
     <texture name="FewClouds" path="images/weather/mostlysunny.png"/> 
@@ -32,6 +33,7 @@
     <texture name="Mist" path="images/weather/fog.png"/> 
     <texture name="MapTraffic" path="images/traffic/BarcelonaTraffic.png"/> 
     <texture name="MapFlights" path="images/flights/BarcelonaFlights.png"/> 
+    <texture name="Plane" path="images/flights/plane.png"/> 
 
   </textures>
 
