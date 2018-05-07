@@ -9,7 +9,7 @@ const IPAddress gateway(192, 168, 178, 1);
 const IPAddress subnet(255, 255, 255, 0);
 const char* host = "192.168.178.20";
 const int recv_port = 10000;
-const int send_port = 12000;
+const int send_port = 9000;
 
 // These constants won't change. They're used to give names to the pins used:
 const int analogInPin = 32;  // Analog input pin that the potentiometer is attached to

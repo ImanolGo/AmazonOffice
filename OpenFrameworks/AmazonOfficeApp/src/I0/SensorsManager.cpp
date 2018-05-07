@@ -10,8 +10,9 @@
 #include "SensorsManager.h"
 #include "AppManager.h"
 
+const int SensorsManager::NUM_SENSORS = 3;
 
-SensorsManager::SensorsManager(): Manager()
+SensorsManager::SensorsManager(): Manager(), m_pirCounter(0.0)
 {
     //Intentionally left empty
 }
@@ -37,7 +38,15 @@ void SensorsManager::setup()
 
 void SensorsManager::setupSensors()
 {
-
+    for(int i=0; i<NUM_SENSORS; i++){
+        ofPtr<Sensor> sensor =  ofPtr<Sensor>( new Sensor(i+1));
+        m_sensors[sensor->getId()] = sensor;
+        //m_sensors.insert ( std::pair<int,Sensor>(sensor.getId(),sensor) );
+        
+//        Sensor sensor(i+1);
+//        m_sensors.insert ( std::pair<int,Sensor>(sensor.getId(),sensor) );
+        ofLogNotice() <<"SensorsManager::setupSensors -> ID: " << sensor->getId();
+    }
 }
 
 
@@ -48,5 +57,50 @@ void SensorsManager::update()
 
 void SensorsManager::updateSensors()
 {
-   
+    for(auto sensor: m_sensors){
+        sensor.second->update();
+    }
+}
+
+void SensorsManager::updateValue(int value, int _id)
+{
+    if(m_sensors.find(_id) == m_sensors.end()){
+        return;
+    }
+    
+    m_sensors[_id]->updateValue(value);
+}
+
+
+void SensorsManager::setThreshold(int value, int _id)
+{
+    if(m_sensors.find(_id) == m_sensors.end()){
+        return;
+    }
+    
+    m_sensors[_id]->setThreshold(value);
+}
+
+void SensorsManager::setStandbyTime(double value, int _id)
+{
+    if(m_sensors.find(_id) == m_sensors.end()){
+        return;
+    }
+    
+    m_sensors[_id]->setStandbyTime(value);
+}
+
+void SensorsManager::addPirOnset()
+{
+    m_pirCounter++;
+    this->sendOscPirCounter();
+}
+
+void SensorsManager::sendOscPirCounter()
+{
+    string address = "amazon/arduino/amazon/arduino/count/sentrada";
+    
+    ofLogNotice() <<"SensorsManager::sendOscPirCounter << count : " << m_pirCounter;
+    
+    AppManager::getInstance().getOscManager().sendIntMessage(m_pirCounter, address);
 }

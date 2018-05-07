@@ -28,22 +28,35 @@ public:
     Sensor(int _id);
 
     //! Destructor
-    virtual ~Sensor();
+    ~Sensor();
 
     void update();
     
     void setThreshold(int value){m_threshold = value;}
     
+    void setStandbyTime(double value){m_standbyTime = value;}
+    
+    void updateValue(int value);
+    
+    int getId() const {return m_id;}
     
 private:
     
     void setup();
     
+    void checkOnset(int value);
+    
+    void sendOscOnset();
+    
 private:
     
     int                 m_threshold;
     int                 m_value;
+    int                 m_previousValue;
     int                 m_id;
+    bool                m_activeSensor;
+    double              m_standbyTime;
+    double              m_ellapsedTime;
    
 };
 

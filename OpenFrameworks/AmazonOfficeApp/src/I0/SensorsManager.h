@@ -10,6 +10,7 @@
 
 #include "ofMain.h"
 #include "Manager.h"
+#include "Sensor.h"
 
 
 //========================== class SensorsManager =======================================
@@ -24,6 +25,8 @@
 class SensorsManager: public Manager
 {
     
+    static const int NUM_SENSORS;
+    
 public:
     //! Constructor
     SensorsManager();
@@ -37,14 +40,28 @@ public:
     //! updates the manager
     void update();
     
+    void addPirOnset();
+    
+    void updateValue(int value, int _id);
+    
+    void setThreshold(int value, int _id);
+    
+    void setStandbyTime(double value, int _id);
+    
 private:
     
     void setupSensors();
 
     void updateSensors();
     
+    void sendOscPirCounter();
 
 private:
+    
+    typedef    map< int, ofPtr<Sensor> >    SensorMap;    ///< Defines a map of sensors attached to its id
+    
+    SensorMap         m_sensors;
+    int               m_pirCounter;
     
  
     

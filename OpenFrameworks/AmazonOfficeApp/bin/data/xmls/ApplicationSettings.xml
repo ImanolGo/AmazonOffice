@@ -4,8 +4,8 @@
   <of_settings>
 
     <window title="AmazonOfficeApp" x="0" y="50" width="1920" height="1080" fullscreen="0" showCursor="1"/>
-    <debug showCursor="1" setVerbose="1" sceneTimer = "10"/> 
-    <network ipAddress="127.0.0.1" portOscReceive="90000" portOscSend="12346" spout="AmazonOfficeSpout"/>
+    <debug showCursor="1" setVerbose="1" sceneTimer = "120"/> 
+    <network ipAddress="127.0.0.1" portOscReceive="9000" portOscSend="12346" spout="AmazonOfficeSpout"/>
 
   </of_settings>
 
@@ -37,10 +37,10 @@
 
   <networks>
 
-    <network name="iPad" ipAddress="127.0.0.1" port="9001"/>
-    <network name="Unity" ipAddress="127.0.0.1" port="9002"/>
-   <!--  <network name="Duration" ipAddress="127.0.0.1" port="9004"/>
- -->
+    <network name="Unity" ipAddress="127.0.0.1" port="9001"/>
+    <network name="iPad" ipAddress="127.0.0.1" port="9002"/> 
+    <network name="ProtoPixel" ipAddress="127.0.0.1" port="9003"/>
+
   </networks>
 
   <streets>

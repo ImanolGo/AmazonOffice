@@ -162,7 +162,26 @@ void OscManager::update()
             
         }
         
-        ofLogNotice() <<"OscManager::received -> " << this->getMessageAsString(m);
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/arduino/baldosa1")
+        {
+            int value = m.getArgAsInt(0);
+            AppManager::getInstance().getSensorManager().updateValue(value,1);
+            //ofLogNotice() <<"OscManager::received -> " << this->getMessageAsString(m);
+        }
+        
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/arduino/baldosa2")
+        {
+            int value = m.getArgAsInt(0);
+            AppManager::getInstance().getSensorManager().updateValue(value,2);
+        }
+        
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/arduino/baldosa3")
+        {
+            int value = m.getArgAsInt(0);
+            AppManager::getInstance().getSensorManager().updateValue(value,3);
+        }
+        
+       // ofLogNotice() <<"OscManager::received -> " << this->getMessageAsString(m);
     }
 
 	this->sendOscAll();
