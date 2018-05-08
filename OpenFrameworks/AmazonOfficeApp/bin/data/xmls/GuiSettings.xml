@@ -8,15 +8,15 @@
 	<Airport>13</Airport>
 	<North>1</North>
 	<East>6</East>
-	<West>4</West>
-	<Temp_>19.5</Temp_>
-	<Humidity>64</Humidity>
-	<Wind_Speed>3.6</Wind_Speed>
-	<Wind_Dir>140</Wind_Dir>
+	<West>6</West>
+	<Temp_>19</Temp_>
+	<Humidity>72</Humidity>
+	<Wind_Speed>2.1</Wind_Speed>
+	<Wind_Dir>210</Wind_Dir>
 	<Prec_>0</Prec_>
 	<Clouds>40</Clouds>
 	<Moon_Phase>0.436533</Moon_Phase>
-	<Sun_Position>0.973048</Sun_Position>
+	<Sun_Position>0.982193</Sun_Position>
 	<Swell_Height>0.2</Swell_Height>
 	<Swell_Period>3</Swell_Period>
 </group>
