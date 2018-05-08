@@ -43,9 +43,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 152.0, 103.0, 189.0, 22.0 ],
+					"patching_rect" : [ 152.0, 103.0, 193.0, 22.0 ],
 					"style" : "",
-					"text" : "amazon/arduino/norm/baldosa3 1"
+					"text" : "/amazon/arduino/norm/baldosa3 1"
 				}
 
 			}
@@ -56,9 +56,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 130.0, 63.0, 189.0, 22.0 ],
+					"patching_rect" : [ 130.0, 63.0, 193.0, 22.0 ],
 					"style" : "",
-					"text" : "amazon/arduino/norm/baldosa2 1"
+					"text" : "/amazon/arduino/norm/baldosa2 1"
 				}
 
 			}
@@ -82,9 +82,9 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 81.0, 30.0, 189.0, 22.0 ],
+					"patching_rect" : [ 81.0, 30.0, 193.0, 22.0 ],
 					"style" : "",
-					"text" : "amazon/arduino/norm/baldosa1 1"
+					"text" : "/amazon/arduino/norm/baldosa1 1"
 				}
 
 			}
