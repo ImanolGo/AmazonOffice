@@ -13,7 +13,7 @@
 
 
 
-const string OscManager::OSC_PARENT_ADDRESS = "amazon";
+const string OscManager::OSC_PARENT_ADDRESS = "/amazon";
 
 OscManager::OscManager(): Manager()
 {

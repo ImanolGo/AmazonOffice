@@ -122,7 +122,7 @@ def parameter_changed(value):
         circle.setAnimationTime(content['animationTime'])
 
 
-@content.OSC('amazon/arduino/norm/baldosa1') 
+@content.OSC('/amazon/arduino/norm/baldosa1') 
 def tile1(i):
     """
     This function handles OSC user input in address "/amazon/arduino/norm/baldosa1", with 1 arguments: i.
@@ -136,7 +136,7 @@ def tile1(i):
         circles[0].start()
 
 
-@content.OSC('amazon/arduino/norm/baldosa2')
+@content.OSC('/amazon/arduino/norm/baldosa2')
 def tile2(i):
     """
     This function handles OSC user input in address "/amazon/arduino/norm/baldosa2", with 1 arguments: i.
@@ -148,7 +148,7 @@ def tile2(i):
     if len(circles) >= 3:
         circles[1].start()
 
-@content.OSC('amazon/arduino/norm/baldosa3')
+@content.OSC('/amazon/arduino/norm/baldosa3')
 def tile3(i):
     """
     This function handles OSC user input in address "/amazon/arduino/norm/baldosa3", with 1 arguments: i.
