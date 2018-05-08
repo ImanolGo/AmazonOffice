@@ -5,18 +5,18 @@
 	<Threshold2>17</Threshold2>
 	<Threshold3>17</Threshold3>
 	<Time>0.84</Time>
-	<Airport>15</Airport>
-	<North>5</North>
-	<East>2</East>
-	<West>5</West>
-	<Temp_>16.26</Temp_>
-	<Humidity>93</Humidity>
-	<Wind_Speed>3.66</Wind_Speed>
-	<Wind_Dir>218.004</Wind_Dir>
+	<Airport>13</Airport>
+	<North>1</North>
+	<East>6</East>
+	<West>4</West>
+	<Temp_>19.5</Temp_>
+	<Humidity>64</Humidity>
+	<Wind_Speed>3.6</Wind_Speed>
+	<Wind_Dir>140</Wind_Dir>
 	<Prec_>0</Prec_>
-	<Clouds>8</Clouds>
-	<Moon_Phase>0.516437</Moon_Phase>
-	<Sun_Position>1</Sun_Position>
-	<Swell_Height>0.4</Swell_Height>
-	<Swell_Period>6</Swell_Period>
+	<Clouds>40</Clouds>
+	<Moon_Phase>0.436533</Moon_Phase>
+	<Sun_Position>0.973048</Sun_Position>
+	<Swell_Height>0.2</Swell_Height>
+	<Swell_Period>3</Swell_Period>
 </group>

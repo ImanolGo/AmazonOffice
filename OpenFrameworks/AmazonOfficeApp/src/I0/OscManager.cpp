@@ -13,7 +13,7 @@
 
 
 
-const string OscManager::OSC_PARENT_ADDRESS = "/amazon";
+const string OscManager::OSC_PARENT_ADDRESS = "amazon";
 
 OscManager::OscManager(): Manager()
 {
@@ -213,6 +213,8 @@ void OscManager::sendIntMessage(int value, string& name)
     for (auto& oscSender : m_oscSenders) {
         oscSender.second.sendMessage(m);
     }
+    
+    //ofLogNotice() <<"OscManager::sendIntMessage->  address: " << message << " " << value;
 }
 
 
