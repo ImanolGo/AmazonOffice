@@ -115,27 +115,35 @@ void GuiManager::setupTileGui()
 {
     auto sensorManager = &AppManager::getInstance().getSensorManager();
     
-    m_tileThreshold1.set("Threshold1", 30, 0, 1024);
-    m_tileThreshold1.addListener(sensorManager, &SensorsManager::setTileThreshold1);
-    m_parameters.add(m_tileThreshold1);
+    ofxDatGuiFolder* folder = m_gui.addFolder("SENSORS", ofColor::darkRed);
     
-    m_tileThreshold2.set("Threshold2", 30, 0, 1024);
-    m_tileThreshold2.addListener(sensorManager, &SensorsManager::setTileThreshold2);
-    m_parameters.add(m_tileThreshold2);
+    for(int i=0; i<m_sensorValues.size(); i++)
+    {
+        m_sensorValues[i].set("Sensor" + ofToString(i+1),0, 0, 1024);
+        folder->addSlider(m_sensorValues[i]);
+         //m_parameters.add(m_sensorValues[i]);
+    }
     
-    m_tileThreshold3.set("Threshold3", 30, 0, 1024);
-    m_tileThreshold3.addListener(sensorManager, &SensorsManager::setTileThreshold3);
-    m_parameters.add(m_tileThreshold3);
+    for(int i=0; i<m_sensorThresholds.size(); i++)
+    {
+        m_sensorThresholds[i].set("SensorThr" + ofToString(i+1),0, 0, 1024);
+        folder->addSlider(m_sensorThresholds[i]);
+        m_parameters.add(m_sensorThresholds[i]);
+    }
     
     m_tileStandby.set("Time", 2, 0, 30);
     m_tileStandby.addListener(sensorManager, &SensorsManager::setWaitingTime);
     m_parameters.add(m_tileStandby);
     
-    ofxDatGuiFolder* folder = m_gui.addFolder("SENSORS", ofColor::darkRed);
-    folder->addSlider(m_tileThreshold1);
-    folder->addSlider(m_tileThreshold2);
-    folder->addSlider(m_tileThreshold3);
+    m_pirCount.set("PirCount", 0, 0, 100000);
+    m_pirCount.addListener(sensorManager, &SensorsManager::setPirCount);
+    
+    m_pirValue.set("PirValue", 0, 0, 1);
+    m_pirValue.addListener(sensorManager, &SensorsManager::updatePir);
+    
     folder->addSlider(m_tileStandby);
+    folder->addSlider(m_pirCount);
+    folder->addSlider(m_pirValue);
     folder->expand();
     
     m_gui.addBreak();
@@ -196,6 +204,8 @@ void GuiManager::setupTrafficGui()
     folder->expand();
     m_gui.addBreak();
 }
+
+
 
 
 void GuiManager::setupWeatherGui()
@@ -264,6 +274,7 @@ void GuiManager::setupWeatherGui()
 void GuiManager::update()
 {
     m_gui.update();
+    this->updateSensors();
 }
 
 
@@ -352,13 +363,14 @@ void GuiManager::onButtonEvent(ofxDatGuiButtonEvent e)
 void GuiManager::onToggleEvent(ofxDatGuiToggleEvent e)
 {
     cout << "onToggleEvent: " << e.target->getName() << " Selected" << endl;
-    
 }
 
 void GuiManager::onMatrixEvent(ofxDatGuiMatrixEvent e)
 {
     cout << "onMatrixEvent " << e.child << " : " << e.enabled << endl;
 }
+
+
 
 void GuiManager::onWeatherChange()
 {
@@ -401,6 +413,37 @@ void GuiManager::onTrafficChange()
     {
         m_streetFlow[i] = streets[i]->getSpeedNorm();
     }
+}
+
+void GuiManager::updateSensors()
+{
+    for(int i=0; i<m_sensorValues.size(); i++)
+    {
+        AppManager::getInstance().getSensorManager().updateValue(m_sensorValues[i], i);
+    }
+    
+    for(int i=0; i<m_sensorThresholds.size(); i++)
+    {
+        AppManager::getInstance().getSensorManager().setThreshold(m_sensorThresholds[i], i);
+    }
+}
+
+void GuiManager::setTileValue(int value, int index)
+{
+    if(index< 0 || index>=m_sensorValues.size()){
+        return;
+    }
+    
+    m_sensorValues[index] = value;
+}
+
+void GuiManager::setTileThreshold(int value, int index)
+{
+    if(index< 0 || index>=m_sensorThresholds.size()){
+        return;
+    }
+    
+    m_sensorThresholds[index] = value;
 }
 
 

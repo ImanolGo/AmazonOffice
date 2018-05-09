@@ -2,15 +2,15 @@
 
 WiFiUDP udp;
 ArduinoOSCWiFi osc;
-//const char* ssid = "Don't worry, be happy!";
-//const char* pwd = "whyistheskysohigh?";
-const char* ssid = "TPH Operations";
-const char* pwd = "TheFUTURE!Sno3";
+const char* ssid = "Don't worry, be happy!";
+const char* pwd = "whyistheskysohigh?";
+//const char* ssid = "TPH Operations";
+//const char* pwd = "TheFUTURE!Sno3";
 const IPAddress ip(192, 168, 178, 201);
 const IPAddress gateway(192, 168, 178, 1);
 const IPAddress subnet(255, 255, 255, 0);
-//const char* host = "192.168.178.20";
-const char* host = "192.168.20.65";
+const char* host = "192.168.178.20";
+//const char* host = "192.168.20.65";
 const int recv_port = 10000;
 const int send_port = 9000;
 
@@ -45,18 +45,32 @@ void loop()
 {
     osc.parse();
 
-     sensorValue = analogRead(analogInPin);
+    sensorValue = analogRead(analogInPin);
     oscMessage.beginMessage(host, send_port);
     
    
-    oscMessage.setOSCAddress("amazon/arduino/baldosa1");
+    oscMessage.setOSCAddress("/amazon/arduino/baldosa1");
     oscMessage.addArgInt32(sensorValue);
+    osc.send(oscMessage);
 
     Serial.print("sensor = ");
     Serial.println(sensorValue);
 
+    oscMessage.beginMessage(host, send_port);
+    oscMessage.setOSCAddress("/amazon/arduino/sentrada");
+    
+   
+    if(sensorValue>15){
+      oscMessage.addArgInt32(1);
+       Serial.print("pir = 1");
+    }
+    else{
+       oscMessage.addArgInt32(0);
+       Serial.print("pir = 0");
+    }
+
     osc.send(oscMessage);
-     
+    
     delay(2);
     
 }

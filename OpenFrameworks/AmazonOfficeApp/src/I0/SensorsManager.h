@@ -40,21 +40,17 @@ public:
     //! updates the manager
     void update();
     
-    void addPirOnset();
-    
     void updateValue(int value, int _id);
+    
+    void updatePir(int& value);
     
     void setThreshold(int value, int _id);
     
     void setStandbyTime(double value, int _id);
     
-    void setTileThreshold1(int& value);
-    
-    void setTileThreshold2(int& value);
-    
-    void setTileThreshold3(int& value);
-    
     void setWaitingTime(float& value);
+    
+    void setPirCount(int& value) {m_pirCounter = value;}
     
 private:
     
@@ -63,6 +59,8 @@ private:
     void updateSensors();
     
     void sendOscPirCounter();
+    
+    void addPirOnset();
 
 private:
     
@@ -70,6 +68,7 @@ private:
     
     SensorMap         m_sensors;
     int               m_pirCounter;
+    int               m_previousPirValue;
     
  
     

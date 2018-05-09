@@ -12,7 +12,7 @@
 
 const int SensorsManager::NUM_SENSORS = 3;
 
-SensorsManager::SensorsManager(): Manager(), m_pirCounter(0.0)
+SensorsManager::SensorsManager(): Manager(), m_pirCounter(0.0), m_previousPirValue(-1)
 {
     //Intentionally left empty
 }
@@ -39,7 +39,7 @@ void SensorsManager::setup()
 void SensorsManager::setupSensors()
 {
     for(int i=0; i<NUM_SENSORS; i++){
-        ofPtr<Sensor> sensor =  ofPtr<Sensor>( new Sensor(i+1));
+        ofPtr<Sensor> sensor =  ofPtr<Sensor>( new Sensor(i));
         m_sensors[sensor->getId()] = sensor;
         //m_sensors.insert ( std::pair<int,Sensor>(sensor.getId(),sensor) );
         
@@ -59,6 +59,16 @@ void SensorsManager::updateSensors()
 {
     for(auto sensor: m_sensors){
         sensor.second->update();
+    }
+}
+
+void SensorsManager::updatePir(int& value)
+{
+    if(m_previousPirValue!=value){
+        m_previousPirValue = value;
+        if(value > 0){
+            this->addPirOnset();
+        }
     }
 }
 
@@ -103,22 +113,10 @@ void SensorsManager::sendOscPirCounter()
     ofLogNotice() <<"SensorsManager::sendOscPirCounter << count : " << m_pirCounter;
     
     AppManager::getInstance().getOscManager().sendIntMessage(m_pirCounter, address);
+    AppManager::getInstance().getGuiManager().onPirCountChange(m_pirCounter);
 }
 
-void SensorsManager::setTileThreshold1(int& value)
-{
-    this->setThreshold(value, 1);
-}
 
-void SensorsManager::setTileThreshold2(int& value)
-{
-    this->setThreshold(value, 2);
-}
-
-void SensorsManager::setTileThreshold3(int& value)
-{
-    this->setThreshold(value, 3);
-}
 
 void SensorsManager::setWaitingTime(float& value)
 {

@@ -65,7 +65,7 @@ void Sensor::checkOnset(int value)
 
 void Sensor::sendOscOnset()
 {
-    string address = "arduino/norm/baldosa" + ofToString(m_id);
+    string address = "arduino/norm/baldosa" + ofToString(m_id+1);
     
     ofLogNotice() <<"Sensor::sendOscOnset << ID: " << m_id << ", address: " << address;
     

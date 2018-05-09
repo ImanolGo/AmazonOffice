@@ -78,13 +78,15 @@ public:
     
     void onSceneChange(int sceneIndex);
     
-    void setTileThreshold1(int value){m_tileThreshold1 = value;}
+    void setTileValue(int value, int index);
     
-    void setTileThreshold2(int value){m_tileThreshold2 = value;}
-    
-    void setTileThreshold3(int value){m_tileThreshold3 = value;}
+    void setTileThreshold(int value, int index);
     
     void setTileStandbyTime(float value){m_tileStandby = value;}
+    
+    void onPirCountChange(int value) {m_pirCount = value;}
+    
+    void onPirValueChange(int value) {m_pirValue = value;}
     
 private:
     
@@ -107,6 +109,8 @@ private:
     void drawGui();
     
     void setupGuiEvents();
+    
+    void updateSensors();
     
 private:
     
@@ -137,12 +141,15 @@ private:
     ofParameter<float>      m_swellHeight;
     ofParameter<float>      m_swellPeriod;
     
-    ofParameter<int>      m_tileThreshold1;
-    ofParameter<int>      m_tileThreshold2;
-    ofParameter<int>      m_tileThreshold3;
+    std::array<ofParameter<int>, 3>    m_sensorValues;
+    std::array<ofParameter<int>, 3>    m_sensorThresholds;
     ofParameter<float>    m_tileStandby;
+    ofParameter<int>      m_pirCount;
+    ofParameter<int>      m_pirValue;
+   
     
     std::array<ofParameter<float>, 10> m_streetFlow;
+    
     
    // vector<ofParameter<float>>  m_streetFlow;
     

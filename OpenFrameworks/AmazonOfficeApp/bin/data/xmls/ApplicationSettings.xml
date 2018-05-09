@@ -41,7 +41,6 @@
 
     <network name="Unity" ipAddress="127.0.0.1" port="9001"/>
     <network name="iPad" ipAddress="127.0.0.1" port="9002"/> 
-    <network name="Max" ipAddress="127.0.0.1" port="9003"/>
     <network name="ProtoPixel" ipAddress="127.0.0.1" port="2345"/>
 
   </networks>

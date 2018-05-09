@@ -165,21 +165,28 @@ void OscManager::update()
         else if(m.getAddress() == OSC_PARENT_ADDRESS + "/arduino/baldosa1")
         {
             int value = m.getArgAsInt(0);
-            AppManager::getInstance().getSensorManager().updateValue(value,1);
+            AppManager::getInstance().getGuiManager().setTileValue(value, 0);
             //ofLogNotice() <<"OscManager::received -> " << this->getMessageAsString(m);
         }
-        
+
         else if(m.getAddress() == OSC_PARENT_ADDRESS + "/arduino/baldosa2")
         {
             int value = m.getArgAsInt(0);
-            AppManager::getInstance().getSensorManager().updateValue(value,2);
+            AppManager::getInstance().getGuiManager().setTileValue(value, 1);
         }
-        
+
         else if(m.getAddress() == OSC_PARENT_ADDRESS + "/arduino/baldosa3")
         {
             int value = m.getArgAsInt(0);
-            AppManager::getInstance().getSensorManager().updateValue(value,3);
+            AppManager::getInstance().getGuiManager().setTileValue(value, 2);
         }
+
+        else if(m.getAddress() == OSC_PARENT_ADDRESS + "/arduino/sentrada")
+        {
+            int value = m.getArgAsInt(0);
+            AppManager::getInstance().getGuiManager().onPirValueChange(value);
+        }
+        
         
        // ofLogNotice() <<"OscManager::received -> " << this->getMessageAsString(m);
     }
@@ -198,7 +205,7 @@ void OscManager::sendFloatMessage(float value, string& name)
     //m_oscSender.sendMessage(m);
     
     for (auto& oscSender : m_oscSenders) {
-        oscSender.second.sendMessage(m);
+        oscSender.second.sendMessage(m, false);
     }
 }
 
@@ -211,7 +218,7 @@ void OscManager::sendIntMessage(int value, string& name)
     //m_oscSender.sendMessage(m);
     
     for (auto& oscSender : m_oscSenders) {
-        oscSender.second.sendMessage(m);
+        oscSender.second.sendMessage(m, false);
     }
     
     //ofLogNotice() <<"OscManager::sendIntMessage->  address: " << message << " " << value;
@@ -227,7 +234,7 @@ void OscManager::sendStringMessage(string value, string& name)
     //m_oscSender.sendMessage(m);
     
     for (auto& oscSender : m_oscSenders) {
-        oscSender.second.sendMessage(m);
+        oscSender.second.sendMessage(m, false);
     }
     
 }
@@ -236,7 +243,7 @@ void OscManager::sendMessage(ofxOscMessage& message)
 {
     //m_oscSender.sendMessage(message);
     for (auto& oscSender : m_oscSenders) {
-        oscSender.second.sendMessage(message);
+        oscSender.second.sendMessage(message, false);
     }
     message.clear();
 }
