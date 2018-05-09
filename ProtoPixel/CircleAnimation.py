@@ -15,9 +15,9 @@ size = 500
 content = Content("CircleAnimation")
 content.FBO_SIZE = (size,size) #optional: define size of FBO, default=(100,100)
 
-content.add_parameter("color1", type="color", value=ofColor(220, 10, 10))
-content.add_parameter("color2", type="color", value=ofColor(10, 220, 10))
-content.add_parameter("color3", type="color", value=ofColor(10, 10, 220))
+content.add_parameter("color1", type="color", value=ofColor(255, 10, 10))
+content.add_parameter("color2", type="color", value=ofColor(10, 255, 10))
+content.add_parameter("color3", type="color", value=ofColor(10, 10, 255))
 content.add_parameter("animationTime", min=0.01, max=20.0, value=5.0)
 
 
@@ -44,8 +44,9 @@ class Circle:
         self.elapsedTime+=ofGetLastFrameTime()
         if(self.elapsedTime<self.animationTime):
             amount = self.elapsedTime/self.animationTime
+            self.size = 4*size*(amount) 
+            amount = amount*amount
             self.a = 255 - int(255*amount) 
-            self.size = 2*size*(amount) 
 
     def draw(self):
         #ofPushStyle()
@@ -171,21 +172,20 @@ def setup():
 
     global size, circles
 
-    x = size*0.025
-    y = size*0.25
+    x = size*0.78
+    y = size*0.42
     circles.append(Circle(x,y))
     circles[0].setAnimationTime(content['animationTime'])
     circles[0].setColor(content['color1'].r,content['color1'].g,content['color1'].b)
    
-
     x = size*0.777
     y = size*0.32
     circles.append(Circle(x,y))
     circles[1].setAnimationTime(content['animationTime'])
     circles[1].setColor(content['color2'].r,content['color2'].g,content['color2'].b)
 
-    x = size*0.78
-    y = size*0.42
+    x = size*0.025
+    y = size*0.25
     circles.append(Circle(x,y))
     circles[2].setAnimationTime(content['animationTime'])
     circles[2].setColor(content['color3'].r,content['color3'].g,content['color3'].b)

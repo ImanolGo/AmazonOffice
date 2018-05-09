@@ -70,5 +70,14 @@ void Sensor::sendOscOnset()
     ofLogNotice() <<"Sensor::sendOscOnset << ID: " << m_id << ", address: " << address;
     
     AppManager::getInstance().getOscManager().sendIntMessage(1, address);
+    
+    address = "/Content/baldosa" + ofToString(m_id+1) + ".mp4/params/play";
+    
+    ofxOscMessage m;
+    m.setAddress(address);
+    m.addIntArg(1);
+    
+    AppManager::getInstance().getOscManager().sendMessage(m);
+    
 }
 
