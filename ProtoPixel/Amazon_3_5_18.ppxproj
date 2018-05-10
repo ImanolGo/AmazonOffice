@@ -1759,9 +1759,9 @@
                 </projection_parameters>
                 <python_script type="filepath">$PROJECT_DIR/CircleAnimation.py</python_script>
                 <params>
-                    <color1 type="color">220, 10, 10, 255</color1>
-                    <color2 type="color">10, 220, 10, 255</color2>
-                    <color3 type="color">10, 10, 220, 255</color3>
+                    <color1 type="color">255, 10, 10, 255</color1>
+                    <color2 type="color">10, 255, 10, 255</color2>
+                    <color3 type="color">10, 10, 255, 255</color3>
                     <animationTime type="float">5</animationTime>
                 </params>
             </parameters>
