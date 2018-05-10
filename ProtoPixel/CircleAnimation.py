@@ -10,7 +10,7 @@ print "CircleAnimation"
 color = ofColor(255)
 elapsedTime = 0.0
 scaleFactor = 10
-size = 500
+size = 1000
 
 content = Content("CircleAnimation")
 content.FBO_SIZE = (size,size) #optional: define size of FBO, default=(100,100)

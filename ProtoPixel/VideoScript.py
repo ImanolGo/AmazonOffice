@@ -13,19 +13,15 @@ content = Content("CircleAnimation")
 content.FBO_SIZE = (size,size) #optional: define size of FBO, default=(100,100)
 
 
-videoFile1 = content.add_asset('baldosa1.mp4')
-print videoFile1
+videoFiles = []
+videoFiles.append(content.add_asset('baldosa1.mp4'))
+videoFiles.append(content.add_asset('baldosa2.mp4'))
+videoFiles.append(content.add_asset('baldosa3.mp4'))
 
-videoFile2 = content.add_asset('baldosa2.mp4')
-print videoFile2
 
-videoFile3 = content.add_asset('baldosa3.mp4')
-print videoFile3
+videoPlayers = []
 
-# Video player from OF
-vid1 = ofVideoPlayer()
-vid2 = ofVideoPlayer()
-vid3 = ofVideoPlayer()
+
 
 @content.OSC('/amazon/arduino/norm/baldosa1') 
 def tile1(i):
@@ -36,7 +32,7 @@ def tile1(i):
     """
 
     print "baldosa1"
-    vid1.play()
+    videoPlayers[0].play()
 
 
 
@@ -48,7 +44,7 @@ def tile2(i):
     the same address simultaneously.
     """
     print "baldosa2"
-    vid2.play()
+    videoPlayers[1].play()
 
 
 
@@ -61,8 +57,25 @@ def tile3(i):
     """
 
     print "baldosa3"
-    vid3.play()
+    videoPlayers[2].play()
 
+
+
+def setupPlayers():
+
+    for x in xrange(len(videoFiles)):
+        videoPlayers.append(ofVideoPlayer())
+
+    for i in xrange(len(videoFiles)):
+        result = videoPlayers[i].load(videoFiles[i])
+        if result:
+            print "SetupPlayers: Successfully loaded ->  ", videoFiles[i]
+            videoPlayers[i].setLoopState(OF_LOOP_NONE)
+        else:
+            print "SetupPlayers: unable to load -> ", videoFiles[i]
+
+        
+        
 
 
 def setup():
@@ -70,31 +83,8 @@ def setup():
     This will be called at the beggining, you set your stuff here
     """
     
-    ofEnableAlphaBlending()
-
-    result = vid1.load(videoFile1)
-    if result:
-        print "loaded: ", videoFile1
-        vid1.setLoopState(OF_LOOP_NONE)
-        vid1.play()
-    else:
-        print "unable to load: ", videoFile1
-
-    result = vid2.load(videoFile2)
-    if result:
-        print "loaded: ", videoFile2
-        vid2.setLoopState(OF_LOOP_NONE)
-        vid2.play()
-    else:
-        print "unable to load: ", videoFile2
-
-    result = vid3.load(videoFile3)
-    if result:
-        print "loaded: ", videoFile3
-        vid3.setLoopState(OF_LOOP_NONE)
-        vid3.play()
-    else:
-        print "unable to load: ", videoFile3
+    #ofEnableAlphaBlending()
+    setupPlayers()
    
    
 
@@ -104,16 +94,10 @@ def update():
     """
     For every frame, before drawing, we update stuff
     """
-    if vid1.isLoaded():
-        vid1.update()
 
-    if vid2.isLoaded():
-        vid2.update()
-
-    if vid3.isLoaded():
-        vid3.update()
-   
-
+    for videoPlayer in videoPlayers:    
+        if videoPlayer.isLoaded():
+            videoPlayer.update()
 
 def draw():
     """
@@ -123,15 +107,10 @@ def draw():
     ofSetColor(255, 255, 255)
 
     ofEnableBlendMode(OF_BLENDMODE_ADD)
-    
-    if vid1.isLoaded():
-        vid1.draw(0, 0, size, size)
 
-    if vid2.isLoaded():
-        vid2.draw(0, 0, size, size)
-
-    if vid3.isLoaded():
-        vid3.draw(0, 0, size, size)
+    for videoPlayer in videoPlayers:    
+        if videoPlayer.isLoaded():
+            videoPlayer.draw(0, 0, size, size)
 
     
 
@@ -139,8 +118,10 @@ def exit():
     """
     Before removing the script, in case you have pending business.
     """
-    pass
-
+    for videoPlayer in videoPlayers:    
+        if videoPlayer.isLoaded():
+            videoPlayer.stop()
+            
 
 def on_enable():
     """

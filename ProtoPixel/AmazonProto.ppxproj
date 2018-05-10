@@ -96,6 +96,7 @@
                 <item>fixture:Suelo3</item>
                 <item>content:color 5</item>
                 <item>content:CircleAnimation.py</item>
+                <item>content:VideoScript.py</item>
             </items>
             <parameters>
                 <is_3D type="bool">0</is_3D>
@@ -1766,6 +1767,23 @@
                 </params>
             </parameters>
             <transformation type="matrix4x4"> 1.93088,        0,        0,        0&#x0A;       0,  1.07421,        0,        0&#x0A;       0,        0,        1,        0&#x0A;-0.691592, 0.061248,        0,        1</transformation>
+        </content>
+        <content>
+            <name>VideoScript.py</name>
+            <type>PythonProgram</type>
+            <parameters>
+                <enabled type="bool">1</enabled>
+                <blend_mode type="stringoption">alpha</blend_mode>
+                <color_levels type="color">255, 255, 255, 255</color_levels>
+                <projection_type type="stringoption">flatsimple</projection_type>
+                <projection_parameters>
+                    <width type="float">1</width>
+                    <height type="float">1</height>
+                </projection_parameters>
+                <python_script type="filepath">$PROJECT_DIR/VideoScript.py</python_script>
+                <params></params>
+            </parameters>
+            <transformation type="matrix4x4"> 2.35018,        0,        0,        0&#x0A;       0,  1.64427,        0,        0&#x0A;       0,        0,        1,        0&#x0A;-0.701932, 0.048972,        0,        1</transformation>
         </content>
     </contents>
     <groups></groups>
