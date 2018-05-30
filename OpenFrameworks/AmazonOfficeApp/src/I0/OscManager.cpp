@@ -345,7 +345,7 @@ void OscManager::sendOscAirTraffic()
 {
     auto airstatus = AppManager::getInstance().getApiManager().getCurrentAirTraffic();
     
-    string message = "planes/norm/aerport";
+    string message = "planes/norm/airport";
     this->sendIntMessage(airstatus.numAirport, message);
     
     message = "planes/norm/north";
@@ -360,6 +360,23 @@ void OscManager::sendOscAirTraffic()
     message = "planes/norm/west";
     this->sendIntMessage(airstatus.numWest, message);
     
+    
+    
+    message = "planes/airport";
+    this->sendStringMessage(ofToString(airstatus.numAirport), message);
+    
+    message = "planes/north";
+    this->sendStringMessage(ofToString(airstatus.numNorth), message);
+    
+    message = "planes/east";
+    this->sendStringMessage(ofToString(airstatus.numEast), message);
+    
+    message = "planes/south";
+    this->sendStringMessage(ofToString(airstatus.numSouth), message);
+    
+    message = "planes/west";
+    this->sendStringMessage(ofToString(airstatus.numWest), message);
+    
 }
 
 
@@ -371,6 +388,12 @@ void OscManager::sendOscTraffic()
     {
         string message = "traffic/norm/" + ofToLower(street->m_name);
         this->sendFloatMessage(street->getSpeedNorm(), message);
+    }
+    
+    for(auto street: streets)
+    {
+        string message = "traffic/" + ofToLower(street->m_name);
+        this->sendStringMessage(street->getSpeed(), message);
     }
 }
 
