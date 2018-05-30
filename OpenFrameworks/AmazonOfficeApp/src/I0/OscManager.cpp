@@ -282,7 +282,7 @@ void OscManager::sendOscAll()
     this->sendOscAirTraffic();
 }
 
-void OscManager::sendOscWeather()
+void OscManager::sendOscWeatherNorm()
 {
 	auto weather = AppManager::getInstance().getApiManager().getCurrentWeather();
 
@@ -311,15 +311,34 @@ void OscManager::sendOscWeather()
 	this->sendFloatMessage(weather.getSwellPeriodNorm(), message);
 }
 
-void OscManager::sendOscTraffic()
+void OscManager::sendOscWeather()
 {
-    auto streets = AppManager::getInstance().getApiManager().getTrafficStatus();
+    auto weather = AppManager::getInstance().getApiManager().getCurrentWeather();
     
-    for(auto street: streets)
-    {
-        string message = "amazon/traffic/norm/" + ofToLower(street->m_name);
-        this->sendFloatMessage(street->getSpeedNorm(), message);
-    }
+    string message = "weather/temperature";
+    this->sendStringMessage(weather.getTemperature(), message);
+    
+    message = "weather/humidity";
+    this->sendStringMessage(weather.getHumidity(), message);
+    
+    message = "weather/windvelocity";
+    this->sendStringMessage(weather.getWindSpeed(), message);
+    
+    message = "weather/winddirection";
+    this->sendStringMessage(weather.getWindDirection(), message);
+    
+    message = "weather/clouds";
+    this->sendStringMessage(weather.getCloudiness(), message);
+    
+    message = "weather/rain";
+    this->sendStringMessage(weather.getPrecipitation(), message);
+    
+    message = "tides/height";
+    this->sendStringMessage(weather.getSwellHeight(), message);
+    
+    message = "tides/period";
+    this->sendStringMessage(weather.getSwellPeriod(), message);
+    
 }
 
 void OscManager::sendOscAirTraffic()
@@ -343,34 +362,16 @@ void OscManager::sendOscAirTraffic()
     
 }
 
-void OscManager::sendOscWeatherNorm()
+
+void OscManager::sendOscTraffic()
 {
-	auto weather = AppManager::getInstance().getApiManager().getCurrentWeather();
-
-    string message = "weather/temperature";
-    this->sendFloatMessage(weather.getTemperatureNorm(), message);
+    auto streets = AppManager::getInstance().getApiManager().getTrafficStatus();
     
-    message = "weather/humidity";
-    this->sendFloatMessage(weather.getHumidityNorm(), message);
-    
-    message = "weather/windvelocity";
-    this->sendFloatMessage(weather.getWindSpeedNorm(), message);
-    
-    message = "weather/winddirection";
-    this->sendFloatMessage(weather.getWindDirectionNorm(), message);
-    
-    message = "weather/clouds";
-    this->sendFloatMessage(weather.getCloudinessNorm(), message);
-    
-    message = "weather/rain";
-    this->sendFloatMessage(weather.getPrecipitationNorm(), message);
-    
-    message = "tides/height";
-    this->sendFloatMessage(weather.getSwellHeightNorm(), message);
-    
-    message = "tides/period";
-    this->sendFloatMessage(weather.getSwellPeriodNorm(), message);
-
+    for(auto street: streets)
+    {
+        string message = "traffic/norm/" + ofToLower(street->m_name);
+        this->sendFloatMessage(street->getSpeedNorm(), message);
+    }
 }
 
 

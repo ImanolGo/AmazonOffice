@@ -40,7 +40,7 @@
   <networks>
 
     <network name="Unity" ipAddress="127.0.0.1" port="9001"/>
-    <network name="iPad" ipAddress="127.0.0.1" port="9002"/> 
+    <network name="iPad" ipAddress="192.168.8.117" port="2345"/> 
     <network name="ProtoPixel" ipAddress="127.0.0.1" port="2345"/>
 
   </networks>
