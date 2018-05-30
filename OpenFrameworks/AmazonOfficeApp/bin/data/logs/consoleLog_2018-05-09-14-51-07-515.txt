@@ -1,0 +1,587 @@
+
+
+--------------------------------------- 2018-05-09-14-51-07-515
+[notice ] SettingsManager::setDebugProperties->  successfully loaded the OF general settings
+[notice ] SettingsManager::setNetworkProperties->  successfully loaded the network settings
+[notice ] SettingsManager::setApiProperties->  successfully loaded the weather settings
+[notice ] SettingsManager::setApiProperties->  url = http://api.openweathermap.org/data/2.5/weather?, city = Barcelona, units = metric, lat = 41.3902, lon = 2.15401, request time = 10, key = e4c4bf0f238afdc3bcef9346e1a47ff3
+[notice ] SettingsManager::setApiProperties->  successfully loaded the opensky settings
+[notice ] SettingsManager::setApiProperties->  url = opensky-network.org/api/states/all?, city = Barcelona, lat = 40.6494, lon = 1.3486, request time = 3, key = amazonofficepass
+[notice ] SettingsManager::setApiProperties->  successfully loaded the surf settings
+[notice ] SettingsManager::setApiProperties->  name = Barceloneta, url = http://magicseaweed.com/api/, request time = 3600, spotId = 3535
+[notice ] SettingsManager::setApiProperties->  successfully loaded the traffic settings
+[notice ] SettingsManager::setApiProperties->  name = Barcelona, url = https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/xml?key=, request time = 60
+[notice ] SettingsManager::loadTextureSettings->  texture = Brush, path = images/general/brush2.png
+[notice ] SettingsManager::loadTextureSettings->  texture = Heatmap, path = images/general/Heatmap.png
+[notice ] SettingsManager::loadTextureSettings->  texture = Rainbow, path = images/general/gradientRainbow.jpg
+[notice ] SettingsManager::loadTextureSettings->  texture = ClearSky, path = images/weather/clear.png
+[notice ] SettingsManager::loadTextureSettings->  texture = FewClouds, path = images/weather/mostlysunny.png
+[notice ] SettingsManager::loadTextureSettings->  texture = ScatteredClouds, path = images/weather/mostlycloudy.png
+[notice ] SettingsManager::loadTextureSettings->  texture = Cloudy, path = images/weather/cloudy.png
+[notice ] SettingsManager::loadTextureSettings->  texture = ShowerRain, path = images/weather/rain.png
+[notice ] SettingsManager::loadTextureSettings->  texture = Rain, path = images/weather/chancerain.png
+[notice ] SettingsManager::loadTextureSettings->  texture = Thunderstorm, path = images/weather/tstorms.png
+[notice ] SettingsManager::loadTextureSettings->  texture = Snow, path = images/weather/snow.png
+[notice ] SettingsManager::loadTextureSettings->  texture = Mist, path = images/weather/fog.png
+[notice ] SettingsManager::loadTextureSettings->  texture = MapTraffic, path = images/traffic/BarcelonaTraffic.png
+[notice ] SettingsManager::loadTextureSettings->  texture = MapFlights, path = images/flights/BarcelonaFlights.png
+[notice ] SettingsManager::loadTextureSettings->  texture = Plane, path = images/flights/plane.png
+[notice ] SettingsManager::loadTextureSettings->  successfully loaded the resource settings
+[notice ] SettingsManager::loadVideoSettings->  video = Test_Video, path = videos/video_test.mp4
+[notice ] SettingsManager::loadVideoSettings->  successfully loaded the video settings
+[notice ] SettingsManager::loadColors->  color = BackgroundColor, r = 40, g = 40, b = 43, a = 255
+[notice ] SettingsManager::loadColors->  color = CenterBackgroundColor, r = 85, g = 78, b = 68, a = 255
+[notice ] SettingsManager::loadColors->  color = EdgeBackgroundColor, r = 30, g = 30, b = 30, a = 255
+[notice ] SettingsManager::loadColors->  color = GUI_Background, r = 0, g = 0, b = 0, a = 127
+[notice ] SettingsManager::loadColors->  color = GUI_Fill, r = 160, g = 160, b = 160, a = 160
+[notice ] SettingsManager::loadColors->  color = GUI1, r = 160, g = 160, b = 80, a = 200
+[notice ] SettingsManager::loadColors->  color = GUI2, r = 80, g = 160, b = 160, a = 200
+[notice ] SettingsManager::loadColors->  color = LiveRectangle, r = 56, g = 234, b = 57, a = 108
+[notice ] SettingsManager::loadColors->  color = FrameRectangle, r = 90, g = 95, b = 103, a = 255
+[notice ] SettingsManager::loadColors->  successfully loaded the applications colors
+[notice ] ResourceManager::initialized
+[notice ] ResourceManager::loadTextures-> allocated texture Brush
+[notice ] ResourceManager::loadTextures-> allocated texture ClearSky
+[notice ] ResourceManager::loadTextures-> allocated texture Cloudy
+[notice ] ResourceManager::loadTextures-> allocated texture FewClouds
+[notice ] ResourceManager::loadTextures-> allocated texture Heatmap
+[notice ] ResourceManager::loadTextures-> allocated texture MapFlights
+[notice ] ResourceManager::loadTextures-> allocated texture MapTraffic
+[notice ] ResourceManager::loadTextures-> allocated texture Mist
+[notice ] ResourceManager::loadTextures-> allocated texture Plane
+[notice ] ResourceManager::loadTextures-> allocated texture Rain
+[notice ] ResourceManager::loadTextures-> allocated texture Rainbow
+[notice ] ResourceManager::loadTextures-> allocated texture ScatteredClouds
+[notice ] ResourceManager::loadTextures-> allocated texture ShowerRain
+[notice ] ResourceManager::loadTextures-> allocated texture Snow
+[notice ] ResourceManager::loadTextures-> allocated texture Thunderstorm
+[notice ] ViewManager::initialized 
+[notice ] VisualEffectsManager::initialized
+[verbose] ofShader: checkAndCreateProgram(): creating GLSL program
+[verbose] ofShader: setupShaderFromSource(): GL_VERTEX_SHADER shader compiled
+[verbose] ofShader: setupShaderFromSource(): GL_FRAGMENT_SHADER shader compiled
+[verbose] ofShader: linkProgram(): attaching GL_VERTEX_SHADER shader to program 28
+[verbose] ofShader: linkProgram(): attaching GL_FRAGMENT_SHADER shader to program 28
+[verbose] ofShader: checkProgramLinkStatus(): program 28 linked
+[notice ] MaskManager::initialized
+[notice ] LayoutManager::initialized
+[verbose] ofFbo: checkGLSupport(): maxColorAttachments: 8, maxDrawBuffers: 8, maxSamples: 32
+[verbose] ofFbo: FRAMEBUFFER_COMPLETE - OK
+[notice ] ApiManager::setupWeatherApi << weather url = http://api.openweathermap.org/data/2.5/weather?lat=41.3902&lon=2.15401&units=metric&appid=e4c4bf0f238afdc3bcef9346e1a47ff3&mode=xml
+[notice ] ApiManager::setupSkyApi << sky url = https://amazonoffice:amazonofficepass@opensky-network.org/api/states/all?lamin=40.6494&lomin=1.3486&lamax=41.8922&lomax=2.9564
+[notice ] ApiManager::setupsurfApi << surf url = http://magicseaweed.com/api/6894ba16117b5b91b63a653717789f6c/forecast/?spot_id=3535&fields=swell.components.combined.height,swell.components.combined.period&units=eu
+[notice ] ApiManager::setupTrafficApi->  successfully loaded xmls/ApplicationSettings.xml
+[notice ] ApiManager::setupTrafficApi->  name = Granvia, latitude = 41.4004, longitude = 2.18295, url = https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/xml?key=dZr93ZMIsFAJY08hiMrXd2oMxVAEuv0L&point=41.4004,2.18295
+[notice ] ApiManager::setupTrafficApi->  name = Diagonal, latitude = 41.3992, longitude = 2.17121, url = https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/xml?key=dZr93ZMIsFAJY08hiMrXd2oMxVAEuv0L&point=41.3992,2.17121
+[notice ] ApiManager::setupTrafficApi->  name = Rdalt, latitude = 41.4401, longitude = 2.16261, url = https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/xml?key=dZr93ZMIsFAJY08hiMrXd2oMxVAEuv0L&point=41.4401,2.16261
+[notice ] ApiManager::setupTrafficApi->  name = Rlitoral, latitude = 41.3854, longitude = 2.19287, url = https://api.tomtom.com/traffic/services/4/flowSegmentData/absolute/10/xml?key=dZr93ZMIsFAJY08hiMrXd2oMxVAEuv0L&point=41.3854,2.19287
+[notice ] ApiManager::initialized
+[notice ] KeyboardManager::initialized
+[verbose] ofFbo: checkGLSupport(): maxColorAttachments: 8, maxDrawBuffers: 8, maxSamples: 32
+[verbose] ofFbo: FRAMEBUFFER_COMPLETE - OK
+[verbose] ofFbo: checkGLSupport(): maxColorAttachments: 8, maxDrawBuffers: 8, maxSamples: 32
+[verbose] ofFbo: FRAMEBUFFER_COMPLETE - OK
+[notice ] BlankScene::setup: 
+[notice ] BlankScene::willFadeIn: 
+[verbose] ofFbo: checkGLSupport(): maxColorAttachments: 8, maxDrawBuffers: 8, maxSamples: 32
+[verbose] ofFbo: FRAMEBUFFER_COMPLETE - OK
+[notice ] SceneManager::setupTimer << Time = : 120s
+[notice ] SceneManager::initialized
+[notice ] OscManager::setupOscReceiver -> listening for osc messages on port  9000
+[notice ] OscManager::setupOscSender -> open osc connection 127.0.0.1:12346
+[notice ] OscManager::readSenderInformation->  successfully loaded xmls/ApplicationSettings.xml
+[notice ] OscManager::readSenderInformation->  name = Unity, ipAddress = 127.0.0.1, port = 9001
+[notice ] OscManager::readSenderInformation->  name = iPad, ipAddress = 127.0.0.1, port = 9002
+[notice ] OscManager::readSenderInformation->  name = ProtoPixel, ipAddress = 127.0.0.1, port = 2345
+[notice ] OscManager::initialized
+[notice ] Sensor::setup << ID: 0
+[notice ] SensorsManager::setupSensors -> ID: 0
+[notice ] Sensor::setup << ID: 1
+[notice ] SensorsManager::setupSensors -> ID: 1
+[notice ] Sensor::setup << ID: 2
+[notice ] SensorsManager::setupSensors -> ID: 2
+[notice ] SensorsManager::initialized
+[warning] Adding another parameter with same name 'East' to group ''
+[notice ] SceneManager::setupTimer << Time = : 60s
+[notice ] GuiManager::initialized
+[notice ] BlankScene::willFadeOut: 
+[notice ] SceneManager::sendSceneChange << OSC Message Scene: presetPlanes
+[notice ] SceneManager::nextScene << Change Scene: Planes
+[notice ] ApiManager::urlResponse -> weather, 200
+[notice ] ApiManager::parseWeather << parseWeather -> city = Barcelona, temp = 21, humidity = 64, wind speed = 5.1, wind direction = 120, clouds = 20, precipitation mode = no, precipitation value = 0, sunrise = 04:38:32, sunset = 18:57:46, moon phase  = 7, sun position = 0.720335
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2932, longitude: 2.0747, altitude: 0, velocity: 8.23, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3333, longitude: 2.3906, altitude: 1188.72, velocity: 123.31, heading: 344.51, vertical rate: -7.8
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.012, longitude: 1.9994, altitude: 3291.84, velocity: 170.51, heading: 142.23, vertical rate: 6.18
+[notice ] ApiManager::parseSky << Flight: ELY394  , latitude: 41.0466, longitude: 2.9306, altitude: 8336.28, velocity: 224.64, heading: 93.15, vertical rate: 10.08
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2929, longitude: 2.102, altitude: 0, velocity: 2.31, heading: 109, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2945, longitude: 2.0788, altitude: 0, velocity: 9.26, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0265, longitude: 2.2319, altitude: 4297.68, velocity: 180.26, heading: 83.28, vertical rate: 13.98
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.1956, longitude: 2.0183, altitude: 10370.8, velocity: 231.66, heading: 71.48, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2445, longitude: 2.0539, altitude: 762, velocity: 89.51, heading: 202.29, vertical rate: 10.73
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 0, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2981, longitude: 2.6362, altitude: 1973.58, velocity: 134.06, heading: 252.12, vertical rate: -3.25
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1469, longitude: 2.4774, altitude: 6134.1, velocity: 195.4, heading: 72.38, vertical rate: 12.03
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.1769, longitude: 1.9568, altitude: 1965.96, velocity: 123.54, heading: 284.96, vertical rate: 15.61
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3714, longitude: 2.8104, altitude: 2804.16, velocity: 146.07, heading: 247.86, vertical rate: -10.73
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2945, longitude: 2.0615, altitude: 0, velocity: 6.17, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2934, longitude: 2.1027, altitude: 0, velocity: 4.63, heading: 146, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4858, longitude: 2.2806, altitude: 1958.34, velocity: 122.2, heading: 157.21, vertical rate: -4.88
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2875, longitude: 2.0897, altitude: 38.1, velocity: 63.78, heading: 245.71, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5893, longitude: 1.8556, altitude: 3246.12, velocity: 169.88, heading: 109.64, vertical rate: -7.15
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3198, longitude: 2.1451, altitude: 251.46, velocity: 76, heading: 246.04, vertical rate: -3.9
+[notice ] ApiManager::updateAirTraffic << Num Total: 30,  Num Airport: 15, Num North: 2, Num East: 5, Num South: 3, Num West: 5
+[notice ] ApiManager::urlResponse -> surf, 200
+[notice ] ApiManager::parsesurf << swell height = 0.1, swell period -> 2
+[notice ] ApiManager::urlResponse -> Granvia, 200
+[notice ] ApiManager::urlResponse -> Granvia, 200
+[notice ] ApiManager::parseTraffic << name: Granvia, speed = 8, free speed = 28
+[notice ] ApiManager::urlResponse -> Diagonal, 200
+[notice ] ApiManager::urlResponse -> Diagonal, 200
+[notice ] ApiManager::parseTraffic << name: Diagonal, speed = 8, free speed = 11
+[notice ] BlankScene::willExit: 
+[notice ] PlanesScene::setup: 
+[notice ] PlanesScene::willFadeIn: 
+[notice ] ApiManager::urlResponse -> Rdalt, 200
+[notice ] ApiManager::urlResponse -> Rdalt, 200
+[notice ] ApiManager::parseTraffic << name: Rdalt, speed = 39, free speed = 59
+[notice ] ApiManager::urlResponse -> Rlitoral, 200
+[notice ] ApiManager::urlResponse -> Rlitoral, 200
+[notice ] ApiManager::parseTraffic << name: Rlitoral, speed = 73, free speed = 73
+[notice ] PlanesScene::willDraw: 
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2932, longitude: 2.0747, altitude: 0, velocity: 8.23, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3333, longitude: 2.3906, altitude: 1188.72, velocity: 123.31, heading: 344.51, vertical rate: -7.8
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.012, longitude: 1.9994, altitude: 3291.84, velocity: 170.51, heading: 142.23, vertical rate: 6.18
+[notice ] ApiManager::parseSky << Flight: ELY394  , latitude: 41.0466, longitude: 2.9306, altitude: 8336.28, velocity: 224.64, heading: 93.15, vertical rate: 10.08
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2929, longitude: 2.102, altitude: 0, velocity: 2.31, heading: 109, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2945, longitude: 2.0788, altitude: 0, velocity: 9.26, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0265, longitude: 2.2319, altitude: 4297.68, velocity: 180.26, heading: 83.28, vertical rate: 13.98
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.1956, longitude: 2.0183, altitude: 10370.8, velocity: 231.66, heading: 71.48, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2445, longitude: 2.0539, altitude: 762, velocity: 89.51, heading: 202.29, vertical rate: 10.73
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 0, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2981, longitude: 2.6362, altitude: 1973.58, velocity: 134.06, heading: 252.12, vertical rate: -3.25
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1469, longitude: 2.4774, altitude: 6134.1, velocity: 195.4, heading: 72.38, vertical rate: 12.03
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.1769, longitude: 1.9568, altitude: 1965.96, velocity: 123.54, heading: 284.96, vertical rate: 15.61
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3714, longitude: 2.8104, altitude: 2804.16, velocity: 146.07, heading: 247.86, vertical rate: -10.73
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2945, longitude: 2.0615, altitude: 0, velocity: 6.17, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2934, longitude: 2.1027, altitude: 0, velocity: 4.63, heading: 146, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4858, longitude: 2.2806, altitude: 1958.34, velocity: 122.2, heading: 157.21, vertical rate: -4.88
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2875, longitude: 2.0897, altitude: 38.1, velocity: 63.78, heading: 245.71, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5893, longitude: 1.8556, altitude: 3246.12, velocity: 169.88, heading: 109.64, vertical rate: -7.15
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3198, longitude: 2.1451, altitude: 251.46, velocity: 76, heading: 246.04, vertical rate: -3.9
+[notice ] ApiManager::updateAirTraffic << Num Total: 30,  Num Airport: 15, Num North: 2, Num East: 5, Num South: 3, Num West: 5
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2933, longitude: 2.0751, altitude: 0, velocity: 8.75, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3383, longitude: 2.3881, altitude: 1150.62, velocity: 122.18, heading: 334.3, vertical rate: -7.15
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.0094, longitude: 2.0024, altitude: 3307.08, velocity: 177.48, heading: 126.87, vertical rate: 4.88
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2929, longitude: 2.1023, altitude: 0, velocity: 3.6, heading: 109, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2947, longitude: 2.0791, altitude: 0, velocity: 9.26, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0275, longitude: 2.2432, altitude: 4373.88, velocity: 179.75, heading: 83.26, vertical rate: 15.93
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.1988, longitude: 2.0309, altitude: 10378.4, velocity: 231.82, heading: 71.36, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2408, longitude: 2.0518, altitude: 807.72, velocity: 89.84, heading: 203.63, vertical rate: 10.73
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 0, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2962, longitude: 2.6283, altitude: 1958.34, velocity: 132.92, heading: 252.2, vertical rate: -3.25
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1497, longitude: 2.4891, altitude: 6195.06, velocity: 196.05, heading: 72.28, vertical rate: 12.03
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.179, longitude: 1.9496, altitude: 2026.92, velocity: 123.82, heading: 295.07, vertical rate: 15.61
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.369, longitude: 2.8027, altitude: 2758.44, velocity: 146.66, heading: 247.3, vertical rate: -10.08
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2944, longitude: 2.0614, altitude: 0, velocity: 4.63, heading: 210, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2934, longitude: 2.1027, altitude: 0, velocity: 4.63, heading: 146, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4807, longitude: 2.2835, altitude: 1927.86, velocity: 122.13, heading: 156.67, vertical rate: -5.2
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2846, longitude: 2.0809, altitude: 99.06, velocity: 77.15, heading: 246, vertical rate: 13.66
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5866, longitude: 1.8654, altitude: 3208.02, velocity: 169.39, heading: 109.7, vertical rate: -7.15
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3186, longitude: 2.1416, altitude: 228.6, velocity: 74.64, heading: 246.44, vertical rate: -3.9
+[notice ] ApiManager::updateAirTraffic << Num Total: 29,  Num Airport: 15, Num North: 2, Num East: 5, Num South: 2, Num West: 5
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2935, longitude: 2.0756, altitude: 0, velocity: 9.26, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3431, longitude: 2.3842, altitude: 1112.52, velocity: 121.85, heading: 325.84, vertical rate: -6.5
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.0094, longitude: 2.0024, altitude: 3307.08, velocity: 179.73, heading: 115.24, vertical rate: 13.33
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2928, longitude: 2.1024, altitude: 0, velocity: 4.12, heading: 109, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2948, longitude: 2.0797, altitude: 0, velocity: 9.26, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0284, longitude: 2.2531, altitude: 4450.08, velocity: 179.24, heading: 83.24, vertical rate: 15.93
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.2008, longitude: 2.0387, altitude: 10370.8, velocity: 231.5, heading: 71.2, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2379, longitude: 2.05, altitude: 853.44, velocity: 90.01, heading: 204.66, vertical rate: 10.08
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 0, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2944, longitude: 2.6205, altitude: 1943.1, velocity: 131.63, heading: 252.49, vertical rate: -3.25
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1519, longitude: 2.4981, altitude: 6248.4, velocity: 196.2, heading: 72.14, vertical rate: 12.03
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.182, longitude: 1.9434, altitude: 2103.12, velocity: 123.74, heading: 305.01, vertical rate: 16.26
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3661, longitude: 2.7938, altitude: 2712.72, velocity: 146.38, heading: 247.04, vertical rate: -8.45
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2941, longitude: 2.0613, altitude: 0, velocity: 4.63, heading: 182, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2934, longitude: 2.1027, altitude: 0, velocity: 4.63, heading: 146, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4761, longitude: 2.2861, altitude: 1912.62, velocity: 122.07, heading: 156.14, vertical rate: -5.2
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.283, longitude: 2.0763, altitude: 175.26, velocity: 76, heading: 246.04, vertical rate: 14.31
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5845, longitude: 1.8732, altitude: 3185.16, velocity: 167.94, heading: 109.88, vertical rate: -6.5
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3172, longitude: 2.1372, altitude: 213.36, velocity: 73.7, heading: 246.12, vertical rate: -3.9
+[notice ] ApiManager::updateAirTraffic << Num Total: 29,  Num Airport: 15, Num North: 2, Num East: 5, Num South: 2, Num West: 5
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2936, longitude: 2.0762, altitude: 0, velocity: 10.29, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3463, longitude: 2.3806, altitude: 1089.66, velocity: 120.77, heading: 315.35, vertical rate: -6.18
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.0016, longitude: 2.0227, altitude: 3406.14, velocity: 180.07, heading: 111.8, vertical rate: 14.31
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2927, longitude: 2.1028, altitude: 0, velocity: 4.89, heading: 109, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.295, longitude: 2.0802, altitude: 0, velocity: 9.26, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0286, longitude: 2.2553, altitude: 4465.32, velocity: 178.73, heading: 83.22, vertical rate: 15.61
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.2045, longitude: 2.0528, altitude: 10370.8, velocity: 231.5, heading: 71.2, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2335, longitude: 2.0472, altitude: 922.02, velocity: 89.96, heading: 206.86, vertical rate: 12.35
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 38.1, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2929, longitude: 2.6146, altitude: 1927.86, velocity: 130, heading: 252.5, vertical rate: -3.25
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1538, longitude: 2.5062, altitude: 6286.5, velocity: 196.36, heading: 71.99, vertical rate: 12.68
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.1857, longitude: 1.9379, altitude: 2186.94, velocity: 123.68, heading: 315.34, vertical rate: 16.91
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3643, longitude: 2.788, altitude: 2682.24, velocity: 146.38, heading: 247.04, vertical rate: -8.13
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2939, longitude: 2.0613, altitude: 0, velocity: 5.14, heading: 182, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2934, longitude: 2.1027, altitude: 0, velocity: 4.63, heading: 146, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.472, longitude: 2.2889, altitude: 1889.76, velocity: 122.17, heading: 153.22, vertical rate: -5.53
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2819, longitude: 2.0732, altitude: 236.22, velocity: 75.24, heading: 244.49, vertical rate: 14.63
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5821, longitude: 1.8822, altitude: 3154.68, velocity: 166.31, heading: 109.89, vertical rate: -7.48
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.316, longitude: 2.1338, altitude: 190.5, velocity: 73.44, heading: 245.59, vertical rate: -3.9
+[notice ] ApiManager::updateAirTraffic << Num Total: 29,  Num Airport: 14, Num North: 3, Num East: 5, Num South: 2, Num West: 5
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2936, longitude: 2.0762, altitude: 0, velocity: 10.29, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3463, longitude: 2.3806, altitude: 1089.66, velocity: 120.77, heading: 315.35, vertical rate: -6.18
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.0016, longitude: 2.0227, altitude: 3406.14, velocity: 180.07, heading: 111.8, vertical rate: 14.31
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2927, longitude: 2.1028, altitude: 0, velocity: 4.89, heading: 109, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.295, longitude: 2.0802, altitude: 0, velocity: 9.26, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0286, longitude: 2.2553, altitude: 4465.32, velocity: 178.73, heading: 83.22, vertical rate: 15.61
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.2045, longitude: 2.0528, altitude: 10370.8, velocity: 231.5, heading: 71.2, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2335, longitude: 2.0472, altitude: 922.02, velocity: 89.96, heading: 206.86, vertical rate: 12.35
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 38.1, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2929, longitude: 2.6146, altitude: 1927.86, velocity: 130, heading: 252.5, vertical rate: -3.25
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1538, longitude: 2.5062, altitude: 6286.5, velocity: 196.36, heading: 71.99, vertical rate: 12.68
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.1857, longitude: 1.9379, altitude: 2186.94, velocity: 123.68, heading: 315.34, vertical rate: 16.91
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3643, longitude: 2.788, altitude: 2682.24, velocity: 146.38, heading: 247.04, vertical rate: -8.13
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2939, longitude: 2.0613, altitude: 0, velocity: 5.14, heading: 182, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2934, longitude: 2.1027, altitude: 0, velocity: 4.63, heading: 146, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.472, longitude: 2.2889, altitude: 1889.76, velocity: 122.17, heading: 153.22, vertical rate: -5.53
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2819, longitude: 2.0732, altitude: 236.22, velocity: 75.24, heading: 244.49, vertical rate: 14.63
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5821, longitude: 1.8822, altitude: 3154.68, velocity: 166.31, heading: 109.89, vertical rate: -7.48
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.316, longitude: 2.1338, altitude: 190.5, velocity: 73.44, heading: 245.59, vertical rate: -3.9
+[notice ] ApiManager::updateAirTraffic << Num Total: 29,  Num Airport: 14, Num North: 3, Num East: 5, Num South: 2, Num West: 5
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2937, longitude: 2.0765, altitude: 0, velocity: 10.29, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3499, longitude: 2.3749, altitude: 1059.18, velocity: 119.35, heading: 307.12, vertical rate: -6.83
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.0016, longitude: 2.0227, altitude: 3497.58, velocity: 180.07, heading: 111.8, vertical rate: 14.31
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2927, longitude: 2.1029, altitude: 0, velocity: 4.89, heading: 112, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2952, longitude: 2.0807, altitude: 0, velocity: 9.26, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0299, longitude: 2.2707, altitude: 4594.86, velocity: 178.73, heading: 83.22, vertical rate: 15.61
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.2081, longitude: 2.0669, altitude: 10370.8, velocity: 231.5, heading: 71.2, vertical rate: -0.33
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2296, longitude: 2.0445, altitude: 975.36, velocity: 90, heading: 208.32, vertical rate: 10.73
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 38.1, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2913, longitude: 2.6078, altitude: 1912.62, velocity: 129.51, heading: 252.43, vertical rate: -3.25
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1566, longitude: 2.5176, altitude: 6355.08, velocity: 196.36, heading: 71.99, vertical rate: 12.68
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 38.1, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.1861, longitude: 1.9376, altitude: 2194.56, velocity: 123.79, heading: 317.36, vertical rate: 16.91
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.362, longitude: 2.7808, altitude: 2644.14, velocity: 145.91, heading: 246.96, vertical rate: -8.45
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2937, longitude: 2.0613, altitude: 0, velocity: 5.4, heading: 180, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2934, longitude: 2.1027, altitude: 0, velocity: 4.63, heading: 146, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4676, longitude: 2.2931, altitude: 1874.52, velocity: 121.56, heading: 141.53, vertical rate: -2.6
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2802, longitude: 2.0695, altitude: 297.18, velocity: 74.65, heading: 237.95, vertical rate: 12.03
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5797, longitude: 1.8909, altitude: 3116.58, velocity: 163.72, heading: 110.03, vertical rate: -7.48
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3148, longitude: 2.1303, altitude: 175.26, velocity: 72.97, heading: 245.42, vertical rate: -3.9
+[notice ] ApiManager::updateAirTraffic << Num Total: 29,  Num Airport: 13, Num North: 2, Num East: 6, Num South: 2, Num West: 6
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.294, longitude: 2.0773, altitude: 0, velocity: 10.8, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.353, longitude: 2.3683, altitude: 1021.08, velocity: 118.76, heading: 300.45, vertical rate: -7.48
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 40.9985, longitude: 2.048, altitude: 3619.5, velocity: 180.07, heading: 111.8, vertical rate: 14.31
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2924, longitude: 2.1032, altitude: 0, velocity: 4.63, heading: 157, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2953, longitude: 2.0812, altitude: 0, velocity: 9.26, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0299, longitude: 2.2707, altitude: 4594.86, velocity: 178.73, heading: 83.22, vertical rate: 15.61
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.212, longitude: 2.082, altitude: 10370.8, velocity: 231.01, heading: 71.16, vertical rate: -0.33
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2278, longitude: 2.0432, altitude: 1005.84, velocity: 90, heading: 208.32, vertical rate: 10.08
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 0, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2893, longitude: 2.5992, altitude: 1897.38, velocity: 128.37, heading: 252.51, vertical rate: -2.93
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1602, longitude: 2.5323, altitude: 6446.52, velocity: 196.2, heading: 72.14, vertical rate: 14.96
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.1933, longitude: 1.9307, altitude: 2324.1, velocity: 124.44, heading: 327.49, vertical rate: 15.93
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3593, longitude: 2.7725, altitude: 2598.42, velocity: 145.71, heading: 247.15, vertical rate: -8.13
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2934, longitude: 2.0613, altitude: 0, velocity: 5.4, heading: 171, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2934, longitude: 2.1027, altitude: 0, velocity: 4.63, heading: 146, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4637, longitude: 2.2984, altitude: 1866.9, velocity: 121.64, heading: 128.13, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2778, longitude: 2.0659, altitude: 358.14, velocity: 75.37, heading: 222.51, vertical rate: 10.73
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5768, longitude: 1.9013, altitude: 3078.48, velocity: 160.47, heading: 110.06, vertical rate: -6.18
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3133, longitude: 2.1259, altitude: 152.4, velocity: 72.76, heading: 245.79, vertical rate: -4.23
+[notice ] ApiManager::updateAirTraffic << Num Total: 29,  Num Airport: 15, Num North: 2, Num East: 6, Num South: 2, Num West: 4
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.294, longitude: 2.0773, altitude: 0, velocity: 10.8, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.353, longitude: 2.3683, altitude: 1021.08, velocity: 118.76, heading: 300.45, vertical rate: -7.48
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 40.9985, longitude: 2.048, altitude: 3619.5, velocity: 180.07, heading: 111.8, vertical rate: 14.31
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2924, longitude: 2.1032, altitude: 0, velocity: 4.63, heading: 157, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2953, longitude: 2.0812, altitude: 0, velocity: 9.26, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0299, longitude: 2.2707, altitude: 4594.86, velocity: 178.73, heading: 83.22, vertical rate: 15.61
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.212, longitude: 2.082, altitude: 10370.8, velocity: 231.01, heading: 71.16, vertical rate: -0.33
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2278, longitude: 2.0432, altitude: 1005.84, velocity: 90, heading: 208.32, vertical rate: 10.08
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 0, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2893, longitude: 2.5992, altitude: 1897.38, velocity: 128.37, heading: 252.51, vertical rate: -2.93
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1602, longitude: 2.5323, altitude: 6446.52, velocity: 196.2, heading: 72.14, vertical rate: 14.96
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.1933, longitude: 1.9307, altitude: 2324.1, velocity: 124.44, heading: 327.49, vertical rate: 15.93
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3593, longitude: 2.7725, altitude: 2598.42, velocity: 145.71, heading: 247.15, vertical rate: -8.13
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2934, longitude: 2.0613, altitude: 0, velocity: 5.4, heading: 171, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2934, longitude: 2.1027, altitude: 0, velocity: 4.63, heading: 146, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4637, longitude: 2.2984, altitude: 1866.9, velocity: 121.64, heading: 128.13, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2778, longitude: 2.0659, altitude: 358.14, velocity: 75.37, heading: 222.51, vertical rate: 10.73
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5768, longitude: 1.9013, altitude: 3078.48, velocity: 160.47, heading: 110.06, vertical rate: -6.18
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3133, longitude: 2.1259, altitude: 152.4, velocity: 72.76, heading: 245.79, vertical rate: -4.23
+[notice ] ApiManager::updateAirTraffic << Num Total: 29,  Num Airport: 15, Num North: 2, Num East: 6, Num South: 2, Num West: 4
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2943, longitude: 2.0781, altitude: 0, velocity: 11.83, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3562, longitude: 2.36, altitude: 967.74, velocity: 118.02, heading: 296.68, vertical rate: -8.45
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 40.9997, longitude: 2.0607, altitude: 3718.56, velocity: 179.64, heading: 81.1, vertical rate: 17.23
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2923, longitude: 2.1032, altitude: 0, velocity: 4.63, heading: 174, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2954, longitude: 2.0819, altitude: 0, velocity: 7.72, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0324, longitude: 2.2982, altitude: 4693.92, velocity: 180.72, heading: 83.46, vertical rate: 8.45
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.2152, longitude: 2.0945, altitude: 10370.8, velocity: 231.01, heading: 71.16, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2225, longitude: 2.0393, altitude: 1097.28, velocity: 90.94, heading: 208.74, vertical rate: 16.26
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 38.1, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2872, longitude: 2.5905, altitude: 1874.52, velocity: 127.88, heading: 252.44, vertical rate: -2.93
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1631, longitude: 2.5441, altitude: 6530.34, velocity: 195.56, heading: 72.23, vertical rate: 14.31
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.2008, longitude: 1.9247, altitude: 2446.02, velocity: 124.67, heading: 328.67, vertical rate: 15.93
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3566, longitude: 2.7638, altitude: 2560.32, velocity: 145.23, heading: 247.07, vertical rate: -6.5
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2931, longitude: 2.0614, altitude: 0, velocity: 5.4, heading: 157, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2932, longitude: 2.1028, altitude: 0, velocity: 0.06, heading: 154, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4598, longitude: 2.3069, altitude: 1866.9, velocity: 122.89, heading: 117.96, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2744, longitude: 2.0631, altitude: 419.1, velocity: 75.5, heading: 208.49, vertical rate: 11.05
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG3249 , latitude: 40.7782, longitude: 1.3602, altitude: 5234.94, velocity: 182.3, heading: 75.45, vertical rate: -6.5
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5741, longitude: 1.9111, altitude: 3055.62, velocity: 157.22, heading: 110.1, vertical rate: -4.88
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3116, longitude: 2.121, altitude: 129.54, velocity: 72.55, heading: 246.16, vertical rate: -3.25
+[notice ] ApiManager::updateAirTraffic << Num Total: 30,  Num Airport: 14, Num North: 2, Num East: 7, Num South: 2, Num West: 5
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2943, longitude: 2.0781, altitude: 0, velocity: 11.83, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3562, longitude: 2.36, altitude: 967.74, velocity: 118.02, heading: 296.68, vertical rate: -8.45
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 40.9997, longitude: 2.0607, altitude: 3718.56, velocity: 179.64, heading: 81.1, vertical rate: 17.23
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2923, longitude: 2.1032, altitude: 0, velocity: 4.63, heading: 174, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3063, longitude: 2.0854, altitude: 0, velocity: 0, heading: 81, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2954, longitude: 2.0819, altitude: 0, velocity: 7.72, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0324, longitude: 2.2982, altitude: 4693.92, velocity: 180.72, heading: 83.46, vertical rate: 8.45
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.2152, longitude: 2.0945, altitude: 10370.8, velocity: 231.01, heading: 71.16, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2225, longitude: 2.0393, altitude: 1097.28, velocity: 90.94, heading: 208.74, vertical rate: 16.26
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 38.1, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2872, longitude: 2.5905, altitude: 1874.52, velocity: 127.88, heading: 252.44, vertical rate: -2.93
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1631, longitude: 2.5441, altitude: 6530.34, velocity: 195.56, heading: 72.23, vertical rate: 14.31
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.2008, longitude: 1.9247, altitude: 2446.02, velocity: 124.67, heading: 328.67, vertical rate: 15.93
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3566, longitude: 2.7638, altitude: 2560.32, velocity: 145.23, heading: 247.07, vertical rate: -6.5
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2931, longitude: 2.0614, altitude: 0, velocity: 5.4, heading: 157, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2932, longitude: 2.1028, altitude: 0, velocity: 0.06, heading: 154, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4598, longitude: 2.3069, altitude: 1866.9, velocity: 122.89, heading: 117.96, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2744, longitude: 2.0631, altitude: 419.1, velocity: 75.5, heading: 208.49, vertical rate: 11.05
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG3249 , latitude: 40.7782, longitude: 1.3602, altitude: 5234.94, velocity: 182.3, heading: 75.45, vertical rate: -6.5
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5741, longitude: 1.9111, altitude: 3055.62, velocity: 157.22, heading: 110.1, vertical rate: -4.88
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3116, longitude: 2.121, altitude: 129.54, velocity: 72.55, heading: 246.16, vertical rate: -3.25
+[notice ] ApiManager::updateAirTraffic << Num Total: 30,  Num Airport: 14, Num North: 2, Num East: 7, Num South: 2, Num West: 5
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2945, longitude: 2.0788, altitude: 0, velocity: 12.35, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3584, longitude: 2.3539, altitude: 922.02, velocity: 118.04, heading: 295.56, vertical rate: -8.78
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.0015, longitude: 2.071, altitude: 3779.52, velocity: 179.51, heading: 73.17, vertical rate: 14.63
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2923, longitude: 2.1032, altitude: 0, velocity: 4.63, heading: 174, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.3033, longitude: 2.0838, altitude: 0, velocity: 0, heading: 222, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: MAC377  , latitude: 41.3007, longitude: 2.0751, altitude: 38.1, velocity: 0, heading: 334, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2957, longitude: 2.0823, altitude: 0, velocity: 7.72, heading: 73, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.033, longitude: 2.3073, altitude: 4732.02, velocity: 181.83, heading: 84.81, vertical rate: 8.78
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.219, longitude: 2.109, altitude: 10370.8, velocity: 230.53, heading: 71.12, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2187, longitude: 2.0366, altitude: 1203.96, velocity: 87.7, heading: 208.37, vertical rate: 21.13
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3064, longitude: 2.0859, altitude: 0, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2857, longitude: 2.5842, altitude: 1859.28, velocity: 127.39, heading: 252.37, vertical rate: -2.93
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1653, longitude: 2.5532, altitude: 6583.68, velocity: 195.22, heading: 72.04, vertical rate: 13
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.2054, longitude: 1.921, altitude: 2514.6, velocity: 125.04, heading: 327.94, vertical rate: 15.61
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.3536, longitude: 2.7544, altitude: 2514.6, velocity: 144.76, heading: 246.99, vertical rate: -7.48
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2929, longitude: 2.0615, altitude: 0, velocity: 5.4, heading: 154, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2932, longitude: 2.1028, altitude: 0, velocity: 0.06, heading: 154, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4579, longitude: 2.3136, altitude: 1866.9, velocity: 124.3, heading: 107.84, vertical rate: -0.33
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2718, longitude: 2.0613, altitude: 472.44, velocity: 75.93, heading: 207.43, vertical rate: 11.38
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG3249 , latitude: 40.7794, longitude: 1.3665, altitude: 5204.46, velocity: 182.3, heading: 75.45, vertical rate: -6.5
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5718, longitude: 1.9196, altitude: 3032.76, velocity: 153.48, heading: 110.2, vertical rate: -3.58
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3105, longitude: 2.1175, altitude: 114.3, velocity: 71.83, heading: 245.45, vertical rate: -3.9
+[notice ] ApiManager::updateAirTraffic << Num Total: 30,  Num Airport: 15, Num North: 2, Num East: 7, Num South: 2, Num West: 4
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2947, longitude: 2.0794, altitude: 0, velocity: 12.35, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3605, longitude: 2.3481, altitude: 883.92, velocity: 118.53, heading: 294.9, vertical rate: -8.13
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.0048, longitude: 2.0807, altitude: 3863.34, velocity: 179.08, heading: 65.2, vertical rate: 14.96
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2923, longitude: 2.1032, altitude: 0, velocity: 4.63, heading: 174, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.303, longitude: 2.0836, altitude: 0, velocity: 0, heading: 222, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2957, longitude: 2.0827, altitude: 0, velocity: 7.72, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0335, longitude: 2.319, altitude: 4777.74, velocity: 182.86, heading: 87.1, vertical rate: 9.43
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.2222, longitude: 2.1214, altitude: 10370.8, velocity: 230.53, heading: 71.12, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2155, longitude: 2.0344, altitude: 1287.78, velocity: 86.55, heading: 208.39, vertical rate: 16.91
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 38.1, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2839, longitude: 2.5767, altitude: 1851.66, velocity: 126.9, heading: 252.3, vertical rate: -2.93
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1681, longitude: 2.5645, altitude: 6637.02, velocity: 196.05, heading: 72.28, vertical rate: 10.08
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.2063, longitude: 1.9202, altitude: 2560.32, velocity: 125.04, heading: 327.94, vertical rate: 15.93
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.351, longitude: 2.7463, altitude: 2476.5, velocity: 144.96, heading: 246.8, vertical rate: -8.13
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2927, longitude: 2.0616, altitude: 0, velocity: 2.31, heading: 154, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2932, longitude: 2.1028, altitude: 38.1, velocity: 0.06, heading: 154, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4571, longitude: 2.3202, altitude: 1859.28, velocity: 125.62, heading: 95.64, vertical rate: -0.33
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2681, longitude: 2.0588, altitude: 533.4, velocity: 78, heading: 207.07, vertical rate: 9.43
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG3249 , latitude: 40.7818, longitude: 1.3786, altitude: 5173.98, velocity: 182.3, heading: 75.45, vertical rate: -6.18
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5692, longitude: 1.9293, altitude: 3009.9, velocity: 149.57, heading: 110.12, vertical rate: -3.9
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3091, longitude: 2.1136, altitude: 99.06, velocity: 71.61, heading: 245.83, vertical rate: -3.58
+[notice ] ApiManager::updateAirTraffic << Num Total: 29,  Num Airport: 13, Num North: 1, Num East: 7, Num South: 3, Num West: 5
+[notice ] ApiManager::urlResponse -> sky, 200
+[notice ] ApiManager::parseSky << Flight: VLG14BA , latitude: 41.2947, longitude: 2.0794, altitude: 0, velocity: 12.35, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: WZZ4ZV  , latitude: 41.3605, longitude: 2.3481, altitude: 883.92, velocity: 118.53, heading: 294.9, vertical rate: -8.13
+[notice ] ApiManager::parseSky << Flight: ROT422L , latitude: 41.0048, longitude: 2.0807, altitude: 3863.34, velocity: 179.08, heading: 65.2, vertical rate: 14.96
+[notice ] ApiManager::parseSky << Flight: TAP1039 , latitude: 41.2923, longitude: 2.1032, altitude: 0, velocity: 4.63, heading: 174, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F17     , latitude: 41.303, longitude: 2.0836, altitude: 0, velocity: 0, heading: 222, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F18     , latitude: 41.2923, longitude: 2.078, altitude: 0, velocity: 0, heading: 98, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F12     , latitude: 41.3021, longitude: 2.0799, altitude: 0, velocity: 0, heading: 354, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: F15     , latitude: 41.2924, longitude: 2.0753, altitude: 0, velocity: 0, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: BAW475  , latitude: 41.2957, longitude: 2.0827, altitude: 0, velocity: 7.72, heading: 87, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG81UL , latitude: 41.0335, longitude: 2.319, altitude: 4777.74, velocity: 182.86, heading: 87.1, vertical rate: 9.43
+[notice ] ApiManager::parseSky << Flight: AFL2503 , latitude: 41.2222, longitude: 2.1214, altitude: 10370.8, velocity: 230.53, heading: 71.12, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR972C , latitude: 41.2155, longitude: 2.0344, altitude: 1287.78, velocity: 86.55, heading: 208.39, vertical rate: 16.91
+[notice ] ApiManager::parseSky << Flight: ROJ07   , latitude: 41.3063, longitude: 2.0859, altitude: 38.1, velocity: 0, heading: 247, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG8539 , latitude: 41.293, longitude: 2.0807, altitude: 0, velocity: 4.37, heading: 163, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR36MR , latitude: 41.2839, longitude: 2.5767, altitude: 1851.66, velocity: 126.9, heading: 252.3, vertical rate: -2.93
+[notice ] ApiManager::parseSky << Flight: EWG9BL  , latitude: 41.1681, longitude: 2.5645, altitude: 6637.02, velocity: 196.05, heading: 72.28, vertical rate: 10.08
+[notice ] ApiManager::parseSky << Flight: XPDRTEST, latitude: 41.3099, longitude: 2.0915, altitude: 0, velocity: 0, heading: 64, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: RYR78Z  , latitude: 41.2063, longitude: 1.9202, altitude: 2560.32, velocity: 125.04, heading: 327.94, vertical rate: 15.93
+[notice ] ApiManager::parseSky << Flight: IBK5603 , latitude: 41.351, longitude: 2.7463, altitude: 2476.5, velocity: 144.96, heading: 246.8, vertical rate: -8.13
+[notice ] ApiManager::parseSky << Flight: EW7521  , latitude: 41.2927, longitude: 2.0616, altitude: 0, velocity: 2.31, heading: 154, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG6514 , latitude: 41.2932, longitude: 2.1028, altitude: 38.1, velocity: 0.06, heading: 154, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG149B , latitude: 41.4571, longitude: 2.3202, altitude: 1859.28, velocity: 125.62, heading: 95.64, vertical rate: -0.33
+[notice ] ApiManager::parseSky << Flight: DLH03U  , latitude: 41.2681, longitude: 2.0588, altitude: 533.4, velocity: 78, heading: 207.07, vertical rate: 9.43
+[notice ] ApiManager::parseSky << Flight: OEGNP   , latitude: 41.3088, longitude: 2.0906, altitude: 0, velocity: 0, heading: 239, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: CV04    , latitude: 41.2896, longitude: 2.0692, altitude: 0, velocity: 11.83, heading: 67, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: VLG3249 , latitude: 40.7818, longitude: 1.3786, altitude: 5173.98, velocity: 182.3, heading: 75.45, vertical rate: -6.18
+[notice ] ApiManager::parseSky << Flight: VLG2021 , latitude: 41.2969, longitude: 2.082, altitude: 0, velocity: 5.14, heading: 191, vertical rate: 0
+[notice ] ApiManager::parseSky << Flight: NAX7050 , latitude: 41.5692, longitude: 1.9293, altitude: 3009.9, velocity: 149.57, heading: 110.12, vertical rate: -3.9
+[notice ] ApiManager::parseSky << Flight: DLH04C  , latitude: 41.3091, longitude: 2.1136, altitude: 99.06, velocity: 71.61, heading: 245.83, vertical rate: -3.58
+[notice ] ApiManager::updateAirTraffic << Num Total: 29,  Num Airport: 13, Num North: 1, Num East: 7, Num South: 3, Num West: 5
+[notice ] AmazonOfficeApp::exit
+[verbose] ofShader: unload(): detaching and deleting GL_VERTEX_SHADER shader from program 25
+[verbose] ofShader: unload(): detaching and deleting GL_FRAGMENT_SHADER shader from program 25
+[verbose] ofShader: unload(): detaching and deleting GL_VERTEX_SHADER shader from program 15
+[verbose] ofShader: unload(): detaching and deleting GL_FRAGMENT_SHADER shader from program 15
+[verbose] ofShader: unload(): detaching and deleting GL_VERTEX_SHADER shader from program 5
+[verbose] ofShader: unload(): detaching and deleting GL_FRAGMENT_SHADER shader from program 5
+[verbose] ofShader: unload(): detaching and deleting GL_VERTEX_SHADER shader from program 13
+[verbose] ofShader: unload(): detaching and deleting GL_FRAGMENT_SHADER shader from program 13
+[verbose] ofShader: unload(): detaching and deleting GL_VERTEX_SHADER shader from program 9
+[verbose] ofShader: unload(): detaching and deleting GL_FRAGMENT_SHADER shader from program 9
+[verbose] ofShader: unload(): detaching and deleting GL_VERTEX_SHADER shader from program 11
+[verbose] ofShader: unload(): detaching and deleting GL_FRAGMENT_SHADER shader from program 11
+[verbose] ofShader: unload(): detaching and deleting GL_VERTEX_SHADER shader from program 7
+[verbose] ofShader: unload(): detaching and deleting GL_FRAGMENT_SHADER shader from program 7
+[verbose] ofShader: unload(): detaching and deleting GL_VERTEX_SHADER shader from program 3
+[verbose] ofShader: unload(): detaching and deleting GL_FRAGMENT_SHADER shader from program 3
+[verbose] ofShader: unload(): detaching and deleting GL_VERTEX_SHADER shader from program 1
+[verbose] ofShader: unload(): detaching and deleting GL_FRAGMENT_SHADER shader from program 1

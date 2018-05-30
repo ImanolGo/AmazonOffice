@@ -188,7 +188,7 @@ void OscManager::update()
         }
         
         
-       // ofLogNotice() <<"OscManager::received -> " << this->getMessageAsString(m);
+        ofLogNotice() <<"OscManager::received -> " << this->getMessageAsString(m);
     }
 
 	this->sendOscAll();
