@@ -115,6 +115,10 @@ public:
     
     void onNumWestChange(int& value){m_currentAirTraffic.numWest= value;}
     
+    void onEnableApis(bool value);
+    
+    bool areApisEnabled() const {return m_areApisEnabled;}
+    
     bool isDayTime() {return m_weatherConditions.isDayTime();}
     
     void loadTrafficData();
@@ -160,6 +164,10 @@ private:
     void parseTraffic(string name, string response);
     
     void loadTrafficUrl();
+    
+    void startApis();
+    
+    void stopApis();
 
 private:
     
@@ -172,6 +180,7 @@ private:
     string                  m_skyUrl;
     WeatherConditions       m_weatherConditions;
     air_traffic_status      m_currentAirTraffic;
+    bool                    m_areApisEnabled;
     
     vector<ofPtr<AirplaneStatus>> m_flights;
     vector<ofPtr<TrafficStatus>>  m_streets;

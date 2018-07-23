@@ -86,6 +86,8 @@ void GuiManager::setupGeneralGui()
     
     ofxDatGuiFolder* folder = m_gui.addFolder("GENERAL", ofColor::white);
     folder->addSlider(m_sceneDuration);
+    auto* toggle = folder->addToggle("* APIs");
+    toggle->setChecked(true);
     folder->expand();
     m_gui.addBreak();
 }
@@ -363,6 +365,12 @@ void GuiManager::onButtonEvent(ofxDatGuiButtonEvent e)
 void GuiManager::onToggleEvent(ofxDatGuiToggleEvent e)
 {
     cout << "onToggleEvent: " << e.target->getName() << " Selected" << endl;
+    
+    if(e.target->getName() == "* APIs")
+    {
+        AppManager::getInstance().getApiManager().onEnableApis(e.target->getChecked());
+    }
+    
 }
 
 void GuiManager::onMatrixEvent(ofxDatGuiMatrixEvent e)

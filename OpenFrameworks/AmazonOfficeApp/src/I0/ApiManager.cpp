@@ -12,7 +12,7 @@
 #include "ofxJSON.h"
 
 
-ApiManager::ApiManager(): Manager()
+ApiManager::ApiManager(): Manager(), m_areApisEnabled(true)
 {
     //Intentionally left empty
 }
@@ -493,6 +493,11 @@ void ApiManager::trafficTimerCompleteHandler( int &args )
 
 void ApiManager::loadTrafficData()
 {
+    
+    if(!m_areApisEnabled){
+        return;
+    }
+    
     for(auto street: m_streets){
         ofLoadURLAsync(street->m_url, street->m_name);
     }
@@ -500,18 +505,58 @@ void ApiManager::loadTrafficData()
 
 void ApiManager::loadTidesData()
 {
+    if(!m_areApisEnabled){
+        return;
+    }
     ofLoadURLAsync(m_surfUrl, "surf");
 }
 
 void ApiManager::loadWeatherData()
 {
+    if(!m_areApisEnabled){
+        return;
+    }
     ofLoadURLAsync(m_weatherUrl, "weather");
 }
 
 void ApiManager::loadSkyData()
 {
+    
+    if(!m_areApisEnabled){
+        return;
+    }
+    
     ofLoadURLAsync(m_skyUrl, "sky");
 }
+
+
+void ApiManager::onEnableApis(bool value)
+{
+    m_areApisEnabled = value;
+    if(m_areApisEnabled){
+        this->startApis();
+    }
+    else{
+        this->stopApis();
+    }
+}
+
+void ApiManager::startApis()
+{
+    m_skyTimer.start( false ) ;
+    m_weatherTimer.start( false ) ;
+    m_surfTimer.start( false ) ;
+    m_trafficTimer.start( false ) ;
+}
+
+void ApiManager::stopApis()
+{
+    m_skyTimer.stop() ;
+    m_weatherTimer.stop() ;
+    m_surfTimer.stop() ;
+    m_trafficTimer.stop() ;
+}
+
 
 
 
